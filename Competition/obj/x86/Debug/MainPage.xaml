@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="Competition.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Competition"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <RelativePanel Grid.Row="0">
+                <ListBoxItem x:ConnectionId='3'                             RelativePanel.AlignLeftWithPanel="true">
+                    <!-- 汉堡按钮 -->
+                    <TextBlock Text="&#xE700;" 
+                                FontSize="20" 
+                                FontFamily="Segoe MDL2 Assets"/>
+                </ListBoxItem>
+                <TextBlock Text="Competition" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+            <SplitView x:ConnectionId='1' Grid.Row="1" Name="menuView" DisplayMode="CompactInline" CompactPaneLength="48" OpenPaneLength="150">
+                <SplitView.Pane>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ListView x:ConnectionId='2' Grid.Row="0" IsItemClickEnabled="True"                               >
+
+                            <ListViewItem>
+                                <!--首页-->
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Home" />
+                                    <TextBlock Text="Home" 
+                                               Margin="24,0,0,0"  
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal" >
+                                    <SymbolIcon Symbol="People" />
+                                    <TextBlock Text="People"  
+                                               Margin="24,0,0,0"  
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal" >
+                                    <SymbolIcon Symbol="Globe" />
+                                    <TextBlock Text="Globe"  
+                                               Margin="24,0,0,0"  
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal" >
+                                    <SymbolIcon Symbol="Message" />
+                                    <TextBlock Text="Message"  
+                                               Margin="24,0,0,0"  
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal" >
+                                    <SymbolIcon Symbol="Video" />
+                                    <TextBlock Text="Video"  
+                                               Margin="24,0,0,0"  
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView>
+                        <ListViewItem Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Import" />
+                                <TextBlock Text="Out"  
+                                               Margin="24,0,0,0"  
+                                               VerticalAlignment="Center" />
+                            </StackPanel>
+                        </ListViewItem>
+                    </Grid>
+                </SplitView.Pane>
+                <Border Background="LightGray">
+                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </SplitView>
+        </Grid>
+    </Grid>
+</Page>
+

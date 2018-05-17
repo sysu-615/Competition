@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,22 @@ namespace Competition
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Debug.WriteLine(e.ClickedItem);
+            StackPanel click_item = e.ClickedItem as StackPanel;
+            switch((click_item.Children[0] as SymbolIcon).Symbol.ToString())
+            {
+                default:
+                    break;
+            }
+        }
+
+        private void ListBox_ItemTapped(object sender, TappedRoutedEventArgs e)
+        {
+            menuView.IsPaneOpen = !menuView.IsPaneOpen;
         }
     }
 }
