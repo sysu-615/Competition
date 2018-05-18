@@ -13,18 +13,28 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <RelativePanel Grid.Row="0">
-                <ListBoxItem x:ConnectionId='3'                             RelativePanel.AlignLeftWithPanel="true">
-                    <!-- 汉堡按钮 -->
-                    <TextBlock Text="&#xE700;" 
-                                FontSize="20" 
-                                FontFamily="Segoe MDL2 Assets"/>
-                </ListBoxItem>
-                <TextBlock Text="Competition" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <RelativePanel Grid.Row="0" Style="{StaticResource TopBar}">
+                <!-- Menu -->
+                <AppBarButton x:ConnectionId='3' Icon="GlobalNavigationButton"
+                                           
+                        RelativePanel.AlignLeftWithPanel="true"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Background="Transparent"
+                        Margin="-10 0 0 -5">
+                </AppBarButton>
+                <TextBlock Text="Competition" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <AppBarButton x:ConnectionId='4' x:Name="VolumnButton" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0 0 0 -5">
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:ConnectionId='5' Text="SignIn"                               />
+                            <MenuFlyoutItem x:ConnectionId='6' Text="LogOut"                               />
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
             </RelativePanel>
-            <SplitView x:ConnectionId='1' Grid.Row="1" Name="menuView" DisplayMode="CompactInline" CompactPaneLength="48" OpenPaneLength="150">
+            <SplitView x:ConnectionId='1' Grid.Row="1" Name="menuView" DisplayMode="CompactOverlay" CompactPaneLength="48" OpenPaneLength="150">
                 <SplitView.Pane>
-                    <Grid>
+                    <Grid Style="{StaticResource LeftBar}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
@@ -32,7 +42,7 @@
                         <ListView x:ConnectionId='2' Grid.Row="0" IsItemClickEnabled="True"                               >
 
                             <ListViewItem>
-                                <!--首页-->
+                                <!-- Home -->
                                 <StackPanel Orientation="Horizontal">
                                     <SymbolIcon Symbol="Home" />
                                     <TextBlock Text="Home" 
@@ -44,23 +54,23 @@
                             <ListViewItem>
                                 <StackPanel Orientation="Horizontal" >
                                     <SymbolIcon Symbol="People" />
-                                    <TextBlock Text="People"  
+                                    <TextBlock Text="Athletes"  
                                                Margin="24,0,0,0"  
                                                VerticalAlignment="Center" />
                                 </StackPanel>
                             </ListViewItem>
                             <ListViewItem>
                                 <StackPanel Orientation="Horizontal" >
-                                    <SymbolIcon Symbol="Globe" />
-                                    <TextBlock Text="Globe"  
+                                    <SymbolIcon Symbol="List" />
+                                    <TextBlock Text="Battle"  
                                                Margin="24,0,0,0"  
                                                VerticalAlignment="Center" />
                                 </StackPanel>
                             </ListViewItem>
                             <ListViewItem>
                                 <StackPanel Orientation="Horizontal" >
-                                    <SymbolIcon Symbol="Message" />
-                                    <TextBlock Text="Message"  
+                                    <SymbolIcon Symbol="Calendar" />
+                                    <TextBlock Text="Result"  
                                                Margin="24,0,0,0"  
                                                VerticalAlignment="Center" />
                                 </StackPanel>

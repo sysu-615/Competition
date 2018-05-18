@@ -39,9 +39,19 @@ namespace Competition
             }
         }
 
-        private void ListBox_ItemTapped(object sender, TappedRoutedEventArgs e)
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
             menuView.IsPaneOpen = !menuView.IsPaneOpen;
+        }
+
+        private async void MenuFlyoutSignUp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void MenuFlyoutSignIn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

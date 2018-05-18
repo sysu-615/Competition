@@ -4,6 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Competition"
     RequestedTheme="Light">
+    <Application.Resources>
+        <Style x:Key="Header" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
 
+        <Style x:Key="TopBar" TargetType="RelativePanel">
+            <Setter Property="Background" Value="#409eff" />
+        </Style>
+
+        <Style x:Key="LeftBar" TargetType="Grid">
+            <Setter Property="Background" Value="#409eff" />
+        </Style>
+
+    </Application.Resources>
 </Application>
 
