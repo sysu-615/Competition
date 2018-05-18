@@ -15,88 +15,90 @@
             </Grid.RowDefinitions>
             <RelativePanel Grid.Row="0" Style="{StaticResource TopBar}">
                 <!-- Menu -->
-                <AppBarButton x:ConnectionId='3' Icon="GlobalNavigationButton"
+                <AppBarButton x:ConnectionId='9' Icon="GlobalNavigationButton"
                                            
                         RelativePanel.AlignLeftWithPanel="true"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Background="Transparent"
+                        Foreground="White"
                         Margin="-10 0 0 -5">
                 </AppBarButton>
                 <TextBlock Text="Competition" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                <AppBarButton x:ConnectionId='4' x:Name="VolumnButton" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0 0 0 -5">
+                <AppBarButton x:ConnectionId='10' x:Name="VolumnButton" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0 0 0 -5" Foreground="White">
                     <AppBarButton.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem x:ConnectionId='5' Text="SignIn"                               />
-                            <MenuFlyoutItem x:ConnectionId='6' Text="LogOut"                               />
+                            <MenuFlyoutItem x:ConnectionId='11' Text="SignIn"                               />
+                            <MenuFlyoutItem x:ConnectionId='12' Text="LogOut"                               />
                         </MenuFlyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
             </RelativePanel>
-            <SplitView x:ConnectionId='1' Grid.Row="1" Name="menuView" DisplayMode="CompactOverlay" CompactPaneLength="48" OpenPaneLength="150">
+            <SplitView x:ConnectionId='1' Grid.Row="1" Name="menuView" DisplayMode="CompactInline"  CompactPaneLength="48" OpenPaneLength="150">
                 <SplitView.Pane>
                     <Grid Style="{StaticResource LeftBar}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <ListView x:ConnectionId='2' Grid.Row="0" IsItemClickEnabled="True"                               >
+                        <StackPanel Grid.Row="0">
+                        <!-- 一级菜单 -->
+                        <ListView x:ConnectionId='3' Name="NavMenuPrimaryListView" 
+                              SelectionMode="None" IsItemClickEnabled="True" 
+                              ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                              ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                                                   />
+                        <!-- Football二级菜单-->
+                        <ListView x:ConnectionId='4' Name="NavMenuSecondaryFootballListView" 
+                              Margin="10 0 0 0"
+                              Visibility="Collapsed"
+                              SelectionMode="None" IsItemClickEnabled="True" 
+                              ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                              ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                              BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                                                      />
 
-                            <ListViewItem>
-                                <!-- Home -->
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Home" />
-                                    <TextBlock Text="Home" 
-                                               Margin="24,0,0,0"  
-                                               VerticalAlignment="Center" />
-                                </StackPanel>
-                            </ListViewItem>
+                        <!-- Football三级菜单 -->
+                        <ListView x:ConnectionId='5' Name="FootballInfoListView" 
+                                 Margin="20 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                                                       />
 
-                            <ListViewItem>
-                                <StackPanel Orientation="Horizontal" >
-                                    <SymbolIcon Symbol="People" />
-                                    <TextBlock Text="Athletes"  
-                                               Margin="24,0,0,0"  
-                                               VerticalAlignment="Center" />
-                                </StackPanel>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <StackPanel Orientation="Horizontal" >
-                                    <SymbolIcon Symbol="List" />
-                                    <TextBlock Text="Battle"  
-                                               Margin="24,0,0,0"  
-                                               VerticalAlignment="Center" />
-                                </StackPanel>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <StackPanel Orientation="Horizontal" >
-                                    <SymbolIcon Symbol="Calendar" />
-                                    <TextBlock Text="Result"  
-                                               Margin="24,0,0,0"  
-                                               VerticalAlignment="Center" />
-                                </StackPanel>
-                            </ListViewItem>
-
-                            <ListViewItem>
-                                <StackPanel Orientation="Horizontal" >
-                                    <SymbolIcon Symbol="Video" />
-                                    <TextBlock Text="Video"  
-                                               Margin="24,0,0,0"  
-                                               VerticalAlignment="Center" />
-                                </StackPanel>
-                            </ListViewItem>
-                        </ListView>
-                        <ListViewItem Grid.Row="1">
-                            <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="Import" />
-                                <TextBlock Text="Out"  
-                                               Margin="24,0,0,0"  
-                                               VerticalAlignment="Center" />
-                            </StackPanel>
-                        </ListViewItem>
+                        <!-- Tennis二级菜单 -->
+                        <ListView x:ConnectionId='6' Name="NavMenuSecondaryTennisListView"
+                              Margin="10 0 0 0"
+                              Visibility="Collapsed"
+                              SelectionMode="None" IsItemClickEnabled="True" 
+                              ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                              ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                              BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                                                      />
+                        
+                        <!-- Tennis三级菜单 -->
+                        <ListView x:ConnectionId='7' Name="TennisInfoListView" 
+                                 Margin="20 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                                                     />
+                        </StackPanel>
+                        <!--底部菜单-->
+                        <ListView x:ConnectionId='2' Name="NavMenuLogOutListView" 
+                              Grid.Row="1"
+                              SelectionMode="None" IsItemClickEnabled="True" 
+                              ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                              ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}" 
+                              BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                                                   />
                     </Grid>
                 </SplitView.Pane>
                 <Border Background="LightGray">
-                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Frame x:ConnectionId='8' Name="ContentFrame" />
                 </Border>
             </SplitView>
         </Grid>

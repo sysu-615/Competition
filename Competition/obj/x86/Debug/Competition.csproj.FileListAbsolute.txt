@@ -214,3 +214,13 @@ D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debu
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\resources.en-us.resfiles
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\resources.en-us.resfiles.intermediate
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\ProjectArchitectures.txt
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Views\Home.xbf
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Home.g.i.cs
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Home.g.cs
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Home.xaml
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Home.xbf
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Views\Match.xbf
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Match.g.i.cs
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Match.g.cs
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Match.xaml
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\Match.xbf

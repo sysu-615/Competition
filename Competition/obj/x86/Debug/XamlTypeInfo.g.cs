@@ -132,15 +132,19 @@ namespace Competition.Competition_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
+            _typeNameTable = new string[5];
             _typeNameTable[0] = "Competition.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "Competition.Views.Home";
+            _typeNameTable[4] = "Competition.Views.Match";
 
-            _typeTable = new global::System.Type[3];
+            _typeTable = new global::System.Type[5];
             _typeTable[0] = typeof(global::Competition.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::Competition.Views.Home);
+            _typeTable[4] = typeof(global::Competition.Views.Match);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -176,6 +180,8 @@ namespace Competition.Competition_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::Competition.MainPage(); }
+        private object Activate_3_Home() { return new global::Competition.Views.Home(); }
+        private object Activate_4_Match() { return new global::Competition.Views.Match(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -200,6 +206,20 @@ namespace Competition.Competition_XamlTypeInfo
 
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::Competition.Competition_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Competition.Views.Home
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_Home;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Competition.Views.Match
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_Match;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
