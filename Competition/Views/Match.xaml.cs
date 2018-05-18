@@ -26,5 +26,30 @@ namespace Competition.Views
         {
             this.InitializeComponent();
         }
+
+        private void UploadButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Border_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Border_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void CreateBattles_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportExcel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -2,3 +2,7 @@ App.xbf
 MainPage.xbf
 Views\Home.xbf
 Views\Match.xbf
+Views\MatchInfo\Athletes.xbf
+Views\MatchInfo\Battles.xbf
+Views\MatchInfo\Result.xbf
+Views\Video.xbf

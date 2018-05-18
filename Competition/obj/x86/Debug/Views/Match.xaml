@@ -8,7 +8,105 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Match"/>
+        <StackPanel>
+            <TextBlock Text="比赛" Style="{StaticResource Header}" Margin="0 20 0 0" HorizontalAlignment="Center"></TextBlock>
+            <RelativePanel Margin="0 20 0 0">
+                <ComboBox x:ConnectionId='11' x:Name="MatchBox" Width="200" Margin="50 0 0 0" RelativePanel.AlignLeftWithPanel="True">
+                    <ComboBoxItem IsSelected="True">网球</ComboBoxItem>
+                    <ComboBoxItem>乒乓球</ComboBoxItem>
+                    <ComboBoxItem>羽毛球</ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Text="比赛项目" RelativePanel.RightOf="MatchBox" Margin="10 0 0 0" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                
+                <ComboBox x:ConnectionId='12' x:Name="MatchSystem" Width="200" Margin="0 0 50 0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <ComboBoxItem IsSelected="True">单循环赛</ComboBoxItem>
+                    <ComboBoxItem>单淘汰赛</ComboBoxItem>
+                    <ComboBoxItem>分组循环赛</ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Text="选择赛制" RelativePanel.LeftOf="MatchSystem" Margin="0 0 10 0" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+
+            <RelativePanel Margin="0 20 0 0">
+                <AppBarButton x:ConnectionId='5'
+                     Width="100"
+                     Height="40"
+                     x:Name="Upload"
+                     Icon="Upload"
+                                               
+                     RelativePanel.AlignLeftWithPanel="true"
+                     RelativePanel.AlignVerticalCenterWithPanel="True"
+                     Background="#20acff"
+                     Foreground="White"
+                     Margin="50 0 0 0"
+                     BorderBrush="LightGray"
+                     BorderThickness="1">
+                </AppBarButton>
+
+                <TextBlock Text="点击上传" Margin="10 0 0 0" RelativePanel.RightOf="Upload" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+
+                <RelativePanel x:ConnectionId='6' x:Name="TennisAddition" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <TextBox x:ConnectionId='7' x:Name="Addition1" PlaceholderText="每场地每节容量" Width="200" Margin="0 0 50 0" RelativePanel.AlignRightWithPanel="True"/>
+                    <TextBox x:ConnectionId='8' x:Name="Addition2" PlaceholderText="比赛场地数" Width="200" Margin="0 0 20 0" RelativePanel.LeftOf="Addition1"/>
+                    <TextBox x:ConnectionId='9' x:Name="Addition3" PlaceholderText="每天节数" Width="200" Margin="0 0 20 0" RelativePanel.LeftOf="Addition2"/>
+                    <TextBox x:ConnectionId='10' x:Name="Addition4" PlaceholderText="比赛天数" Width="200" Margin="0 0 20 0" RelativePanel.LeftOf="Addition3"/>
+                </RelativePanel>
+            </RelativePanel>
+            
+            <Border x:ConnectionId='1' Height="100"
+                    Margin="50 20 50 0"
+                    AllowDrop="True"
+                                      
+                                              
+                    BorderThickness="3">
+                <Border.BorderBrush>
+                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="#20acff" Offset="0"/>
+                            <GradientStop Color="#20acff" Offset="0.2"/>
+                            <GradientStop Color="Transparent" Offset="0.4"/>
+                            <GradientStop Color="Transparent" Offset="0.6"/>
+                            <GradientStop Color="#20acff" Offset="0.8"/>
+                            <GradientStop Color="#20acff" Offset="1"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock Text="拖拽Excel到此处" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+
+            <TextBlock Margin="50 20 50 0" Text="注：你可以通过点击上传按钮或者拖拽Excel文件到上方的虚线框中来上传比赛人员信息。"/>
+
+            <RelativePanel Margin="0 20 0 0">
+                <TextBox x:ConnectionId='4' x:Name="SeedNumber" Margin="50 0 0 0" Width="200" />
+                <TextBlock Text="种子选手数" RelativePanel.RightOf="SeedNumber" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+
+            <RelativePanel Margin="0 20 0 0">
+                <Button x:ConnectionId='2' x:Name="CreateBattles"
+                    Width="100"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Background="#20acff"
+                    Foreground="White"
+                    Margin="50 0 0 0"
+                                               >
+                    <SymbolIcon Symbol="BackToWindow" />
+                </Button>
+                <TextBlock Text="生成对战" Margin="10 0 0 0" RelativePanel.RightOf="CreateBattles" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <Button x:ConnectionId='3' x:Name="ExportExcel"
+                    Width="100"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Background="#20acff"
+                    Foreground="White"
+                    Margin="0 0 50 0"
+                                             >
+                    <SymbolIcon Symbol="Share" />
+                </Button>
+                <TextBlock Text="导出Excel" Margin="0 0 10 0" RelativePanel.LeftOf="ExportExcel" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+        </StackPanel>
     </Grid>
 </Page>
 

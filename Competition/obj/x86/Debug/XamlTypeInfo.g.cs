@@ -132,19 +132,31 @@ namespace Competition.Competition_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[11];
             _typeNameTable[0] = "Competition.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Competition.Views.Home";
-            _typeNameTable[4] = "Competition.Views.Match";
+            _typeNameTable[3] = "Competition.ViewModels.NavMenuItemVM";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "Competition.Views.Home";
+            _typeNameTable[6] = "Competition.Views.Match";
+            _typeNameTable[7] = "Competition.Views.MatchInfo.Athletes";
+            _typeNameTable[8] = "Competition.Views.MatchInfo.Battles";
+            _typeNameTable[9] = "Competition.Views.MatchInfo.Result";
+            _typeNameTable[10] = "Competition.Views.Video";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[11];
             _typeTable[0] = typeof(global::Competition.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Competition.Views.Home);
-            _typeTable[4] = typeof(global::Competition.Views.Match);
+            _typeTable[3] = typeof(global::Competition.ViewModels.NavMenuItemVM);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::Competition.Views.Home);
+            _typeTable[6] = typeof(global::Competition.Views.Match);
+            _typeTable[7] = typeof(global::Competition.Views.MatchInfo.Athletes);
+            _typeTable[8] = typeof(global::Competition.Views.MatchInfo.Battles);
+            _typeTable[9] = typeof(global::Competition.Views.MatchInfo.Result);
+            _typeTable[10] = typeof(global::Competition.Views.Video);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -180,8 +192,13 @@ namespace Competition.Competition_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::Competition.MainPage(); }
-        private object Activate_3_Home() { return new global::Competition.Views.Home(); }
-        private object Activate_4_Match() { return new global::Competition.Views.Match(); }
+        private object Activate_3_NavMenuItemVM() { return new global::Competition.ViewModels.NavMenuItemVM(); }
+        private object Activate_5_Home() { return new global::Competition.Views.Home(); }
+        private object Activate_6_Match() { return new global::Competition.Views.Match(); }
+        private object Activate_7_Athletes() { return new global::Competition.Views.MatchInfo.Athletes(); }
+        private object Activate_8_Battles() { return new global::Competition.Views.MatchInfo.Battles(); }
+        private object Activate_9_Result() { return new global::Competition.Views.MatchInfo.Result(); }
+        private object Activate_10_Video() { return new global::Competition.Views.Video(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -196,6 +213,7 @@ namespace Competition.Competition_XamlTypeInfo
             case 0:   //  Competition.MainPage
                 userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_MainPage;
+                userType.AddMemberName("navMenuItemVM");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -208,16 +226,55 @@ namespace Competition.Competition_XamlTypeInfo
                 xamlType = new global::Competition.Competition_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Competition.Views.Home
-                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_Home;
+            case 3:   //  Competition.ViewModels.NavMenuItemVM
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Competition.Views.Match
+            case 4:   //  Object
+                xamlType = new global::Competition.Competition_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Competition.Views.Home
                 userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_Match;
+                userType.Activator = Activate_5_Home;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  Competition.Views.Match
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_Match;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Competition.Views.MatchInfo.Athletes
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_Athletes;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  Competition.Views.MatchInfo.Battles
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_Battles;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Competition.Views.MatchInfo.Result
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_Result;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  Competition.Views.Video
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_Video;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -226,11 +283,26 @@ namespace Competition.Competition_XamlTypeInfo
         }
 
 
+        private object get_0_MainPage_navMenuItemVM(object instance)
+        {
+            var that = (global::Competition.MainPage)instance;
+            return that.navMenuItemVM;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::Competition.Competition_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::Competition.Competition_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Competition.MainPage.navMenuItemVM":
+                userType = (global::Competition.Competition_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Competition.MainPage");
+                xamlMember = new global::Competition.Competition_XamlTypeInfo.XamlMember(this, "navMenuItemVM", "Competition.ViewModels.NavMenuItemVM");
+                xamlMember.Getter = get_0_MainPage_navMenuItemVM;
+                xamlMember.SetIsReadOnly();
+                break;
+            }
             return xamlMember;
         }
     }
