@@ -15,8 +15,8 @@
 
                 <ComboBox x:Name="MatchBox" Width="200" RelativePanel.RightOf="MatchBlock">
                     <ComboBoxItem IsSelected="True">网球</ComboBoxItem>
-                    <ComboBoxItem>乒乓球</ComboBoxItem>
                     <ComboBoxItem>羽毛球</ComboBoxItem>
+                    <ComboBoxItem>乒乓球</ComboBoxItem>
                 </ComboBox>
             </RelativePanel>
 

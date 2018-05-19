@@ -6,21 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Page.Resources>
         <local:Converter x:Key="converter"/>
     </Page.Resources>
 
-
-    <Grid x:Name="grid">
+    <Grid x:Name="grid" Background="Black">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Media Player" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"  Style="{StaticResource Header}"/>
+        <TextBlock Grid.Row="0" Text="UWP 介绍" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"  Style="{StaticResource Header}"/>
         <MediaPlayerElement Grid.Row="1" x:Name="mediaPlayerElement" AreTransportControlsEnabled="False" HorizontalAlignment="Stretch" />
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -30,7 +29,25 @@
             <Slider Grid.Column="0" x:Name="timeSlider" Padding="10 0 10 0" StepFrequency="1" VerticalAlignment="Center" Value="{x:Bind mediaTimelineController.Position, Converter={StaticResource converter},Mode=TwoWay}"/>
             <TextBlock Grid.Column="1"  Foreground="White" x:Name="time" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
-        <RelativePanel Grid.Row="3">
+        <RelativePanel Grid.Row="3" Height="50" Background="White">
+
+            <AppBarButton x:Name="FullButton" Icon="FullScreen" Click="FullButton_Click" RelativePanel.AlignRightWithPanel="True"/>
+            <AppBarButton x:Name="VolumnButton" Icon="Volume" RelativePanel.LeftOf="FullButton">
+                <AppBarButton.Flyout>
+                    <Flyout>
+                        <Slider Minimum="0" Maximum="1" x:Name="Volumn" Orientation="Vertical" Width="30" Height="100" Value="0.5" StepFrequency="0.1" ValueChanged="Volumn_ValueChanged" HorizontalAlignment="Center" />
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton x:Name="StopButton" Icon="Stop" Click="StopButton_Click" RelativePanel.LeftOf="VolumnButton"/>
+            <AppBarButton x:Name="PauseButton" Icon="Pause" Click="PauseButton_Click" RelativePanel.LeftOf="StopButton"/>
+            <AppBarButton x:Name="PlayButton" Icon="Play" Click="PlayButton_Click" RelativePanel.LeftOf="PauseButton"/>
+
+        </RelativePanel>
+    </Grid>
+    
+    <!--<Page.BottomAppBar>
+        <CommandBar>
             <AppBarButton x:Name="PlayButton" Icon="Play" Label="Play" Click="PlayButton_Click"/>
             <AppBarButton x:Name="PauseButton" Icon="Pause" Label="Pause" Click="PauseButton_Click"/>
             <AppBarButton x:Name="StopButton" Icon="Stop" Label="Stop" Click="StopButton_Click"/>
@@ -42,7 +59,7 @@
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-        </RelativePanel>
-    </Grid>
+        </CommandBar>
+    </Page.BottomAppBar>-->
     
 </Page>

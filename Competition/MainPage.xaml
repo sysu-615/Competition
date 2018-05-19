@@ -42,60 +42,83 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">
                             
-                        <!-- 一级菜单 -->
-                        <ListView Name="NavMenuPrimaryListView" 
-                             SelectionMode="None" IsItemClickEnabled="True" 
-                             ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                             ItemsSource="{x:Bind navMenuItemVM.NavMenuPrimaryItem}"
-                             ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                             ItemClick="ListView_PrimaryItemClick"/>
-                            
-                        <!-- Football二级菜单-->
-                        <ListView Name="NavMenuSecondaryFootballListView" 
-                             Margin="10 0 0 0"
-                             Visibility="Collapsed"
-                             SelectionMode="None" IsItemClickEnabled="True" 
-                             ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                             ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryFootballItem}"
-                             ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
-                             BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                             ItemClick="ListView_SecondaryItemClick" />
+                            <!-- 一级菜单 -->
+                            <ListView x:Name="NavMenuPrimaryListView" 
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuPrimaryItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                 ItemClick="ListView_PrimaryItemClick"/>
 
-                        <!-- Football三级菜单 -->
-                        <ListView Name="FootballInfoListView" 
-                             Margin="20 0 0 0"
-                             Visibility="Collapsed"
-                             SelectionMode="None" IsItemClickEnabled="True" 
-                             ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                             ItemsSource="{x:Bind navMenuItemVM.FootballInfoItem}"
-                             ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                             BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                             ItemClick="ListView_FootballInfoItemClick"/>
+                            <!-- Tennis二级菜单 -->
+                            <ListView Name="NavMenuSecondaryTennisListView"
+                                 Margin="10 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryTennisItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                 ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public"/>
 
-                        <!-- Tennis二级菜单 -->
-                        <ListView Name="NavMenuSecondaryTennisListView"
-                             Margin="10 0 0 0"
-                             Visibility="Collapsed"
-                             SelectionMode="None" IsItemClickEnabled="True" 
-                             ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                             ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryTennisItem}"
-                             ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
-                             BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                             ItemClick="ListView_SecondaryItemClick" />
-                         
-                        <!-- Tennis三级菜单 -->
-                        <ListView Name="TennisInfoListView" 
-                             Margin="20 0 0 0"
-                             Visibility="Collapsed"
-                             SelectionMode="None" IsItemClickEnabled="True" 
-                             ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                             ItemsSource="{x:Bind navMenuItemVM.TennisInfoItem}"
-                             ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                             BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                             ItemClick="ListView_TennisInfoItemClick"/>
+                            <!-- Tennis三级菜单 -->
+                            <ListView x:Name="TennisInfoListView" 
+                                 Margin="20 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.TennisInfoItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                 ItemClick="ListView_TennisInfoItemClick"/>
+
+                            <!-- Badminton二级菜单-->
+                            <ListView x:Name="NavMenuSecondaryBadmintonListView" 
+                                 Margin="10 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryBadmintonItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                 ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public" />
+
+                            <!-- Badminton三级菜单 -->
+                            <ListView x:Name="BadmintonInfoListView" 
+                                 Margin="20 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.BadmintonInfoItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                 ItemClick="ListView_BadmintonInfoItemClick"/>
+
+                            <!-- PingPang二级菜单-->
+                            <ListView x:Name="NavMenuSecondaryPingPangListView" 
+                                 Margin="10 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryPingPangItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                 ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public" />
+
+                            <!-- PingPang三级菜单 -->
+                            <ListView x:Name="PingPangInfoListView" 
+                                 Margin="20 0 0 0"
+                                 Visibility="Collapsed"
+                                 SelectionMode="None" IsItemClickEnabled="True" 
+                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                 ItemsSource="{x:Bind navMenuItemVM.PingPangInfoItem}"
+                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                 ItemClick="ListView_PingPangInfoItemClick"/>
+
                         </StackPanel>
                         <!--底部菜单-->
-                        <ListView Name="NavMenuBottomListView" 
+                        <ListView x:Name="NavMenuBottomListView" 
                              Grid.Row="1"
                              SelectionMode="None" IsItemClickEnabled="True" 
                              ItemTemplate="{StaticResource MenuItemDataTemplate}" 

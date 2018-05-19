@@ -119,5 +119,10 @@ namespace Competition.Views
         {
             mediaPlayer.Volume = (double)Volumn.Value;
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            Stop();
+        }
     }
 }

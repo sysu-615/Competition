@@ -21,7 +21,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Home,
-                    text="Home",
+                    text="首页",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Home)
                 },
@@ -29,68 +29,24 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Calendar,
-                    text="Match",
+                    text="赛事",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Match)
                 }
             });
         public ObservableCollection<NavMenuItem> NavMenuPrimaryItem { get { return this.navMenuPrimaryItem; } }
 
-        //Secondary Items -- Football
-        private ObservableCollection<NavMenuItem> navMenuSecondaryFootballItem = new ObservableCollection<NavMenuItem>(
-            new[]
-            {
-                new NavMenuItem()
-                {
-                    symbol=Symbol.World,
-                    text="Football",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(MatchCreated)
-                }
-            });
-        public ObservableCollection<NavMenuItem> NavMenuSecondaryFootballItem { get { return this.navMenuSecondaryFootballItem; } }
-
         //Secondary Items --Tennis
-        private ObservableCollection<NavMenuItem> navMenuSecondaryTennisItem = new ObservableCollection<NavMenuItem>(
-           new[]
-           {
-                new NavMenuItem()
-                {
-                    symbol=Symbol.World,
-                    text="Tennis",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(MatchCreated)
-                }
-           });
+        private ObservableCollection<NavMenuItem> navMenuSecondaryTennisItem = new ObservableCollection<NavMenuItem>();
         public ObservableCollection<NavMenuItem> NavMenuSecondaryTennisItem { get { return this.navMenuSecondaryTennisItem; } }
 
-        //Third Items --Football
-        private ObservableCollection<NavMenuItem> footballInfoItem = new ObservableCollection<NavMenuItem>(
-           new[]
-            {
-                new NavMenuItem()
-                {
-                    symbol = Symbol.People,
-                    text = "Athletes",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(Athletes)
-                },
-                new NavMenuItem()
-                {
-                    symbol = Symbol.LikeDislike,
-                    text = "Battles",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(Battles)
-                },
-                new NavMenuItem()
-                {
-                    symbol = Symbol.ViewAll,
-                    text = "Result",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(Result)
-                }
-            });
-        public ObservableCollection<NavMenuItem> FootballInfoItem { get { return this.footballInfoItem; } }
+        //Secondary Items -- Badminton
+        private ObservableCollection<NavMenuItem> navMenuSecondaryBadmintonItem = new ObservableCollection<NavMenuItem>();
+        public ObservableCollection<NavMenuItem> NavMenuSecondaryBadmintonItem { get { return this.navMenuSecondaryBadmintonItem; } }
+
+        //Secondary Items --PingPang
+        private ObservableCollection<NavMenuItem> navMenuSecondaryPingPangItem = new ObservableCollection<NavMenuItem>();
+        public ObservableCollection<NavMenuItem> NavMenuSecondaryPingPangItem { get { return this.navMenuSecondaryPingPangItem; } }
 
         //Third Items --Tennis
         private ObservableCollection<NavMenuItem> tennisInfoItem = new ObservableCollection<NavMenuItem>(
@@ -99,26 +55,82 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol = Symbol.People,
-                    text = "Athletes",
+                    text = "运动员",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Athletes)
                 },
                 new NavMenuItem()
                 {
                     symbol = Symbol.LikeDislike,
-                    text = "Battles",
+                    text = "对战",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Battles)
                 },
                 new NavMenuItem()
                 {
                     symbol = Symbol.ViewAll,
-                    text = "Result",
+                    text = "胜负",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Result)
                 }
             });
         public ObservableCollection<NavMenuItem> TennisInfoItem { get { return this.tennisInfoItem; } }
+
+        //Third Items --Badminton
+        private ObservableCollection<NavMenuItem> badmintonInfoItem = new ObservableCollection<NavMenuItem>(
+           new[]
+            {
+                new NavMenuItem()
+                {
+                    symbol = Symbol.People,
+                    text = "运动员",
+                    Selected = Visibility.Collapsed,
+                    destPage = typeof(Athletes)
+                },
+                new NavMenuItem()
+                {
+                    symbol = Symbol.LikeDislike,
+                    text = "对战",
+                    Selected = Visibility.Collapsed,
+                    destPage = typeof(Battles)
+                },
+                new NavMenuItem()
+                {
+                    symbol = Symbol.ViewAll,
+                    text = "胜负",
+                    Selected = Visibility.Collapsed,
+                    destPage = typeof(Result)
+                }
+            });
+        public ObservableCollection<NavMenuItem> BadmintonInfoItem { get { return this.badmintonInfoItem; } }
+
+        //Third Items --PingPang
+        private ObservableCollection<NavMenuItem> pingPangInfoItem = new ObservableCollection<NavMenuItem>(
+           new[]
+            {
+                new NavMenuItem()
+                {
+                    symbol = Symbol.People,
+                    text = "运动员",
+                    Selected = Visibility.Collapsed,
+                    destPage = typeof(Athletes)
+                },
+                new NavMenuItem()
+                {
+                    symbol = Symbol.LikeDislike,
+                    text = "对战",
+                    Selected = Visibility.Collapsed,
+                    destPage = typeof(Battles)
+                },
+                new NavMenuItem()
+                {
+                    symbol = Symbol.ViewAll,
+                    text = "胜负",
+                    Selected = Visibility.Collapsed,
+                    destPage = typeof(Result)
+                }
+            });
+        public ObservableCollection<NavMenuItem> PingPangInfoItem { get { return this.pingPangInfoItem; } }
 
         //NavMenuBottomItem
         private ObservableCollection<NavMenuItem> navMenuBottomItem = new ObservableCollection<NavMenuItem>(
@@ -127,29 +139,18 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Video,
-                    text="Help",
+                    text="介绍",
                     Selected = Visibility.Collapsed,
-                    destPage = typeof(Home)
+                    destPage = typeof(Video)
                 },
                 new NavMenuItem()
                 {
                     symbol=Symbol.Import,
-                    text="LogOut",
+                    text="退出",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Home)
                 }
             });
         public ObservableCollection<NavMenuItem> NavMenuBottomItem { get { return this.navMenuBottomItem; } }
-
-        public void AddCompetition()
-        {
-            //his.allItems.Add();
-        }
-
-        public void RemoveCompetition()
-        {
-           // this.allItems.Remove(SelectedItem1);
-           // this.selectedItem = null;
-        }
     }
 }
