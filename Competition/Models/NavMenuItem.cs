@@ -12,9 +12,9 @@ namespace Competition.Models
 {
     class NavMenuItem : INotifyPropertyChanged
     {
-        // 图标的C#转义代码
+        // 图标
         public Symbol symbol { get; set; }
-        // 标题
+        // 文本
         public string text { get; set; }
         // 导航页
         public Type destPage { get; set; }

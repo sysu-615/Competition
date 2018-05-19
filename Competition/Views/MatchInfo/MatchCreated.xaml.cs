@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static System.Net.Mime.MediaTypeNames;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -27,14 +29,19 @@ namespace Competition.Views
             this.InitializeComponent();
         }
 
-        private void ExportExcel_Click(object sender, RoutedEventArgs e)
+        private void CreateBattles_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void CreateBattles_Click(object sender, RoutedEventArgs e)
+        private void ClearTextBox_Click(object sender, RoutedEventArgs e)
         {
-
+            MatchSystem.SelectedIndex = 0;
+            Addition1.Text = "";
+            Addition2.Text = "";
+            Addition3.Text = "";
+            Addition4.Text = "";
+            SeedNumber.Text = "";
         }
     }
 }

@@ -23,7 +23,7 @@
                         Foreground="White"
                         Margin="-10 0 0 -5">
                 </AppBarButton>
-                <TextBlock Text="Competition" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <TextBlock Text="赛事系统" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
                 <AppBarButton x:Name="VolumnButton" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0 0 0 -5" Foreground="White">
                     <AppBarButton.Flyout>
                         <MenuFlyout>
@@ -33,103 +33,102 @@
                     </AppBarButton.Flyout>
                 </AppBarButton>
             </RelativePanel>
-            <SplitView Grid.Row="1" Name="menuView" DisplayMode="CompactInline"  CompactPaneLength="48" OpenPaneLength="150">
+            <SplitView Grid.Row="1" Name="menuView" DisplayMode="CompactInline"  CompactPaneLength="48" OpenPaneLength="170">
                 <SplitView.Pane>
-                    <Grid Style="{StaticResource LeftBar}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0">
-                            
-                            <!-- 一级菜单 -->
-                            <ListView x:Name="NavMenuPrimaryListView" 
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuPrimaryItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                                 ItemClick="ListView_PrimaryItemClick"/>
+                    <ScrollViewer>
+                        <Grid Style="{StaticResource LeftBar}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
 
-                            <!-- Tennis二级菜单 -->
-                            <ListView Name="NavMenuSecondaryTennisListView"
-                                 Margin="10 0 0 0"
-                                 Visibility="Collapsed"
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryTennisItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
-                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                                 ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public"/>
+                                <!-- 一级菜单 -->
+                                <ListView x:Name="NavMenuPrimaryListView" 
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                         ItemsSource="{x:Bind navMenuItemVM.NavMenuPrimaryItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                         ItemClick="ListView_PrimaryItemClick"/>
 
-                            <!-- Tennis三级菜单 -->
-                            <ListView x:Name="TennisInfoListView" 
-                                 Margin="20 0 0 0"
-                                 Visibility="Collapsed"
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.TennisInfoItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                                 ItemClick="ListView_TennisInfoItemClick"/>
+                                <!-- Tennis二级菜单 -->
+                                <ListView Name="NavMenuSecondaryTennisListView"
+                                         Margin="10 0 0 0"
+                                         Visibility="Collapsed"
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                         ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryTennisItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                                         ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public"/>
 
-                            <!-- Badminton二级菜单-->
-                            <ListView x:Name="NavMenuSecondaryBadmintonListView" 
-                                 Margin="10 0 0 0"
-                                 Visibility="Collapsed"
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryBadmintonItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
-                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                                 ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public" />
+                                <!-- Tennis三级菜单 -->
+                                <ListView x:Name="TennisInfoListView" 
+                                         Margin="20 0 0 0"
+                                         Visibility="Collapsed"
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                         ItemsSource="{x:Bind navMenuItemVM.TennisInfoItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                         ItemClick="ListView_TennisInfoItemClick"/>
 
-                            <!-- Badminton三级菜单 -->
-                            <ListView x:Name="BadmintonInfoListView" 
-                                 Margin="20 0 0 0"
-                                 Visibility="Collapsed"
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.BadmintonInfoItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                                 ItemClick="ListView_BadmintonInfoItemClick"/>
+                                <!-- Badminton二级菜单-->
+                                <ListView x:Name="NavMenuSecondaryBadmintonListView" 
+                                         Margin="10 0 0 0"
+                                         Visibility="Collapsed"
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                         ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryBadmintonItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                                         ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public" />
 
-                            <!-- PingPang二级菜单-->
-                            <ListView x:Name="NavMenuSecondaryPingPangListView" 
-                                 Margin="10 0 0 0"
-                                 Visibility="Collapsed"
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryPingPangItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
-                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                                 ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public" />
+                                <!-- Badminton三级菜单 -->
+                                <ListView x:Name="BadmintonInfoListView" 
+                                         Margin="20 0 0 0"
+                                         Visibility="Collapsed"
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}"
+                                         ItemsSource="{x:Bind navMenuItemVM.BadmintonInfoItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                         ItemClick="ListView_BadmintonInfoItemClick"/>
 
-                            <!-- PingPang三级菜单 -->
-                            <ListView x:Name="PingPangInfoListView" 
-                                 Margin="20 0 0 0"
-                                 Visibility="Collapsed"
-                                 SelectionMode="None" IsItemClickEnabled="True" 
-                                 ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                                 ItemsSource="{x:Bind navMenuItemVM.PingPangInfoItem}"
-                                 ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                                 ItemClick="ListView_PingPangInfoItemClick"/>
+                                <!-- PingPang二级菜单-->
+                                <ListView x:Name="NavMenuSecondaryPingPangListView" 
+                                         Margin="10 0 0 0"
+                                         Visibility="Collapsed"
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                         ItemsSource="{x:Bind navMenuItemVM.NavMenuSecondaryPingPangItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"    
+                                         ItemClick="ListView_SecondaryItemClick" x:FieldModifier="Public" />
 
-                        </StackPanel>
-                        <!--底部菜单-->
-                        <ListView x:Name="NavMenuBottomListView" 
-                             Grid.Row="1"
-                             SelectionMode="None" IsItemClickEnabled="True" 
-                             ItemTemplate="{StaticResource MenuItemDataTemplate}" 
-                             ItemsSource="{x:Bind navMenuItemVM.NavMenuBottomItem}"
-                             ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}" 
-                             BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
-                             ItemClick="ListView_PrimaryItemClick"/>
-                    </Grid>
+                                <!-- PingPang三级菜单 -->
+                                <ListView x:Name="PingPangInfoListView" 
+                                         Margin="20 0 0 0"
+                                         Visibility="Collapsed"
+                                         SelectionMode="None" IsItemClickEnabled="True" 
+                                         ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                         ItemsSource="{x:Bind navMenuItemVM.PingPangInfoItem}"
+                                         ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                                         ItemClick="ListView_PingPangInfoItemClick"/>
+
+                            </StackPanel>
+
+                            <!--底部菜单-->
+                            <ListView x:Name="NavMenuBottomListView" 
+                                     Grid.Row="1"
+                                     SelectionMode="None" IsItemClickEnabled="True" 
+                                     ItemTemplate="{StaticResource MenuItemDataTemplate}" 
+                                     ItemsSource="{x:Bind navMenuItemVM.NavMenuBottomItem}"
+                                     ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}" 
+                                     BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" BorderThickness="0,1,0,0" 
+                                     ItemClick="ListView_PrimaryItemClick"/>
+                        </Grid>
+                    </ScrollViewer>
                 </SplitView.Pane>
-                <Border Background="LightGray">
-                    <Frame Name="ContentFrame" />
+                <Border>
+                    <ScrollViewer>
+                        <Frame Name="ContentFrame" />
+                    </ScrollViewer>
                 </Border>
             </SplitView>
         </Grid>

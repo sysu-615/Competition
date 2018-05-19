@@ -8,6 +8,18 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Battles"/>
+        <StackPanel>
+            <TextBlock Text="Battles"/>
+            <Button x:Name="ExportExcel"
+                            Width="100"
+                            RelativePanel.AlignRightWithPanel="True"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            Background="#20acff"
+                            Foreground="White"
+                            Click="ExportExcel_Click"
+                            ToolTipService.ToolTip="导出Excel">
+                <SymbolIcon Symbol="Share" />
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

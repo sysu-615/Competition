@@ -6,7 +6,7 @@
     RequestedTheme="Light">
     <Application.Resources>
 
-            <!--菜单的数据模板-->
+        <!-- 菜单的数据模板 -->
         <DataTemplate x:Key="MenuItemDataTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -26,6 +26,28 @@
             </Grid>
         </DataTemplate>
 
+        <!-- 运动员信息模板 -->
+        <DataTemplate x:Key="AthletesDataTemplate">
+            <Grid Width="1200">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding index}"></TextBlock>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding name}"></TextBlock>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding sex}"></TextBlock>
+                <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding idNum}"></TextBlock>
+                <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="{Binding phoneNum}"></TextBlock>
+                <TextBlock Grid.Column="5" HorizontalAlignment="Center" Text="{Binding score}"></TextBlock>
+                <TextBlock Grid.Column="6" HorizontalAlignment="Center" Text="{Binding seedNum}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+        
         <Style x:Key="Header" TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -39,6 +61,7 @@
             <Setter Property="Background" Value="#409eff" />
         </Style>
 
+        <!-- 菜单栏样式 -->
         <Style x:Key="NavMenuItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
             <Setter Property="Height" Value="48"/>
@@ -59,6 +82,25 @@
                         SelectedPressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}"
                         DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentMargin="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 运动员信息栏样式 -->
+        <Style x:Key="AthletesItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                        PointerOverBackground="#409eff"
+                        PointerOverForeground="White"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                         ContentMargin="{TemplateBinding Padding}"/>
                     </ControlTemplate>

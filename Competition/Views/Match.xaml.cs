@@ -33,7 +33,13 @@ namespace Competition.Views
         private async void UploadButton_Click(object sender, RoutedEventArgs e)
         {
             StorageFile file = await SelectFile();
+            if (file == null)
+            {
+                Debug.WriteLine("[Info] File is null");
+                return;
+            }
             Stream fileStream = (await file.OpenStreamForReadAsync()) as Stream;
+            
             IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);
             DataSet dataSet = excelDataReader.AsDataSet();
             Debug.WriteLine(dataSet.GetXml());
@@ -121,7 +127,6 @@ namespace Competition.Views
                     Selected = Visibility.Collapsed,
                     destPage = typeof(MatchCreated)
                 });
-                MainPage.Curr.NavMenuSecondaryTennisListView.Visibility=Visibility.Visible;
             }
             if (MatchBox.SelectedIndex == 1)
             {
@@ -132,7 +137,6 @@ namespace Competition.Views
                     Selected = Visibility.Collapsed,
                     destPage = typeof(MatchCreated)
                 });
-                MainPage.Curr.NavMenuSecondaryBadmintonListView.Visibility = Visibility.Visible;
             }
             if (MatchBox.SelectedIndex == 2)
             {
@@ -143,8 +147,10 @@ namespace Competition.Views
                     Selected = Visibility.Collapsed,
                     destPage = typeof(MatchCreated)
                 });
-                MainPage.Curr.NavMenuSecondaryPingPangListView.Visibility = Visibility.Visible;
             }
+            MainPage.Curr.NavMenuSecondaryTennisListView.Visibility = Visibility.Visible;
+            MainPage.Curr.NavMenuSecondaryPingPangListView.Visibility = Visibility.Visible;
+            MainPage.Curr.NavMenuSecondaryBadmintonListView.Visibility = Visibility.Visible;
         }
     }
 }

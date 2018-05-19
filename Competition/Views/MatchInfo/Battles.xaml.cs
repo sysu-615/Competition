@@ -26,5 +26,10 @@ namespace Competition.Views.MatchInfo
         {
             this.InitializeComponent();
         }
+
+        private void ExportExcel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

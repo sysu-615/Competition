@@ -8,51 +8,55 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <RelativePanel>
-            <ComboBox x:Name="MatchSystem" Width="200" Margin="0 0 50 0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
-                <ComboBoxItem IsSelected="True">单循环赛</ComboBoxItem>
-                <ComboBoxItem>单淘汰赛</ComboBoxItem>
-                <ComboBoxItem>分组循环赛</ComboBoxItem>
-            </ComboBox>
+        <StackPanel>
+            <TextBlock Text="比赛" HorizontalAlignment="Center" Style="{StaticResource Header}" Margin="0 20 0 0"/>
+            <StackPanel Width="400" Margin="0 20 0 0">
+                <TextBlock Text="选择赛制"/>
+                <ComboBox x:Name="MatchSystem" Width="400" Margin="0 5 0 0">
+                    <ComboBoxItem IsSelected="True">单循环赛</ComboBoxItem>
+                    <ComboBoxItem>单淘汰赛</ComboBoxItem>
+                    <ComboBoxItem>分组循环赛</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
 
-            <TextBlock Text="选择赛制" RelativePanel.LeftOf="MatchSystem" Margin="0 0 10 0" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-        </RelativePanel>
+            <StackPanel x:Name="TennisAddition" Width="400" Margin="0 20 0 0">
+                <TextBlock Text="每场地每节容量" Margin="0 5 0 0" />
+                <TextBox x:Name="Addition1" Margin="0 5 0 0"/>
+                <TextBlock Text="比赛场地数" Margin="0 5 0 0" />
+                <TextBox x:Name="Addition2" Margin="0 5 0 0"/>
+                <TextBlock Text="每天节数" Margin="0 5 0 0"/>
+                <TextBox x:Name="Addition3" Margin="0 5 0 0"/>
+                <TextBlock Text="比赛天数" Margin="0 5 0 0" />
+                <TextBox x:Name="Addition4" Margin="0 5 0 0"/>
+            </StackPanel>
 
-        <RelativePanel x:Name="TennisAddition" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignVerticalCenterWithPanel="True">
-            <TextBox x:Name="Addition1" PlaceholderText="每场地每节容量" Width="200" Margin="0 0 50 0" RelativePanel.AlignRightWithPanel="True"/>
-            <TextBox x:Name="Addition2" PlaceholderText="比赛场地数" Width="200" Margin="0 0 20 0" RelativePanel.LeftOf="Addition1"/>
-            <TextBox x:Name="Addition3" PlaceholderText="每天节数" Width="200" Margin="0 0 20 0" RelativePanel.LeftOf="Addition2"/>
-            <TextBox x:Name="Addition4" PlaceholderText="比赛天数" Width="200" Margin="0 0 20 0" RelativePanel.LeftOf="Addition3"/>
-        </RelativePanel>
+            <StackPanel Width="400" Margin="0 20 0 0">
+                <TextBlock Text="种子选手数 （如果没有，可以忽略）"/>
+                <TextBox x:Name="SeedNumber" Margin="0 5 0 0"/>
+            </StackPanel>
 
-        <RelativePanel Margin="0 20 0 0">
-            <TextBox x:Name="SeedNumber" Margin="50 0 0 0" Width="200" />
-            <TextBlock Text="种子选手数" Margin="10 0 0 0" RelativePanel.RightOf="SeedNumber" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-        </RelativePanel>
-
-        <RelativePanel Margin="0 20 0 0">
-            <Button x:Name="CreateBattles"
+            <RelativePanel Margin="0 20 0 0" Width="400">
+                <Button x:Name="CreateBattles"
                     Width="100"
                     RelativePanel.AlignLeftWithPanel="True"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Background="#20acff"
                     Foreground="White"
-                    Margin="50 0 0 0"
-                    Click="CreateBattles_Click">
-                <SymbolIcon Symbol="BackToWindow" />
-            </Button>
-            <TextBlock Text="生成对战" Margin="10 0 0 0" RelativePanel.RightOf="CreateBattles" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-            <Button x:Name="ExportExcel"
+                    Click="CreateBattles_Click" 
+                    ToolTipService.ToolTip="生成对战">
+                    <SymbolIcon Symbol="Accept" />
+                </Button>
+                <Button x:Name="ExportExcel"
                     Width="100"
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Background="#20acff"
                     Foreground="White"
-                    Margin="0 0 50 0"
-                    Click="ExportExcel_Click">
-                <SymbolIcon Symbol="Share" />
-            </Button>
-            <TextBlock Text="导出Excel" Margin="0 0 10 0" RelativePanel.LeftOf="ExportExcel" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-        </RelativePanel>
+                    Click="ClearTextBox_Click"
+                    ToolTipService.ToolTip="重置列表">
+                    <SymbolIcon Symbol="Cancel" />
+                </Button>
+            </RelativePanel>
+        </StackPanel>
     </Grid>
 </Page>

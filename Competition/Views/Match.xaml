@@ -8,8 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
         <StackPanel>
-            <TextBlock Text="比赛" Style="{StaticResource Header}" Margin="0 20 0 0" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="赛事" Style="{StaticResource Header}" Margin="0 20 0 0" HorizontalAlignment="Center"></TextBlock>
             <RelativePanel Margin="0 20 0 0">
                 <TextBlock x:Name="MatchBlock" Text="请选择比赛项目："  Margin="50 0 10 0" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
@@ -31,27 +32,13 @@
                 <TextBox x:Name="NumberBox" Width="200" PlaceholderText="0" RelativePanel.RightOf="NumberBlock" RelativePanel.AlignVerticalCenterWithPanel="True" />
             </RelativePanel>
 
-            <RelativePanel Margin="0 20 0 0">
-                <Button x:Name="Upload"
-                    Width="100"
-                    RelativePanel.AlignLeftWithPanel="true"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Background="#20acff"
-                    Foreground="White"
-                    Margin="50 0 0 0"
-                    Click="UploadButton_Click">
-                    <SymbolIcon Symbol="Upload" />
-                </Button>
-                <TextBlock Text="点击上传" Margin="10 0 0 0" RelativePanel.RightOf="Upload" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-            </RelativePanel>
-            
             <Border Height="100"
-                    Margin="50 20 50 0"
-                    AllowDrop="True"
-                    Drop="Border_Drop"
-                    DragOver="Border_DragOver"
-                    BorderThickness="3"
-                    Background="AliceBlue" Padding="5" CornerRadius="5" >
+                        Margin="50 20 50 0"
+                        AllowDrop="True"
+                        Drop="Border_Drop"
+                        DragOver="Border_DragOver"
+                        BorderThickness="3"
+                        Background="AliceBlue" Padding="5" CornerRadius="5" >
                 <Border.BorderBrush>
                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                         <LinearGradientBrush.GradientStops>
@@ -67,20 +54,33 @@
                 <TextBlock Text="拖拽Excel到此处" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
 
-            <TextBlock Margin="50 20 50 0" Text="注：你可以通过点击上传按钮或者拖拽Excel文件到上方的虚线框中来上传比赛人员信息。"/>
+            <TextBlock Margin="50 20 50 0" Text="注：你可以通过点击下面的上传按钮或者拖拽Excel文件到上方的虚线框中来上传比赛人员信息。"/>
 
             <RelativePanel Margin="0 20 0 0">
+                <Button x:Name="Upload"
+                        Width="100"
+                        RelativePanel.AlignLeftWithPanel="true"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Background="#20acff"
+                        Foreground="White"
+                        Margin="50 0 0 0"
+                        Click="UploadButton_Click"
+                        ToolTipService.ToolTip="点击上传">
+                    <SymbolIcon Symbol="Upload" />
+                </Button>
+
                 <Button x:Name="CreateMatch"
-                    Width="100"
-                    RelativePanel.AlignLeftWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Background="#20acff"
-                    Foreground="White"
-                    Margin="50 0 0 0"
-                    Click="CreateMatch_Click">
+                        Width="100"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Background="#20acff"
+                        Foreground="White"
+                        Margin="0 0 50 0"
+                        Click="CreateMatch_Click"
+                        ToolTipService.ToolTip="生成赛事">
                     <SymbolIcon Symbol="Remote" />
                 </Button>
-                <TextBlock Text="创建比赛" Margin="10 0 0 0" RelativePanel.RightOf="CreateMatch" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+
             </RelativePanel>
         </StackPanel>
     </Grid>
