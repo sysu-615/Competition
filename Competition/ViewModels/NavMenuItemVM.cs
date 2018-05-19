@@ -45,7 +45,7 @@ namespace Competition.ViewModels
                     symbol=Symbol.World,
                     text="Football",
                     Selected = Visibility.Collapsed,
-                    destPage = typeof(Athletes)
+                    destPage = typeof(MatchCreated)
                 }
             });
         public ObservableCollection<NavMenuItem> NavMenuSecondaryFootballItem { get { return this.navMenuSecondaryFootballItem; } }
@@ -59,7 +59,7 @@ namespace Competition.ViewModels
                     symbol=Symbol.World,
                     text="Tennis",
                     Selected = Visibility.Collapsed,
-                    destPage = typeof(Athletes)
+                    destPage = typeof(MatchCreated)
                 }
            });
         public ObservableCollection<NavMenuItem> NavMenuSecondaryTennisItem { get { return this.navMenuSecondaryTennisItem; } }

@@ -107,6 +107,9 @@
     <Compile Include="Views\Match.xaml.cs">
       <DependentUpon>Match.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MatchInfo\MatchCreated.xaml.cs">
+      <DependentUpon>MatchCreated.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MatchInfo\Athletes.xaml.cs">
       <DependentUpon>Athletes.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MatchInfo\MatchCreated.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MatchInfo\Athletes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +181,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.8</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

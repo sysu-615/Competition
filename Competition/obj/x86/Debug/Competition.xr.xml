@@ -146,6 +146,8 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="AllowDrop" />
       <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="CornerRadius" />
       <RootProperty Name="BorderBrush" />
       <RootEvent Name="Drop" />
       <RootEvent Name="DragOver" />
@@ -159,10 +161,6 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Flyout" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="BorderThickness" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
@@ -182,11 +180,6 @@
       <RootProperty Name="Content" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="PlaceholderText" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.LinearGradientBrush">
       <RootProperty Name="SpreadMethod" />
       <RootProperty Name="StartPoint" />
@@ -198,16 +191,22 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Offset" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Width" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Margin" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Items" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="IsSelected" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Competition.Views.Match" />
+    <RootType FullName="Competition.Views.MatchCreated" />
     <RootType FullName="Competition.Views.MatchInfo.Athletes" />
     <RootType FullName="Competition.Views.MatchInfo.Battles" />
     <RootType FullName="Competition.Views.MatchInfo.Result" />
