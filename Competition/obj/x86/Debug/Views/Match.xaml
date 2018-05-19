@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="Competition.Views.Match"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Competition.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock Text="比赛" Style="{StaticResource Header}" Margin="0 20 0 0" HorizontalAlignment="Center"></TextBlock>
+            <RelativePanel Margin="0 20 0 0">
+                <TextBlock x:ConnectionId='9' x:Name="MatchBlock" Text="请选择比赛项目："  Margin="50 0 10 0" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+
+                <ComboBox x:ConnectionId='10' x:Name="MatchBox" Width="200" RelativePanel.RightOf="MatchBlock">
+                    <ComboBoxItem IsSelected="True">网球</ComboBoxItem>
+                    <ComboBoxItem>乒乓球</ComboBoxItem>
+                    <ComboBoxItem>羽毛球</ComboBoxItem>
+                </ComboBox>
+            </RelativePanel>
+
+            <RelativePanel Margin="0 20 0 0">
+                <TextBlock x:ConnectionId='6' x:Name="NameBlock" Margin="50 0 10 0" Text="请输入比赛的名称：" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                <TextBox x:ConnectionId='7' x:Name="NameBox" Width="200" PlaceholderText="赛制名称" RelativePanel.RightOf="NameBlock" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                <TextBlock x:ConnectionId='8' x:Name="NameTips" Margin="10 0 0 0" Text="（注：请保证比赛名称的唯一性）" RelativePanel.RightOf="NameBox" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+
+            <RelativePanel Margin="0 20 0 0">
+                <TextBlock x:ConnectionId='4' x:Name="NumberBlock" Margin="50 0 10 0" Text="请输入参赛人员总数：" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                <TextBox x:ConnectionId='5' x:Name="NumberBox" Width="200" PlaceholderText="0" RelativePanel.RightOf="NumberBlock" RelativePanel.AlignVerticalCenterWithPanel="True" />
+            </RelativePanel>
+
+            <RelativePanel Margin="0 20 0 0">
+                <Button x:ConnectionId='3' x:Name="Upload"
+                    Width="100"
+                    RelativePanel.AlignLeftWithPanel="true"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Background="#20acff"
+                    Foreground="White"
+                    Margin="50 0 0 0"
+                                              >
+                    <SymbolIcon Symbol="Upload" />
+                </Button>
+                <TextBlock Text="点击上传" Margin="10 0 0 0" RelativePanel.RightOf="Upload" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+            
+            <Border x:ConnectionId='1' Height="100"
+                    Margin="50 20 50 0"
+                    AllowDrop="True"
+                                      
+                                              
+                    BorderThickness="3"
+                    Background="AliceBlue" Padding="5" CornerRadius="5" >
+                <Border.BorderBrush>
+                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="#20acff" Offset="0"/>
+                            <GradientStop Color="#20acff" Offset="0.2"/>
+                            <GradientStop Color="Transparent" Offset="0.4"/>
+                            <GradientStop Color="Transparent" Offset="0.6"/>
+                            <GradientStop Color="#20acff" Offset="0.8"/>
+                            <GradientStop Color="#20acff" Offset="1"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock Text="拖拽Excel到此处" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+
+            <TextBlock Margin="50 20 50 0" Text="注：你可以通过点击上传按钮或者拖拽Excel文件到上方的虚线框中来上传比赛人员信息。"/>
+
+            <RelativePanel Margin="0 20 0 0">
+                <Button x:ConnectionId='2' x:Name="CreateMatch"
+                    Width="100"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Background="#20acff"
+                    Foreground="White"
+                    Margin="50 0 0 0"
+                                             >
+                    <SymbolIcon Symbol="Remote" />
+                </Button>
+                <TextBlock Text="创建比赛" Margin="10 0 0 0" RelativePanel.RightOf="CreateMatch" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+        </StackPanel>
+    </Grid>
+</Page>
+

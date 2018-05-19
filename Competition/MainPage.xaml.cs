@@ -31,12 +31,12 @@ namespace Competition
             menuView.IsPaneOpen = !menuView.IsPaneOpen;
         }
 
-        private async void MenuFlyoutSignUp_Click(object sender, RoutedEventArgs e)
+        private void MenuFlyoutSignUp_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private async void MenuFlyoutSignIn_Click(object sender, RoutedEventArgs e)
+        private void MenuFlyoutSignIn_Click(object sender, RoutedEventArgs e)
         {
 
         }

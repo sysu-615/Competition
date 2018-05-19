@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using System.Data;
 using System.Data.OleDb;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.IO;
+using ExcelDataReader;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -31,11 +26,16 @@ namespace Competition.Views
         public Match()
         {
             this.InitializeComponent();
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
-        private void UploadButton_Click(object sender, RoutedEventArgs e)
+        private async void UploadButton_Click(object sender, RoutedEventArgs e)
         {
-
+            StorageFile file = await SelectFile();
+            Stream fileStream = (await file.OpenStreamForReadAsync()) as Stream;
+            IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);
+            DataSet dataSet = excelDataReader.AsDataSet();
+            Debug.WriteLine(dataSet.GetXml());
         }
 
         private async void Border_Drop(object sender, DragEventArgs e)
@@ -48,31 +48,42 @@ namespace Competition.Views
                 items = items.OfType<StorageFile>().Where(s => s.FileType.Equals(".xlsx")).ToList() as IReadOnlyList<IStorageItem>;
                 if(items!=null && items.Any())
                 {
-                    HandleExcel(items);
+                    await HandleExcel(items);
                 }
             }
         }
 
-        private void HandleExcel(IReadOnlyList<IStorageItem> items)
+        private async Task HandleExcel(IReadOnlyList<IStorageItem> items)
         {
             foreach (var item in items)
             {
                 Debug.WriteLine(item.Path);
-                string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + item.Path + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1';";
-                OleDbConnection connection = new OleDbConnection(strConn);
-                OleDbDataAdapter myCommand = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", strConn);
-                DataSet myDataSet = new DataSet();
+                StorageFile file = item as StorageFile;
+                //FileStream fileStream = new FileStream(item.Path, FileMode.Open,FileAccess.Read);
+                Stream fileStream = (await file.OpenStreamForReadAsync()) as Stream;
+                if (fileStream == null)
+                {
+                    Debug.WriteLine("[Info] fileStream is null");
+                    return;
+                }
+                IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);
 
-                try
-                {
-                    connection.Open();
-                    myCommand.Fill(myDataSet);
-                }
-                catch(Exception ex)
-                {
-                    Debug.Write(ex.Message);
-                }
+                DataSet dataSet = excelDataReader.AsDataSet();
+                Debug.WriteLine(dataSet.GetXml());
+                excelDataReader.Close();
             }
+        }
+
+        private async Task<StorageFile> SelectFile()
+        {
+            var fop = new FileOpenPicker
+            {
+                ViewMode = PickerViewMode.Thumbnail,
+                SuggestedStartLocation = PickerLocationId.PicturesLibrary
+            };
+            fop.FileTypeFilter.Add(".xlsx");
+            fop.FileTypeFilter.Add(".xls");
+            return await fop.PickSingleFileAsync();
         }
 
         private void Border_DragOver(object sender, DragEventArgs e)
@@ -102,6 +113,5 @@ namespace Competition.Views
         {
 
         }
-
     }
 }
