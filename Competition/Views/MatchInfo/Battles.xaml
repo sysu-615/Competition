@@ -10,16 +10,28 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <TextBlock x:Name="Title" Text="对战信息" Margin="0 20 0 20" HorizontalAlignment="Center" Style="{StaticResource Header}"/>
-            <Button x:Name="ExportExcel"
-                            Width="100"
-                            RelativePanel.AlignRightWithPanel="True"
-                            RelativePanel.AlignVerticalCenterWithPanel="True"
-                            Background="#20acff"
-                            Foreground="White"
-                            Click="ExportExcel_Click"
-                            ToolTipService.ToolTip="导出Excel">
-                <SymbolIcon Symbol="Share" />
-            </Button>
+            <RelativePanel>
+                <Button x:Name="ExportExcel"
+                                Width="100"
+                                Margin="0 0 50 0"
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Background="#20acff"
+                                Foreground="White"
+                                Click="ExportExcel_Click"
+                                ToolTipService.ToolTip="导出Excel">
+                    <SymbolIcon Symbol="Share" />
+                </Button>
+            </RelativePanel> 
+            <ListView x:Name="BattlesListView"
+                Width="Auto" 
+                Background="#20acff"
+                Foreground="White"
+                Visibility="Visible"
+                Margin="50 0 50 0"
+                SelectionMode="None"
+                ItemTemplate="{StaticResource BattlesDataTemplate}" 
+                ItemsSource="{x:Bind battleVM.AllBattles}" />
         </StackPanel>
     </Grid>
 </Page>

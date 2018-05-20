@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Competition.Models;
+using Competition.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -21,9 +23,10 @@ namespace Competition.Views.MatchInfo
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class Result : Page
+    sealed partial class Results : Page
     {
-        public Result()
+        public ResultVM resultVM = ResultVM.GetResultVM();
+        public Results()
         {
             this.InitializeComponent();
         }

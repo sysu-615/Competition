@@ -71,7 +71,7 @@ namespace Competition.ViewModels
                     symbol = Symbol.ViewAll,
                     text = "胜负",
                     Selected = Visibility.Collapsed,
-                    destPage = typeof(Result)
+                    destPage = typeof(Results)
                 }
             });
         public ObservableCollection<NavMenuItem> TennisInfoItem { get { return this.tennisInfoItem; } }
@@ -99,7 +99,7 @@ namespace Competition.ViewModels
                     symbol = Symbol.ViewAll,
                     text = "胜负",
                     Selected = Visibility.Collapsed,
-                    destPage = typeof(Result)
+                    destPage = typeof(Results)
                 }
             });
         public ObservableCollection<NavMenuItem> BadmintonInfoItem { get { return this.badmintonInfoItem; } }
@@ -127,7 +127,7 @@ namespace Competition.ViewModels
                     symbol = Symbol.ViewAll,
                     text = "胜负",
                     Selected = Visibility.Collapsed,
-                    destPage = typeof(Result)
+                    destPage = typeof(Results)
                 }
             });
         public ObservableCollection<NavMenuItem> PingPangInfoItem { get { return this.pingPangInfoItem; } }

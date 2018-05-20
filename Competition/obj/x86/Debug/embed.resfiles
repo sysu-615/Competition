@@ -5,5 +5,5 @@ Views\Match.xbf
 Views\MatchInfo\Athletes.xbf
 Views\MatchInfo\Battles.xbf
 Views\MatchInfo\MatchCreated.xbf
-Views\MatchInfo\Result.xbf
+Views\MatchInfo\Results.xbf
 Views\Video.xbf

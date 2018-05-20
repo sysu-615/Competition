@@ -22,6 +22,8 @@ namespace Competition.Models
 
         public string seedNum { get; set; }
 
+        public string win { get; set; }
+
         public Athlete(string _index, string _name, string _sex, string _idNum, string _phoneNum, string _score, string _seedNum)
         {
             this.index = _index;
@@ -31,6 +33,7 @@ namespace Competition.Models
             this.phoneNum = _phoneNum;
             this.score = _score;
             this.seedNum = _seedNum;
+            this.win = "0";
         }
     }
 }

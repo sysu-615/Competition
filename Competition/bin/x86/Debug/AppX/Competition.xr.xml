@@ -4,12 +4,16 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="winAthlete" />
+    <RootPropertyPathName Name="name" />
+    <RootPropertyPathName Name="battle" />
+    <RootPropertyPathName Name="athlete2" />
+    <RootPropertyPathName Name="athlete1" />
     <RootPropertyPathName Name="seedNum" />
     <RootPropertyPathName Name="score" />
     <RootPropertyPathName Name="phoneNum" />
     <RootPropertyPathName Name="idNum" />
     <RootPropertyPathName Name="sex" />
-    <RootPropertyPathName Name="name" />
     <RootPropertyPathName Name="index" />
     <RootPropertyPathName Name="text" />
     <RootPropertyPathName Name="symbol" />
@@ -250,7 +254,7 @@
     <RootType FullName="Competition.Views.MatchCreated" />
     <RootType FullName="Competition.Views.MatchInfo.Athletes" />
     <RootType FullName="Competition.Views.MatchInfo.Battles" />
-    <RootType FullName="Competition.Views.MatchInfo.Result" />
+    <RootType FullName="Competition.Views.MatchInfo.Results" />
     <RootType FullName="Competition.SliderConverter.Converter" />
     <RootType FullName="Windows.UI.Xaml.Controls.MediaPlayerElement">
       <RootProperty Name="AreTransportControlsEnabled" />
