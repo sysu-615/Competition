@@ -11,8 +11,16 @@ namespace Competition.ViewModels
     class AthleteVM
     {
         private Athlete selectedItem;
+        private static AthleteVM athleteVM=null;
 
-        public AthleteVM()
+        public static AthleteVM GetAthleteVM()
+        {
+            if (athleteVM == null)
+                athleteVM = new AthleteVM();
+            return athleteVM;
+        }
+
+        private AthleteVM()
         {
             this.selectedItem = null;
         }

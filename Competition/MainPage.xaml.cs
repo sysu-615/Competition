@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
 namespace Competition
@@ -50,8 +51,12 @@ namespace Competition
                 PrimarySelectedItem.Selected = Visibility.Collapsed;
 
             PrimarySelectedItem = e.ClickedItem as NavMenuItem;
-
             PrimarySelectedItem.Selected = Visibility.Visible;
+
+            if (SecondarySelectedItem != null)
+                SecondarySelectedItem.Selected = Visibility.Collapsed;
+            if (ThirdSelectedItem != null)
+                ThirdSelectedItem.Selected = Visibility.Collapsed;
 
             if (PrimarySelectedItem.text == "赛事")
             {
@@ -84,11 +89,18 @@ namespace Competition
         {
             if(SecondarySelectedItem!=null)
                 SecondarySelectedItem.Selected = Visibility.Collapsed;
+            if (PrimarySelectedItem != null)
+                PrimarySelectedItem.Selected = Visibility.Collapsed;
+            PrimarySelectedItem = NavMenuPrimaryListView.Items[1] as NavMenuItem;
+            PrimarySelectedItem.Selected = Visibility.Visible;
 
             SecondarySelectedItem = e.ClickedItem as NavMenuItem;
             SecondarySelectedItem.Selected = Visibility.Visible;
 
-            if(SecondarySelectedItem.text=="网球")
+            if (ThirdSelectedItem != null)
+                ThirdSelectedItem.Selected = Visibility.Collapsed;
+
+            if (SecondarySelectedItem.text=="网球")
                 TennisInfoListView.Visibility = TennisInfoListView.Visibility== Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
             else if(SecondarySelectedItem.text == "羽毛球")
                 BadmintonInfoListView.Visibility = BadmintonInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
@@ -96,21 +108,30 @@ namespace Competition
                 PingPangInfoListView.Visibility = PingPangInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 
             if (SecondarySelectedItem.destPage != null)
-                ContentFrame.Navigate(SecondarySelectedItem.destPage);
+                ContentFrame.Navigate(SecondarySelectedItem.destPage, SecondarySelectedItem.text);
         }
 
         private void ListView_TennisInfoItemClick(object sender, ItemClickEventArgs e)
         {
+            if (SecondarySelectedItem != null)
+                SecondarySelectedItem.Selected = Visibility.Collapsed;
+            SecondarySelectedItem = NavMenuSecondaryTennisListView.Items[0] as NavMenuItem;
             InfoItemClick(sender, e);
         }
 
         private void ListView_BadmintonInfoItemClick(object sender, ItemClickEventArgs e)
         {
+            if (SecondarySelectedItem != null)
+                SecondarySelectedItem.Selected = Visibility.Collapsed;
+            SecondarySelectedItem = NavMenuSecondaryBadmintonListView.Items[0] as NavMenuItem;
             InfoItemClick(sender, e);
         }
 
         private void ListView_PingPangInfoItemClick(object sender, ItemClickEventArgs e)
         {
+            if (SecondarySelectedItem != null)
+                SecondarySelectedItem.Selected = Visibility.Collapsed;
+            SecondarySelectedItem = NavMenuSecondaryPingPangListView.Items[0] as NavMenuItem;
             InfoItemClick(sender, e);
         }
 
@@ -122,8 +143,15 @@ namespace Competition
             ThirdSelectedItem = e.ClickedItem as NavMenuItem;
             ThirdSelectedItem.Selected = Visibility.Visible;
 
+            SecondarySelectedItem.Selected = Visibility.Visible;
+
+            if (PrimarySelectedItem != null)
+                PrimarySelectedItem.Selected = Visibility.Collapsed;
+            PrimarySelectedItem = NavMenuPrimaryListView.Items[1] as NavMenuItem;
+            PrimarySelectedItem.Selected = Visibility.Visible;
+
             if (ThirdSelectedItem.destPage != null)
-                ContentFrame.Navigate(ThirdSelectedItem.destPage);
+                ContentFrame.Navigate(ThirdSelectedItem.destPage, SecondarySelectedItem.text);
         }
 
     }

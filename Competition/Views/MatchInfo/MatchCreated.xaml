@@ -8,8 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock Text="比赛" HorizontalAlignment="Center" Style="{StaticResource Header}" Margin="0 20 0 0"/>
+        <Grid.RowDefinitions >
+            <RowDefinition  Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock x:Name="Title" Text="比赛" HorizontalAlignment="Center" Style="{StaticResource Header}" Margin="0 20 0 0"/>
+            
             <StackPanel Width="400" Margin="0 20 0 0">
                 <TextBlock Text="选择赛制"/>
                 <ComboBox x:Name="MatchSystem" Width="400" Margin="0 5 0 0">
@@ -58,5 +63,18 @@
                 </Button>
             </RelativePanel>
         </StackPanel>
+        <RelativePanel Grid.Row="1" Margin="0 0 50 0">
+            <Button x:Name="DeleteMatch"
+                    Width="100"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Background="#20acff"
+                    Foreground="White"
+                    Click="DeleteMatch_Click"
+                    ToolTipService.ToolTip="删除此场比赛">
+                <SymbolIcon Symbol="Delete" />
+            </Button>
+            <TextBlock Text="如果想要删除此场比赛，请点即此按钮-->" RelativePanel.LeftOf="DeleteMatch" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0 0 20 0"/>
+        </RelativePanel>
     </Grid>
 </Page>

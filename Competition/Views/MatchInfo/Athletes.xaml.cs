@@ -25,23 +25,18 @@ namespace Competition.Views.MatchInfo
     /// </summary>
     sealed partial class Athletes : Page
     {
-        private static AthleteVM athleteVMobj =new AthleteVM();
-        public AthleteVM athleteVM { get { return athleteVMobj; } }
+        public AthleteVM athleteVM = AthleteVM.GetAthleteVM();
 
         public Athletes()
         {
             this.InitializeComponent();
         }
 
-        private void Grid_PointerEntered(object sender, PointerRoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Debug.WriteLine(sender);
-            //Athlete athlete = e.OriginalSource as Athlete;
-            //if (athlete.index!="index")
-            //    athlete
-
-            var parent = VisualTreeHelper.GetParent(sender as DependencyObject);
-            Debug.WriteLine(parent);
+            Debug.WriteLine(e.Parameter);
+            Title.Text = (e.Parameter as string)+"运动员信息";
         }
+
     }
 }

@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Result"/>
+        <TextBlock x:Name="Title" Text="比赛结果" Margin="0 20 0 20" HorizontalAlignment="Center" Style="{StaticResource Header}"/>
+
     </Grid>
 </Page>

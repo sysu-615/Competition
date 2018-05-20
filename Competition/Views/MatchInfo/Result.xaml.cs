@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,12 @@ namespace Competition.Views.MatchInfo
         public Result()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Debug.WriteLine(e.Parameter);
+            Title.Text = (e.Parameter as string)+"比赛结果";
         }
     }
 }

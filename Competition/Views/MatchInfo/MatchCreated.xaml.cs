@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Competition.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -24,6 +25,7 @@ namespace Competition.Views
     /// </summary>
     public sealed partial class MatchCreated : Page
     {
+        private AthleteVM athleteVM = AthleteVM.GetAthleteVM();
         public MatchCreated()
         {
             this.InitializeComponent();
@@ -31,6 +33,18 @@ namespace Competition.Views
 
         private void CreateBattles_Click(object sender, RoutedEventArgs e)
         {
+            if (Title.Text == "网球")
+            {
+                Debug.WriteLine("[info] 网球");
+            }
+            else if(Title.Text=="羽毛球")
+            {
+                Debug.WriteLine("[info] 羽毛球");
+            }
+            else
+            {
+                Debug.WriteLine("[info] 乒乓球");
+            }
 
         }
 
@@ -42,6 +56,17 @@ namespace Competition.Views
             Addition3.Text = "";
             Addition4.Text = "";
             SeedNumber.Text = "";
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Debug.WriteLine(e.Parameter);
+            Title.Text = e.Parameter as string;
+        }
+
+        private void DeleteMatch_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

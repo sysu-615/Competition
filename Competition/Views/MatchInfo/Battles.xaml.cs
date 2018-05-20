@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +31,12 @@ namespace Competition.Views.MatchInfo
         private void ExportExcel_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Debug.WriteLine(e.Parameter);
+            Title.Text = (e.Parameter as string) + "对战信息";
         }
     }
 }

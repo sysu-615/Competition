@@ -17,18 +17,19 @@
                 <!-- Menu -->
                 <AppBarButton Icon="GlobalNavigationButton"
                         Click="Menu_Click" 
+                        Width="48"
                         RelativePanel.AlignLeftWithPanel="true"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Background="Transparent"
                         Foreground="White"
-                        Margin="-10 0 0 -5">
+                        Margin="-2 0 0 -5">
                 </AppBarButton>
                 <TextBlock Text="赛事系统" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                <AppBarButton x:Name="VolumnButton" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0 0 0 -5" Foreground="White">
+                <AppBarButton x:Name="LogInLogOut" Width="48" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White">
                     <AppBarButton.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem Text="SignIn" Click="MenuFlyoutSignUp_Click"/>
-                            <MenuFlyoutItem Text="LogOut" Click="MenuFlyoutSignIn_Click"/>
+                            <MenuFlyoutItem Text="登录" Click="MenuFlyoutSignUp_Click"/>
+                            <MenuFlyoutItem Text="退出" Click="MenuFlyoutSignIn_Click"/>
                         </MenuFlyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
