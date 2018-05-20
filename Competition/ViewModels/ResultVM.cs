@@ -18,7 +18,6 @@ namespace Competition.ViewModels
                 resultVM = new ResultVM();
             return resultVM;
         }
-
         private static Athlete athlete1 = new Athlete("1", "刘亚辉", "男", "410804199805280035", "15989067460", "10", "2");
         private static Athlete athlete2 = new Athlete("1", "刘笑", "男", "410804199805280035", "15989067460", "10", "2");
         private ObservableCollection<Result> allResults = new ObservableCollection<Result>(
