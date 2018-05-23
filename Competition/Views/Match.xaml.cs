@@ -14,6 +14,7 @@ using ExcelDataReader;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Competition.Models;
+using Competition.ViewModels;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -22,8 +23,12 @@ namespace Competition.Views
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class Match : Page
+    sealed partial class Match : Page
     {
+        private Boolean TennisFlag = false;
+        private Boolean BadmintonFlag = false;
+        private Boolean PingPangFlag = false;
+        public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
         public Match()
         {
             this.InitializeComponent();
@@ -118,39 +123,74 @@ namespace Competition.Views
 
         private void CreateMatch_Click(object sender, RoutedEventArgs e)
         {
+            MatchesExisted.Visibility = Visibility.Visible;
             if (MatchBox.SelectedIndex == 0)
             {
-                MainPage.navMenuItemVMobj.NavMenuSecondaryTennisItem.Add(new NavMenuItem()
+                if (!TennisFlag)
                 {
-                    symbol = Symbol.World,
-                    text = "网球",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(MatchCreated)
-                });
+                    MainPage.navMenuItemVMobj.NavMenuSecondaryTennisItem.Add(new NavMenuItem()
+                    {
+                        symbol = Symbol.World,
+                        text = "网球",
+                        Selected = Visibility.Collapsed,
+                        destPage = typeof(MatchCreated)
+                    });
+                    matchesVM.AllMatches.Add(new Matches("1","网球", NameBox.Text, DateTimeOffset.Now.ToString()));
+                    TennisFlag = true;
+                }
+                else
+                {
+                    MatchBoxTips.Visibility = Visibility.Visible;
+                    return;
+                }
             }
             if (MatchBox.SelectedIndex == 1)
             {
-                MainPage.navMenuItemVMobj.NavMenuSecondaryBadmintonItem.Add(new NavMenuItem()
+                if (!BadmintonFlag)
                 {
-                    symbol = Symbol.World,
-                    text = "羽毛球",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(MatchCreated)
-                });
+                    MainPage.navMenuItemVMobj.NavMenuSecondaryBadmintonItem.Add(new NavMenuItem()
+                    {
+                        symbol = Symbol.World,
+                        text = "羽毛球",
+                        Selected = Visibility.Collapsed,
+                        destPage = typeof(MatchCreated)
+                    });
+                    BadmintonFlag = true;
+                }
+                else
+                {
+                    MatchBoxTips.Visibility = Visibility.Visible;
+                    return;
+                }
             }
             if (MatchBox.SelectedIndex == 2)
             {
-                MainPage.navMenuItemVMobj.NavMenuSecondaryPingPangItem.Add(new NavMenuItem()
+                if (!PingPangFlag)
                 {
-                    symbol = Symbol.World,
-                    text = "乒乓球",
-                    Selected = Visibility.Collapsed,
-                    destPage = typeof(MatchCreated)
-                });
+                    MainPage.navMenuItemVMobj.NavMenuSecondaryPingPangItem.Add(new NavMenuItem()
+                    {
+                        symbol = Symbol.World,
+                        text = "乒乓球",
+                        Selected = Visibility.Collapsed,
+                        destPage = typeof(MatchCreated)
+                    });
+                    PingPangFlag = true;
+                }
+                else
+                {
+                    MatchBoxTips.Visibility = Visibility.Visible;
+                    return;
+                }
             }
             MainPage.Curr.NavMenuSecondaryTennisListView.Visibility = Visibility.Visible;
             MainPage.Curr.NavMenuSecondaryPingPangListView.Visibility = Visibility.Visible;
             MainPage.Curr.NavMenuSecondaryBadmintonListView.Visibility = Visibility.Visible;
         }
+
+        private void DeleteMatch_Click(object sender, RoutedEventArgs e)
+        {
+            matchesVM.AllMatches.Remove((sender as Button).DataContext as Matches);
+        }
+
     }
 }

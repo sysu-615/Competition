@@ -6,6 +6,19 @@
     RequestedTheme="Light">
     <Application.Resources>
 
+        <Style x:Key="Header" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="TopBar" TargetType="RelativePanel">
+            <Setter Property="Background" Value="#409eff" />
+        </Style>
+
+        <Style x:Key="LeftBar" TargetType="Grid">
+            <Setter Property="Background" Value="#409eff" />
+        </Style>
+
         <!-- 菜单的数据模板 -->
         <DataTemplate x:Key="MenuItemDataTemplate">
             <Grid>
@@ -80,19 +93,6 @@
             </Grid>
         </DataTemplate>
 
-        <Style x:Key="Header" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-        </Style>
-
-        <Style x:Key="TopBar" TargetType="RelativePanel">
-            <Setter Property="Background" Value="#409eff" />
-        </Style>
-
-        <Style x:Key="LeftBar" TargetType="Grid">
-            <Setter Property="Background" Value="#409eff" />
-        </Style>
-
         <!-- 菜单栏样式 -->
         <Style x:Key="NavMenuItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
@@ -140,7 +140,7 @@
             </Setter>
         </Style>
 
-        <!-- 运动员信息栏样式 -->
+        <!-- 对战信息栏样式 -->
         <Style x:Key="BattlesItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
             <Setter Property="Height" Value="48"/>
@@ -158,5 +158,24 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!-- 赛事样式 -->
+        <!--<Style x:Key="MatchesItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                        PointerOverBackground="#409eff"
+                        PointerOverForeground="White"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentMargin="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
     </Application.Resources>
 </Application>
