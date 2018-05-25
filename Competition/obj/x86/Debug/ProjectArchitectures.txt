@@ -1,1 +1,1 @@
-D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Competition.csproj;x86
+D:\Competition\Competition\Competition.csproj;x86
