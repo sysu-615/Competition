@@ -18,7 +18,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
-namespace Competition.Views
+namespace Competition.Views.MatchInfo
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
@@ -33,18 +33,7 @@ namespace Competition.Views
 
         private void CreateBattles_Click(object sender, RoutedEventArgs e)
         {
-            if (Title.Text == "网球")
-            {
-                Debug.WriteLine("[info] 网球");
-            }
-            else if(Title.Text=="羽毛球")
-            {
-                Debug.WriteLine("[info] 羽毛球");
-            }
-            else
-            {
-                Debug.WriteLine("[info] 乒乓球");
-            }
+            
 
         }
 
@@ -60,8 +49,7 @@ namespace Competition.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Debug.WriteLine(e.Parameter);
-            Title.Text = e.Parameter as string;
+            
         }
 
         private void DeleteMatch_Click(object sender, RoutedEventArgs e)

@@ -17,12 +17,10 @@ namespace Competition
     sealed partial class MainPage : Page
     {
         public static MainPage Curr;
-        public static NavMenuItemVM navMenuItemVMobj = new NavMenuItemVM();
-        public NavMenuItemVM navMenuItemVM { get { return navMenuItemVMobj; } }
-
-        private NavMenuItem PrimarySelectedItem =null;
-        private NavMenuItem SecondarySelectedItem = null;
-        private NavMenuItem ThirdSelectedItem = null;
+        public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
+        private string matchName="";
+        //private NavMenuItem PrimarySelectedItem = null;
+        //private NavMenuItem SecondarySelectedItem = null;
         public MainPage()
         {
             this.InitializeComponent();
@@ -34,125 +32,73 @@ namespace Competition
             menuView.IsPaneOpen = !menuView.IsPaneOpen;
         }
 
-        private void MenuFlyoutSignUp_Click(object sender, RoutedEventArgs e)
+        private void Login_Clicked(object sender, RoutedEventArgs e)
         {
+            UserInfo.UserName = UserName.Text;
+            UserInfo.Password = Password.Password;
+            //登陆验证模块
 
+            //登陆成功后
+            //UserInfo.IsLogged = true;
+            //Login_Button.Visibility = Visibility.Collapsed;
+            ContentFrame.Navigate(typeof(Home));
+
+            //登陆失败后
+            //胜利ar dialog = new MessageDialog("账号或密码错误，请重新输入！");
+            //胜利ar result = dialog.ShowAsync();
         }
 
-        private void MenuFlyoutSignIn_Click(object sender, RoutedEventArgs e)
+        private void Exit_Clicked(object sender, RoutedEventArgs e)
         {
-
+            UserInfo.UserName = "";
+            UserInfo.Password = "";
+            UserInfo.IsLogged = false;
         }
 
         private void ListView_PrimaryItemClick(object sender, ItemClickEventArgs e)
         {
             Debug.WriteLine(e.ClickedItem);
-            if(PrimarySelectedItem != null)
-                PrimarySelectedItem.Selected = Visibility.Collapsed;
+            if (navMenuItemVM.PrimarySelectedItem != null)
+                navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;
 
-            PrimarySelectedItem = e.ClickedItem as NavMenuItem;
-            PrimarySelectedItem.Selected = Visibility.Visible;
+            navMenuItemVM.PrimarySelectedItem = e.ClickedItem as NavMenuItem;
+            navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Visible;
 
-            if (SecondarySelectedItem != null)
-                SecondarySelectedItem.Selected = Visibility.Collapsed;
-            if (ThirdSelectedItem != null)
-                ThirdSelectedItem.Selected = Visibility.Collapsed;
+            if (navMenuItemVM.SecondarySelectedItem != null)
+                navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
 
-            if (PrimarySelectedItem.text == "赛事")
+            if(navMenuItemVM.PrimarySelectedItem.text!="赛事" && navMenuItemVM.PrimarySelectedItem.text != "首页")
             {
-                if(navMenuItemVM.NavMenuSecondaryTennisItem.Count>0)
-                    NavMenuSecondaryTennisListView.Visibility = NavMenuSecondaryTennisListView.Visibility==Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-                if (navMenuItemVM.NavMenuSecondaryTennisItem.Count == 0)
-                    NavMenuSecondaryTennisListView.Visibility = Visibility.Collapsed;
-                if (navMenuItemVM.NavMenuSecondaryBadmintonItem.Count>0)
-                    NavMenuSecondaryBadmintonListView.Visibility = NavMenuSecondaryBadmintonListView.Visibility==Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-                if (navMenuItemVM.NavMenuSecondaryBadmintonItem.Count == 0)
-                    NavMenuSecondaryBadmintonListView.Visibility = Visibility.Collapsed;
-                if (navMenuItemVM.NavMenuSecondaryPingPangItem.Count>0)
-                    NavMenuSecondaryPingPangListView.Visibility = NavMenuSecondaryPingPangListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-                if (navMenuItemVM.NavMenuSecondaryPingPangItem.Count == 0)
-                    NavMenuSecondaryPingPangListView.Visibility = Visibility.Collapsed;
-
-                TennisInfoListView.Visibility = Visibility.Collapsed;
-                BadmintonInfoListView.Visibility = Visibility.Collapsed;
-                PingPangInfoListView.Visibility = Visibility.Collapsed;
-                menuView.IsPaneOpen = true;
+                NavMenuMatchInfoListView.Visibility = NavMenuMatchInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+                matchName= navMenuItemVM.PrimarySelectedItem.text;
+                ContentFrame.Navigate(navMenuItemVM.PrimarySelectedItem.destPage, matchName);
             }
 
-            if (PrimarySelectedItem.destPage != null)
-                ContentFrame.Navigate(PrimarySelectedItem.destPage);
+            if (navMenuItemVM.PrimarySelectedItem.destPage != null)
+                ContentFrame.Navigate(navMenuItemVM.PrimarySelectedItem.destPage);
 
-            //menuView.IsPaneOpen = false;
+            menuView.IsPaneOpen = false;
         }
 
         private void ListView_SecondaryItemClick(object sender, ItemClickEventArgs e)
         {
-            if(SecondarySelectedItem!=null)
-                SecondarySelectedItem.Selected = Visibility.Collapsed;
-            if (PrimarySelectedItem != null)
-                PrimarySelectedItem.Selected = Visibility.Collapsed;
-            PrimarySelectedItem = NavMenuPrimaryListView.Items[1] as NavMenuItem;
-            PrimarySelectedItem.Selected = Visibility.Visible;
+            if (navMenuItemVM.SecondarySelectedItem != null)
+                navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
+            if (navMenuItemVM.PrimarySelectedItem != null)
+                navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;
 
-            SecondarySelectedItem = e.ClickedItem as NavMenuItem;
-            SecondarySelectedItem.Selected = Visibility.Visible;
+            // (NavMenuMatchInfoListView.Items[0] as NavMenuItem).Selected = Visibility.Collapsed;
+            // (NavMenuMatchInfoListView.Items[1] as NavMenuItem).Selected = Visibility.Collapsed;
+            // (NavMenuMatchInfoListView.Items[2] as NavMenuItem).Selected = Visibility.Collapsed;
 
-            if (ThirdSelectedItem != null)
-                ThirdSelectedItem.Selected = Visibility.Collapsed;
+            navMenuItemVM.PrimarySelectedItem = NavMenuMatchListView.Items[0] as NavMenuItem;
+            navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Visible;
 
-            if (SecondarySelectedItem.text=="网球")
-                TennisInfoListView.Visibility = TennisInfoListView.Visibility== Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-            else if(SecondarySelectedItem.text == "羽毛球")
-                BadmintonInfoListView.Visibility = BadmintonInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-            else
-                PingPangInfoListView.Visibility = PingPangInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            navMenuItemVM.SecondarySelectedItem = e.ClickedItem as NavMenuItem;
+            navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Visible;
 
-            if (SecondarySelectedItem.destPage != null)
-                ContentFrame.Navigate(SecondarySelectedItem.destPage, SecondarySelectedItem.text);
+            if (navMenuItemVM.SecondarySelectedItem.destPage != null)
+                ContentFrame.Navigate(navMenuItemVM.SecondarySelectedItem.destPage, matchName);
         }
-
-        private void ListView_TennisInfoItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (SecondarySelectedItem != null)
-                SecondarySelectedItem.Selected = Visibility.Collapsed;
-            SecondarySelectedItem = NavMenuSecondaryTennisListView.Items[0] as NavMenuItem;
-            InfoItemClick(sender, e);
-        }
-
-        private void ListView_BadmintonInfoItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (SecondarySelectedItem != null)
-                SecondarySelectedItem.Selected = Visibility.Collapsed;
-            SecondarySelectedItem = NavMenuSecondaryBadmintonListView.Items[0] as NavMenuItem;
-            InfoItemClick(sender, e);
-        }
-
-        private void ListView_PingPangInfoItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (SecondarySelectedItem != null)
-                SecondarySelectedItem.Selected = Visibility.Collapsed;
-            SecondarySelectedItem = NavMenuSecondaryPingPangListView.Items[0] as NavMenuItem;
-            InfoItemClick(sender, e);
-        }
-
-        private void InfoItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (ThirdSelectedItem != null)
-                ThirdSelectedItem.Selected = Visibility.Collapsed;
-
-            ThirdSelectedItem = e.ClickedItem as NavMenuItem;
-            ThirdSelectedItem.Selected = Visibility.Visible;
-
-            SecondarySelectedItem.Selected = Visibility.Visible;
-
-            if (PrimarySelectedItem != null)
-                PrimarySelectedItem.Selected = Visibility.Collapsed;
-            PrimarySelectedItem = NavMenuPrimaryListView.Items[1] as NavMenuItem;
-            PrimarySelectedItem.Selected = Visibility.Visible;
-
-            if (ThirdSelectedItem.destPage != null)
-                ContentFrame.Navigate(ThirdSelectedItem.destPage, SecondarySelectedItem.text);
-        }
-
     }
 }

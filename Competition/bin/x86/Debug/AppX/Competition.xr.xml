@@ -18,7 +18,6 @@
     <RootPropertyPathName Name="text" />
     <RootPropertyPathName Name="symbol" />
     <RootPropertyPathName Name="Selected" />
-    <RootPropertyPathName Name="ActualWidth" />
     <RootPropertyPathName Name="startTime" />
     <RootPropertyPathName Name="matchEvent" />
   </Roots.PropertyPathNames>
@@ -36,7 +35,10 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Style" />
+      <RootProperty Name="TextAlignment" />
+      <RootProperty Name="TextDecorations" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="Name" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Style" />
@@ -68,6 +70,7 @@
       <RootProperty Name="Background" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Style" />
+      <RootProperty Name="Height" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRow" />
@@ -119,8 +122,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
-      <RootProperty Name="ElementName" />
-      <RootProperty Name="Path" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Fill" />
@@ -163,9 +164,9 @@
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="Name" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="Width" />
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
@@ -202,30 +203,42 @@
       <RootProperty Name="Flyout" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
-      <RootProperty Name="Items" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
-      <RootProperty Name="Text" />
-      <RootEvent Name="Click" />
-    </RootType>
-    <RootType FullName="Competition.MainPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
-      <RootProperty Name="Items" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.GridViewItem">
+    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
       <RootProperty Name="Content" />
-      <RootProperty Name="Width" />
+      <RootProperty Name="Placement" />
     </RootType>
-    <RootType FullName="Competition.Views.Home" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Flyout" />
+      <RootProperty Name="AllowFocusOnInteraction" />
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Margin" />
       <RootEvent Name="Click" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="AllowFocusOnInteraction" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="AllowFocusOnInteraction" />
+    </RootType>
+    <RootType FullName="Competition.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="ImageSource" />
+    </RootType>
+    <RootType FullName="Competition.Views.Home" />
     <RootType FullName="Windows.UI.Xaml.Controls.ToolTipService">
       <RootMethod Name="GetToolTip" />
       <RootMethod Name="SetToolTip" />
@@ -241,11 +254,6 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Offset" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Width" />
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="Margin" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Width" />
       <RootProperty Name="Margin" />
@@ -256,7 +264,7 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Competition.Views.Match" />
-    <RootType FullName="Competition.Views.MatchCreated" />
+    <RootType FullName="Competition.Views.MatchInfo.MatchCreated" />
     <RootType FullName="Competition.Views.MatchInfo.Athletes" />
     <RootType FullName="Competition.Views.MatchInfo.Battles" />
     <RootType FullName="Competition.Views.MatchInfo.Results" />
@@ -264,9 +272,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.MediaPlayerElement">
       <RootProperty Name="AreTransportControlsEnabled" />
       <RootProperty Name="HorizontalAlignment" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
-      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="Minimum" />

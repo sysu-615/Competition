@@ -181,7 +181,6 @@ D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debu
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\WindowsBase.dll
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\mscorlib.dll
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\netstandard.dll
-D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Competition.csprojResolveAssemblyReference.cache
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\App.g.i.cs
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\App.g.cs
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\MainPage.g.i.cs
@@ -566,3 +565,4 @@ D:\Competition\Competition\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Competition\Competition\obj\x86\Debug\resources.en-us.resfiles
 D:\Competition\Competition\obj\x86\Debug\resources.en-us.resfiles.intermediate
 D:\Competition\Competition\obj\x86\Debug\ProjectArchitectures.txt
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Competition.csprojResolveAssemblyReference.cache

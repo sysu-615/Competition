@@ -38,7 +38,7 @@ namespace Competition.Views.MatchInfo
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Debug.WriteLine(e.Parameter);
-            Title.Text = (e.Parameter as string) + "对战信息";
+            Title.Text = (e.Parameter as string) + "-对战信息";
         }
     }
 }

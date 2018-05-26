@@ -25,10 +25,9 @@ namespace Competition.Views
     /// </summary>
     sealed partial class Match : Page
     {
-        private Boolean TennisFlag = false;
-        private Boolean BadmintonFlag = false;
-        private Boolean PingPangFlag = false;
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
+        public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
+
         public Match()
         {
             this.InitializeComponent();
@@ -123,73 +122,42 @@ namespace Competition.Views
 
         private void CreateMatch_Click(object sender, RoutedEventArgs e)
         {
-            MatchesExisted.Visibility = Visibility.Visible;
+            if (NameBox.Text == "")
+            {
+                NameNullTips.Visibility = Visibility.Visible;
+                return;
+            }
+            string matchEvent="";
             if (MatchBox.SelectedIndex == 0)
-            {
-                if (!TennisFlag)
-                {
-                    MainPage.navMenuItemVMobj.NavMenuSecondaryTennisItem.Add(new NavMenuItem()
-                    {
-                        symbol = Symbol.World,
-                        text = "网球",
-                        Selected = Visibility.Collapsed,
-                        destPage = typeof(MatchCreated)
-                    });
-                    matchesVM.AllMatches.Add(new Matches("1","网球", NameBox.Text, DateTimeOffset.Now.ToString()));
-                    TennisFlag = true;
-                }
-                else
-                {
-                    MatchBoxTips.Visibility = Visibility.Visible;
-                    return;
-                }
-            }
-            if (MatchBox.SelectedIndex == 1)
-            {
-                if (!BadmintonFlag)
-                {
-                    MainPage.navMenuItemVMobj.NavMenuSecondaryBadmintonItem.Add(new NavMenuItem()
-                    {
-                        symbol = Symbol.World,
-                        text = "羽毛球",
-                        Selected = Visibility.Collapsed,
-                        destPage = typeof(MatchCreated)
-                    });
-                    BadmintonFlag = true;
-                }
-                else
-                {
-                    MatchBoxTips.Visibility = Visibility.Visible;
-                    return;
-                }
-            }
-            if (MatchBox.SelectedIndex == 2)
-            {
-                if (!PingPangFlag)
-                {
-                    MainPage.navMenuItemVMobj.NavMenuSecondaryPingPangItem.Add(new NavMenuItem()
-                    {
-                        symbol = Symbol.World,
-                        text = "乒乓球",
-                        Selected = Visibility.Collapsed,
-                        destPage = typeof(MatchCreated)
-                    });
-                    PingPangFlag = true;
-                }
-                else
-                {
-                    MatchBoxTips.Visibility = Visibility.Visible;
-                    return;
-                }
-            }
-            MainPage.Curr.NavMenuSecondaryTennisListView.Visibility = Visibility.Visible;
-            MainPage.Curr.NavMenuSecondaryPingPangListView.Visibility = Visibility.Visible;
-            MainPage.Curr.NavMenuSecondaryBadmintonListView.Visibility = Visibility.Visible;
+                matchEvent = "网球";
+            else if (MatchBox.SelectedIndex == 1)
+                matchEvent = "羽毛球";
+            else if (MatchBox.SelectedIndex == 2)
+                matchEvent = "乒乓球";
+
+            MatchesExisted.Visibility = Visibility.Visible;
+            MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
+            navMenuItemVM.NavMenuMatchItem[0].text = NameBox.Text;
+
+            //访问数据库，或者遍历VM，判断名字是否重复
+            //
+
+            matchesVM.AllMatches.Add(new Matches(matchEvent, NameBox.Text, DateTimeOffset.Now.ToString().Substring(0, 17)));
+            //同步数据库
+            //
         }
 
         private void DeleteMatch_Click(object sender, RoutedEventArgs e)
         {
             matchesVM.AllMatches.Remove((sender as Button).DataContext as Matches);
+            if (matchesVM.AllMatches.Count == 0)
+            {
+                MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Collapsed;
+                MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
+            }
+
+            //同步数据库
+            //
         }
 
     }
