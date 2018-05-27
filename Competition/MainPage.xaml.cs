@@ -1,12 +1,15 @@
 ﻿using Competition.Models;
 using Competition.ViewModels;
 using Competition.Views;
+using Competition.Internet;
 using Competition.Views.MatchInfo;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.Data.Json;
+using Newtonsoft.Json.Linq;
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
 namespace Competition
@@ -18,6 +21,7 @@ namespace Competition
     {
         public static MainPage Curr;
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
+        public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
         private string matchName="";
 
         public MainPage()
@@ -31,7 +35,7 @@ namespace Competition
             menuView.IsPaneOpen = !menuView.IsPaneOpen;
         }
 
-        private void Login_Clicked(object sender, RoutedEventArgs e)
+        private async void Login_Clicked(object sender, RoutedEventArgs e)
         {
             UserInfo.UserName = UserName.Text;
             UserInfo.Password = Password.Password;
@@ -43,6 +47,17 @@ namespace Competition
             UserInfoState.Hide();
             ContentFrame.Navigate(typeof(Home));
 
+            JObject Matches = new JObject();
+            Matches = await API.GetAPI().queryAllMatchesAsync();
+            //Debug.WriteLine(Matches.ToString());
+            foreach(var match in Matches["pingpong"])
+                matchesVM.AllMatches.Add(new Matches("pingpong", match["title"].ToString(), match["date"].ToString()));
+            foreach (var match in Matches["badminton"])
+                matchesVM.AllMatches.Add(new Matches("badminton", match["title"].ToString(), match["date"].ToString()));
+            foreach (var match in Matches["tennis"])
+                matchesVM.AllMatches.Add(new Matches("tennis", match["title"].ToString(), match["date"].ToString()));
+
+            //matchesVM.AllMatches.Add();
             //登陆失败后
             //胜利ar dialog = new MessageDialog("账号或密码错误，请重新输入！");
             //dialog.ShowAsync();

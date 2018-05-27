@@ -63,8 +63,7 @@ namespace Competition.Views
                     // 请求数据库刷新更具当前选中的比赛更新VM(包括Athlete、Battle、Result)
                     // matchesVM.SelectedMatch即为当前选中的比赛，包括了name,startTime和matchEvent
 
-
-                    navMenuItemVM.UpdateNavMenuItem(name);
+                    navMenuItemVM.NavMenuMatchItem[0].text = name;
                     MainPage.Curr.ContentFrame.Navigate(typeof(Battles));
                 }
             }

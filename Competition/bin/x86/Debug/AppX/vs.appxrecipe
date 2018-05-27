@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-27T08:23:21.242</Modified>
+      <Modified>2018-05-27T13:26:26.706</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.exe">
       <PackagePath>entrypoint\Competition.exe</PackagePath>
-      <Modified>2018-05-27T08:23:20.482</Modified>
+      <Modified>2018-05-27T13:26:25.986</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\epplus\4.5.2\lib\netstandard2.0\EPPlus.dll">
       <PackagePath>EPPlus.dll</PackagePath>
@@ -807,7 +807,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.xr.xml">
       <PackagePath>Competition.xr.xml</PackagePath>
-      <Modified>2018-05-27T08:09:49.930</Modified>
+      <Modified>2018-05-27T13:20:37.795</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -816,11 +816,11 @@
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-27T08:23:20.966</Modified>
+      <Modified>2018-05-27T13:26:26.434</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\Competition.exe">
       <PackagePath>Competition.exe</PackagePath>
-      <Modified>2018-05-27T08:23:21.238</Modified>
+      <Modified>2018-05-27T13:26:26.702</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

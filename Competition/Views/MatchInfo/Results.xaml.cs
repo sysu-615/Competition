@@ -39,12 +39,35 @@ namespace Competition.Views.MatchInfo
 
         private void GenerateNextRound_Click(object sender, RoutedEventArgs e)
         {
-            //当前的winner是名字，需要获取对应battle内的athlete，才可以提交当前的winner
+
         }
 
         private void Store_Click(object sender, RoutedEventArgs e)
         {
             //提交当前的winner,需要获取对应battle内的athlete，才可以进行提交保存
+        }
+
+        private void Info_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+        }
+
+        private void Winner1_Click(object sender, RoutedEventArgs e)
+        {
+            Result selected = (sender as FrameworkElement).DataContext as Result;
+            String Winner = (sender as MenuFlyoutItem).Text;
+            selected.winAthleteName = Winner;
+            selected.winAthleteNum = 1;
+            Debug.WriteLine(selected.winAthleteName);
+        }
+
+        private void Winner2_Click(object sender, RoutedEventArgs e)
+        {
+            Result selected = (sender as FrameworkElement).DataContext as Result;
+            String Winner = (sender as MenuFlyoutItem).Text;
+            selected.winAthleteName = Winner;
+            selected.winAthleteNum = 2;
+            Debug.WriteLine(selected.winAthleteName);
         }
     }
 }

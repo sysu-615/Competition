@@ -69,9 +69,10 @@
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding athlete1.name}"></TextBlock>
-                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="VS"></TextBlock>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding athlete2.name}"></TextBlock>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding groupIndex}"/>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding athlete1.name}"></TextBlock>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="VS"></TextBlock>
+                <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding athlete2.name}"></TextBlock>
             </Grid>
         </DataTemplate>
 

@@ -145,13 +145,12 @@ namespace Competition.Views
 
             MatchesExisted.Visibility = Visibility.Visible;
             MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
-            navMenuItemVM.UpdateNavMenuItem(NameBox.Text);
-
+            navMenuItemVM.NavMenuMatchItem[0].text = NameBox.Text;
             Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10));
             matchesVM.SelectedMatch = newMatch;
             matchesVM.AllMatches.Add(newMatch);
 
-
+            MainPage.Curr.ContentFrame.Navigate(typeof(MatchCreated));
             //新增加一场比赛，同步数据库
             //
         }

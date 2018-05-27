@@ -32,8 +32,11 @@ namespace Competition.Views.MatchInfo
         public Battles()
         {
             this.InitializeComponent();
+            //Models.Athlete AthleteA = new Models.Athlete("序号", "姓名", "性别", "身份证号", "手机号", "积分", "种子序号");
+            //Models.Athlete AthleteB = new Models.Athlete("1", "刘亚辉", "男", "410804199805280035", "15989067460", "10", "2");
+            //Models.Battle battle = new Models.Battle(AthleteA, AthleteB);
+            //Debug.WriteLine(battleVM.AllBattles[0].ToString());
         }
-
         private async void ExportExcel_Click(object sender, RoutedEventArgs e)
         {
              FileSavePicker savePicker = new FileSavePicker();
@@ -42,18 +45,18 @@ namespace Competition.Views.MatchInfo
              savePicker.SuggestedFileName = Title.Text;
              StorageFile file = await savePicker.PickSaveFileAsync();
 
-            using (ExcelPackage package = new ExcelPackage(await file.OpenStreamForWriteAsync()))
-            {
-                ExcelWorksheet battlesSheet = package.Workbook.Worksheets.Add("battlesSheet");
-                battlesSheet.Cells[1, 1].Value = "运动员";
-                battlesSheet.Cells[1, 2].Value = "VS";
-                battlesSheet.Cells[1, 3].Value = "运动员";
+             using (ExcelPackage package = new ExcelPackage(await file.OpenStreamForWriteAsync()))
+             {
+                 ExcelWorksheet battlesSheet = package.Workbook.Worksheets.Add("battlesSheet");
+                 battlesSheet.Cells[1, 1].Value = "运动员";
+                 battlesSheet.Cells[1, 2].Value = "VS";
+                 battlesSheet.Cells[1, 3].Value = "运动员";
 
-                //读取VMBattles信息保存到Excel中
-                // 
+                 //读取VMBattles信息保存到Excel中
+                 //
 
-                package.Save();
-            }
+                 package.Save();
+             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

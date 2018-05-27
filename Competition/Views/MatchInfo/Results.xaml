@@ -5,6 +5,7 @@
     xmlns:local="using:Competition.Views.MatchInfo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="using:Competition.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -18,16 +19,37 @@
                 <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
                 <TextBlock Text="-结果信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
             </RelativePanel>
-            <ScrollViewer Grid.Row="1">
-                <GridView x:Name="ResultsListView"
+            <GridView Grid.Row="1" x:Name="ResultsListView"
                     Background="#20acff"
                     Foreground="White"
                     Visibility="Visible"
                     HorizontalAlignment="Center"
-                    SelectionMode="None"
-                    ItemTemplate="{StaticResource ResultsDataTemplate}" 
-                    ItemsSource="{x:Bind resultVM.AllResults}" />
-            </ScrollViewer>
+                    ItemsSource="{x:Bind resultVM.AllResults}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="md:Result">
+                        <Grid Width="500" Tapped="Info_Tapped">
+                            <Flyout.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="{Binding battle.athlete1.name}" Click="Winner1_Click"/>
+                                    <MenuFlyoutItem Text="{Binding battle.athlete2.name}" Click="Winner2_Click"/>
+                                </MenuFlyout>
+                            </Flyout.AttachedFlyout>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding battle.athlete1.name}"></TextBlock>
+                            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="VS"></TextBlock>
+                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
+                            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="胜利方->"></TextBlock>
+                            <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="{Binding winAthleteName}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
             <RelativePanel Grid.Row="2" Margin="50 0 50 0">
                 <Button x:Name="GenerateNextRound"
                                 Width="100"

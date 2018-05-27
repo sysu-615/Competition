@@ -15,7 +15,16 @@ namespace Competition.Models
         // 图标
         public Symbol symbol { get; set; }
         // 文本
-        public string text { get; set; }
+        private string Text;
+        public string text
+        {
+            get { return Text; }
+            set
+            {
+                Text = value;
+                this.OnPropertyChanged("text");
+            }
+        }
         // 导航页
         public Type destPage { get; set; }
         // 用于左侧矩形的显示

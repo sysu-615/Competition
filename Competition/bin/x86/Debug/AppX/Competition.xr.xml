@@ -9,6 +9,7 @@
     <RootPropertyPathName Name="battle" />
     <RootPropertyPathName Name="athlete2" />
     <RootPropertyPathName Name="athlete1" />
+    <RootPropertyPathName Name="groupIndex" />
     <RootPropertyPathName Name="seedNum" />
     <RootPropertyPathName Name="score" />
     <RootPropertyPathName Name="phoneNum" />
@@ -20,6 +21,7 @@
     <RootPropertyPathName Name="Selected" />
     <RootPropertyPathName Name="startTime" />
     <RootPropertyPathName Name="matchEvent" />
+    <RootPropertyPathName Name="winAthleteName" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -70,6 +72,7 @@
       <RootProperty Name="Background" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Style" />
+      <RootEvent Name="Tapped" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRow" />
@@ -309,6 +312,17 @@
     <RootType FullName="Competition.Views.MatchInfo.MatchCreated" />
     <RootType FullName="Competition.Views.MatchInfo.Athletes" />
     <RootType FullName="Competition.Views.MatchInfo.Battles" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
+      <RootMethod Name="GetAttachedFlyout" />
+      <RootMethod Name="SetAttachedFlyout" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
+      <RootProperty Name="Text" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="Competition.Views.MatchInfo.Results" />
     <RootType FullName="Competition.SliderConverter.Converter" />
     <RootType FullName="Windows.UI.Xaml.Controls.MediaPlayerElement">

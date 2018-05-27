@@ -8,7 +8,7 @@ namespace Competition.Models
 {
     class Athlete
     {
-        public string index { get; set; }
+        public string id { get; set; }
 
         public string name { get; set; }
 
@@ -22,18 +22,17 @@ namespace Competition.Models
 
         public string seedNum { get; set; }
 
-        public string win { get; set; }
+        //public string win { get; set; }
 
-        public Athlete(string _index, string _name, string _sex, string _idNum, string _phoneNum, string _score, string _seedNum)
+        public Athlete(string _id, string _name, string _sex, string _idNum, string _phoneNum, string _score, string _seedNum)
         {
-            this.index = _index;
+            this.id = _id;
             this.name = _name;
             this.sex = _sex;
             this.idNum = _idNum;
             this.phoneNum = _phoneNum;
             this.score = _score;
             this.seedNum = _seedNum;
-            this.win = "0";
         }
     }
 }
