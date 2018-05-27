@@ -11,13 +11,11 @@
         <DataTemplate x:Key="MatchesDataTemplate">
             <Grid Width="800">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding index}"></TextBlock>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding matchEvent}"></TextBlock>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding name}"></TextBlock>
                 <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding startTime}"></TextBlock>
@@ -40,8 +38,6 @@
                     <ComboBoxItem>羽毛球</ComboBoxItem>
                     <ComboBoxItem>乒乓球</ComboBoxItem>
                 </ComboBox>
-
-                <TextBlock x:Name="MatchBoxTips" Text="（注：相同的比赛在同一时间只能创建一场）" Visibility="Collapsed" RelativePanel.RightOf="MatchBox" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="IndianRed"/>
             </RelativePanel>
 
             <RelativePanel Margin="0 20 0 0">
@@ -54,6 +50,11 @@
             <RelativePanel Margin="0 20 0 0">
                 <TextBlock x:Name="NumberBlock" Margin="50 0 10 0" Text="请输入参赛人员总数：" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" />
                 <TextBox x:Name="NumberBox" Width="200" PlaceholderText="0" RelativePanel.RightOf="NumberBlock" RelativePanel.AlignVerticalCenterWithPanel="True" />
+            </RelativePanel>
+
+            <RelativePanel Margin="0 20 0 0">
+                <TextBlock x:Name="StartTimeBlock" Margin="50 0 10 0" Text="请选择比赛开始时间：" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                <DatePicker x:Name="StartTimePicker" Width="300" RelativePanel.RightOf="StartTimeBlock" RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
 
             <Border Height="100"

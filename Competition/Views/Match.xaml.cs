@@ -15,6 +15,7 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Competition.Models;
 using Competition.ViewModels;
+using Competition.Views.MatchInfo;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -47,11 +48,12 @@ namespace Competition.Views
             IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);
             DataSet dataSet = excelDataReader.AsDataSet();
             Debug.WriteLine(dataSet.GetXml());
+            excelDataReader.Close();
         }
 
         private async void Border_Drop(object sender, DragEventArgs e)
         {
-            Debug.WriteLine("[Info] Drag");
+            //Debug.WriteLine("[Info] Drag");
             if (e.DataView.Contains(StandardDataFormats.StorageItems))
             {
                 Debug.WriteLine("[Info] DataView Contains StorageItems");
@@ -135,15 +137,22 @@ namespace Competition.Views
             else if (MatchBox.SelectedIndex == 2)
                 matchEvent = "乒乓球";
 
-            MatchesExisted.Visibility = Visibility.Visible;
-            MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
-            navMenuItemVM.NavMenuMatchItem[0].text = NameBox.Text;
-
-            //访问数据库，或者遍历VM，判断名字是否重复
+            //遍历VM，判断名字是否重复
+            //如果重复，则提示名称重复
+            //并直接return
             //
 
-            matchesVM.AllMatches.Add(new Matches(matchEvent, NameBox.Text, DateTimeOffset.Now.ToString().Substring(0, 17)));
-            //同步数据库
+
+            MatchesExisted.Visibility = Visibility.Visible;
+            MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
+            navMenuItemVM.UpdateNavMenuItem(NameBox.Text);
+
+            Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10));
+            matchesVM.SelectedMatch = newMatch;
+            matchesVM.AllMatches.Add(newMatch);
+
+
+            //新增加一场比赛，同步数据库
             //
         }
 
@@ -156,7 +165,7 @@ namespace Competition.Views
                 MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
             }
 
-            //同步数据库
+            //删除一场比赛，同步数据库
             //
         }
 

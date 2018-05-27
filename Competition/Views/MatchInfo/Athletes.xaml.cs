@@ -26,6 +26,7 @@ namespace Competition.Views.MatchInfo
     sealed partial class Athletes : Page
     {
         public AthleteVM athleteVM = AthleteVM.GetAthleteVM();
+        public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
 
         public Athletes()
         {
@@ -34,9 +35,7 @@ namespace Competition.Views.MatchInfo
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Debug.WriteLine(e.Parameter);
-            Title.Text = (e.Parameter as string)+"-运动员信息";
+           
         }
-
     }
 }

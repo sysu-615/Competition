@@ -9,10 +9,12 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <TextBlock x:Name="Title" Text="运动员信息" Margin="0 20 0 20" HorizontalAlignment="Center" Style="{StaticResource Header}"/>
+            <RelativePanel  Margin="0 20 0 20" HorizontalAlignment="Center">
+                <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
+                <TextBlock Text="-运动员信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+            </RelativePanel>
 
-
-            <ListView x:Name="AthletesListView"
+            <GridView x:Name="AthletesListView"
                 Width="Auto" 
                 Background="#20acff"
                 Foreground="White"

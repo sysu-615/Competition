@@ -8,17 +8,44 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock x:Name="Title" Text="比赛结果" Margin="0 20 0 20" HorizontalAlignment="Center" Style="{StaticResource Header}"/>
-            <ListView x:Name="ResultsListView"
-                    Width="Auto" 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <RelativePanel Grid.Row="0"  Margin="0 20 0 20" HorizontalAlignment="Center">
+                <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
+                <TextBlock Text="-结果信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+            </RelativePanel>
+            <ScrollViewer Grid.Row="1">
+                <GridView x:Name="ResultsListView"
                     Background="#20acff"
                     Foreground="White"
                     Visibility="Visible"
-                    Margin="50 0 50 0"
+                    HorizontalAlignment="Center"
                     SelectionMode="None"
                     ItemTemplate="{StaticResource ResultsDataTemplate}" 
                     ItemsSource="{x:Bind resultVM.AllResults}" />
-        </StackPanel>
+            </ScrollViewer>
+            <RelativePanel Grid.Row="2" Margin="50 0 50 0">
+                <Button x:Name="GenerateNextRound"
+                                Width="100"
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Background="#20acff"
+                                Foreground="White"
+                                Click="GenerateNextRound_Click"
+                                Content="生成下一轮" RelativePanel.AlignLeftWithPanel="True"/>
+
+                <Button x:Name="Store"
+                                Width="100"
+                                RelativePanel.AlignRightWithPanel="True"
+                                Background="#20acff"
+                                Foreground="White"
+                                Click="Store_Click"
+                                Content="保存" />
+            </RelativePanel>
+        </Grid>
     </Grid>
 </Page>

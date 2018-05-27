@@ -19,6 +19,14 @@ namespace Competition.ViewModels
             return matchesVM;
         }
         private MatchesVM() { }
+
+        private Matches selectedMatch = null;
+
+        public Matches SelectedMatch
+        {
+            get { return selectedMatch; }
+            set { this.selectedMatch = value; }
+        }
         private ObservableCollection<Matches> allMatches = new ObservableCollection<Matches>();
         public ObservableCollection<Matches> AllMatches { get { return this.allMatches; } }
     }

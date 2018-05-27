@@ -125,5 +125,17 @@ namespace Competition.ViewModels
                 }
             });
         public ObservableCollection<NavMenuItem> NavMenuBottomItem { get { return this.navMenuBottomItem; } }
+
+        public void UpdateNavMenuItem(string MatchName)
+        {
+            NavMenuMatchItem.RemoveAt(0);
+            NavMenuMatchItem.Add(new NavMenuItem()
+            {
+                symbol = Symbol.Globe,
+                text = MatchName,
+                Selected = Visibility.Collapsed,
+                destPage = typeof(MatchCreated)
+            });
+        }
     }
 }

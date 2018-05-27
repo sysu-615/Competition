@@ -34,7 +34,7 @@
                 <SymbolIcon Symbol="{Binding symbol}"/>
 
                 <TextBlock Grid.Column="1" 
-                           Text="{Binding text}" Foreground="White" 
+                           Text="{Binding text, Mode=TwoWay}" Foreground="White" 
                            Margin="12,0,0,0" VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
@@ -89,7 +89,7 @@
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="VS"></TextBlock>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
                 <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="——"></TextBlock>
-                <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="{Binding winAthlete.name}"></TextBlock>
+                <TextBox Grid.Column="4" HorizontalAlignment="Center" Text="{Binding winAthlete.name}"></TextBox>
             </Grid>
         </DataTemplate>
 
@@ -129,7 +129,7 @@
             <Setter Property="UseSystemFocusVisuals" Value="True" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
+                    <ControlTemplate TargetType="GridViewItem">
                         <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
                         PointerOverBackground="#409eff"
                         PointerOverForeground="White"
@@ -148,7 +148,7 @@
             <Setter Property="UseSystemFocusVisuals" Value="True" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
+                    <ControlTemplate TargetType="GridViewItem">
                         <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
                         PointerOverBackground="#409eff"
                         PointerOverForeground="White"

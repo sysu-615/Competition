@@ -14,18 +14,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="Info" Grid.Row="0" Text="" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline" FontSize="25"/>
-        <GridView x:Name="listView" Grid.Row="1" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="listView_ItemClick"  ItemsSource="{x:Bind MatchesVM.AllMatches}">
+        <GridView x:Name="listView" Grid.Row="1" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="listView_ItemClick"  ItemsSource="{x:Bind matchesVM.AllMatches}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Matches">
-                    <Grid Height="200" Width="200">
-                        <Grid.Background>
+                    <StackPanel Padding="20 0 20 0" Width="200" Height="200">
+                        <StackPanel.Background>
                             <ImageBrush ImageSource="../Assets/matchbackground.jpg"/>
-                        </Grid.Background>
-                        <TextBlock Text="{x:Bind matchEvent}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{x:Bind name}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock Text="开始时间：" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind startTime}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    </Grid>
+                        </StackPanel.Background>
+                        <TextBlock Text="{x:Bind name}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="MatchEvent" Text="赛事类型：" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind matchEvent}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="MatchStartTime" Text="开始时间：" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind startTime}" HorizontalAlignment="Center"/>
+                    </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>

@@ -25,12 +25,12 @@ namespace Competition.Views
     /// </summary>
     sealed partial class Home : Page
     {
-        public MatchesVM MatchesVM = MatchesVM.GetMatchesVM();
+        public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         public Home()
         {
             this.InitializeComponent();
-            if (MatchesVM.AllMatches.Count == 0)
+            if (matchesVM.AllMatches.Count == 0)
             {
                 Info.Text = "没有创建过的赛事信息，请创建比赛！";
             }
@@ -43,7 +43,7 @@ namespace Competition.Views
         private void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
             string name = (e.ClickedItem as Matches).name;
-            foreach(Matches match in MatchesVM.AllMatches)
+            foreach(Matches match in matchesVM.AllMatches)
             {
                 if (match.name == name)
                 {
@@ -57,8 +57,15 @@ namespace Competition.Views
 
                     navMenuItemVM.SecondarySelectedItem = navMenuItemVM.NavMenuMatchInfoItem[1];
                     navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Visible;
-                    // 请求数据库刷新VM
-                    MainPage.Curr.ContentFrame.Navigate(typeof(Battles), name);
+
+                    matchesVM.SelectedMatch = match;
+
+                    // 请求数据库刷新更具当前选中的比赛更新VM(包括Athlete、Battle、Result)
+                    // matchesVM.SelectedMatch即为当前选中的比赛，包括了name,startTime和matchEvent
+
+
+                    navMenuItemVM.UpdateNavMenuItem(name);
+                    MainPage.Curr.ContentFrame.Navigate(typeof(Battles));
                 }
             }
         }

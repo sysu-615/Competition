@@ -13,8 +13,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock Name="Title" Text="比赛" HorizontalAlignment="Center" Style="{StaticResource Header}" Margin="0 20 0 0"/>
-            
+            <RelativePanel  Margin="0 20 0 20" HorizontalAlignment="Center">
+                <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
+                <TextBlock Text="-赛事信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+            </RelativePanel>
             <StackPanel Width="400" Margin="0 20 0 0">
                 <TextBlock Text="选择赛制"/>
                 <ComboBox x:Name="MatchSystem" Width="400" Margin="0 5 0 0">
@@ -64,7 +66,7 @@
             </RelativePanel>
         </StackPanel>
         <RelativePanel Grid.Row="1" Margin="0 0 50 0">
-            <Button x:Name="DeleteMatch"
+            <!--<Button x:Name="DeleteMatch"
                     Width="100"
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -74,7 +76,7 @@
                     ToolTipService.ToolTip="删除此场比赛">
                 <SymbolIcon Symbol="Delete" />
             </Button>
-            <!--<TextBlock Text="如果想要删除此场比赛，请点即此按钮" RelativePanel.LeftOf="DeleteMatch" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0 0 20 0"/>-->
+            <TextBlock Text="如果想要删除此场比赛，请点即此按钮" RelativePanel.LeftOf="DeleteMatch" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0 0 20 0"/>-->
         </RelativePanel>
     </Grid>
 </Page>

@@ -31,13 +31,17 @@
     <AppXManifest Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-26T16:45:15.061</Modified>
+      <Modified>2018-05-27T08:23:21.242</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.exe">
       <PackagePath>entrypoint\Competition.exe</PackagePath>
-      <Modified>2018-05-26T16:45:14.341</Modified>
+      <Modified>2018-05-27T08:23:20.482</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\epplus\4.5.2\lib\netstandard2.0\EPPlus.dll">
+      <PackagePath>EPPlus.dll</PackagePath>
+      <Modified>2018-05-24T11:32:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\exceldatareader\3.4.0\lib\netstandard2.0\ExcelDataReader.dll">
       <PackagePath>ExcelDataReader.dll</PackagePath>
@@ -46,6 +50,42 @@
     <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\exceldatareader.dataset\3.4.0\lib\netstandard2.0\ExcelDataReader.DataSet.dll">
       <PackagePath>ExcelDataReader.DataSet.dll</PackagePath>
       <Modified>2018-02-03T17:44:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration.fileextensions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration.json\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.fileproviders.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.fileproviders.physical\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.filesystemglobbing\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll">
+      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.primitives\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll">
+      <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
+      <Modified>2017-07-24T16:48:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\newtonsoft.json\10.0.1\lib\netstandard1.3\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2017-03-20T12:03:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\NuGetPackagesFallback\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.8\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -703,6 +743,26 @@
       <PackagePath>netstandard.dll</PackagePath>
       <Modified>2018-02-23T07:22:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.drawing.common\4.5.0-preview2-26406-04\lib\netstandard2.0\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+      <Modified>2018-04-05T23:06:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.runtime.compilerservices.unsafe\4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+      <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
+      <Modified>2017-07-19T02:01:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.security.cryptography.pkcs\4.4.0\runtimes\win\lib\netcore50\System.Security.Cryptography.Pkcs.dll">
+      <PackagePath>System.Security.Cryptography.Pkcs.dll</PackagePath>
+      <Modified>2017-07-19T02:01:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.xml.xpath.xmldocument\4.3.0\lib\netstandard1.3\System.Xml.XPath.XmlDocument.dll">
+      <PackagePath>System.Xml.XPath.XmlDocument.dll</PackagePath>
+      <Modified>2016-11-04T20:57:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\matchbackground.jpg">
+      <PackagePath>Assets\matchbackground.jpg</PackagePath>
+      <Modified>2018-05-27T05:26:44.638</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\video.mp4">
       <PackagePath>Assets\video.mp4</PackagePath>
       <Modified>2018-05-24T16:00:50.921</Modified>
@@ -747,7 +807,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.xr.xml">
       <PackagePath>Competition.xr.xml</PackagePath>
-      <Modified>2018-05-26T16:45:14.080</Modified>
+      <Modified>2018-05-27T08:09:49.930</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -756,11 +816,11 @@
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-26T16:45:14.748</Modified>
+      <Modified>2018-05-27T08:23:20.966</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\Competition.exe">
       <PackagePath>Competition.exe</PackagePath>
-      <Modified>2018-05-26T16:45:15.057</Modified>
+      <Modified>2018-05-27T08:23:21.238</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -9,11 +9,24 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <TextBlock x:Name="Title" Text="对战信息" Margin="0 20 0 20" HorizontalAlignment="Center" Style="{StaticResource Header}"/>
-            <RelativePanel>
+            <RelativePanel  Margin="0 20 0 20" HorizontalAlignment="Center">
+                <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
+                <TextBlock Text="-对战信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+            </RelativePanel>
+            <RelativePanel Margin="50 0 50 0">
+                <ComboBox x:Name="Round" Width="200">
+                    <ComboBoxItem IsSelected="True">第1轮</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="Comfirm" 
+                        Content="确认" 
+                        Width="100" 
+                        Background="#20acff"
+                        Foreground="White"
+                        Margin="10 0 0 0"
+                        RelativePanel.RightOf="Round"
+                        Click="Comfirm_Click"/>
                 <Button x:Name="ExportExcel"
                                 Width="100"
-                                Margin="0 0 50 0"
                                 RelativePanel.AlignRightWithPanel="True"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Background="#20acff"
@@ -22,13 +35,13 @@
                                 ToolTipService.ToolTip="导出Excel">
                     <SymbolIcon Symbol="Share" />
                 </Button>
-            </RelativePanel> 
-            <ListView x:Name="BattlesListView"
+            </RelativePanel>
+            <GridView x:Name="BattlesListView"
                 Width="Auto" 
                 Background="#20acff"
                 Foreground="White"
                 Visibility="Visible"
-                Margin="50 0 50 0"
+                Margin="50 20 50 0"
                 SelectionMode="None"
                 ItemTemplate="{StaticResource BattlesDataTemplate}" 
                 ItemsSource="{x:Bind battleVM.AllBattles}" />

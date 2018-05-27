@@ -26,6 +26,7 @@ namespace Competition.Views.MatchInfo
     sealed partial class Results : Page
     {
         public ResultVM resultVM = ResultVM.GetResultVM();
+        public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
         public Results()
         {
             this.InitializeComponent();
@@ -33,8 +34,17 @@ namespace Competition.Views.MatchInfo
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Debug.WriteLine(e.Parameter);
-            Title.Text = (e.Parameter as string)+"-比赛结果";
+
+        }
+
+        private void GenerateNextRound_Click(object sender, RoutedEventArgs e)
+        {
+            //当前的winner是名字，需要获取对应battle内的athlete，才可以提交当前的winner
+        }
+
+        private void Store_Click(object sender, RoutedEventArgs e)
+        {
+            //提交当前的winner,需要获取对应battle内的athlete，才可以进行提交保存
         }
     }
 }

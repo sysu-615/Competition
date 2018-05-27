@@ -19,8 +19,7 @@ namespace Competition
         public static MainPage Curr;
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         private string matchName="";
-        //private NavMenuItem PrimarySelectedItem = null;
-        //private NavMenuItem SecondarySelectedItem = null;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -41,11 +40,12 @@ namespace Competition
             //登陆成功后
             //UserInfo.IsLogged = true;
             //Login_Button.Visibility = Visibility.Collapsed;
+            UserInfoState.Hide();
             ContentFrame.Navigate(typeof(Home));
 
             //登陆失败后
             //胜利ar dialog = new MessageDialog("账号或密码错误，请重新输入！");
-            //胜利ar result = dialog.ShowAsync();
+            //dialog.ShowAsync();
         }
 
         private void Exit_Clicked(object sender, RoutedEventArgs e)
@@ -53,6 +53,8 @@ namespace Competition
             UserInfo.UserName = "";
             UserInfo.Password = "";
             UserInfo.IsLogged = false;
+            Login_Button.Visibility = Visibility.Visible;
+            UserInfoState.Hide();
         }
 
         private void ListView_PrimaryItemClick(object sender, ItemClickEventArgs e)
@@ -71,13 +73,12 @@ namespace Competition
             {
                 NavMenuMatchInfoListView.Visibility = NavMenuMatchInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
                 matchName= navMenuItemVM.PrimarySelectedItem.text;
-                ContentFrame.Navigate(navMenuItemVM.PrimarySelectedItem.destPage, matchName);
+                ContentFrame.Navigate(navMenuItemVM.PrimarySelectedItem.destPage);
             }
 
             if (navMenuItemVM.PrimarySelectedItem.destPage != null)
                 ContentFrame.Navigate(navMenuItemVM.PrimarySelectedItem.destPage);
 
-            menuView.IsPaneOpen = false;
         }
 
         private void ListView_SecondaryItemClick(object sender, ItemClickEventArgs e)
@@ -87,10 +88,6 @@ namespace Competition
             if (navMenuItemVM.PrimarySelectedItem != null)
                 navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;
 
-            // (NavMenuMatchInfoListView.Items[0] as NavMenuItem).Selected = Visibility.Collapsed;
-            // (NavMenuMatchInfoListView.Items[1] as NavMenuItem).Selected = Visibility.Collapsed;
-            // (NavMenuMatchInfoListView.Items[2] as NavMenuItem).Selected = Visibility.Collapsed;
-
             navMenuItemVM.PrimarySelectedItem = NavMenuMatchListView.Items[0] as NavMenuItem;
             navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Visible;
 
@@ -98,7 +95,7 @@ namespace Competition
             navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Visible;
 
             if (navMenuItemVM.SecondarySelectedItem.destPage != null)
-                ContentFrame.Navigate(navMenuItemVM.SecondarySelectedItem.destPage, matchName);
+                ContentFrame.Navigate(navMenuItemVM.SecondarySelectedItem.destPage);
         }
     }
 }
