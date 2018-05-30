@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using Competition.Models;
 using Competition.ViewModels;
 using Competition.Views.MatchInfo;
+using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -30,17 +32,18 @@ namespace Competition.Views
         public Home()
         {
             this.InitializeComponent();
-            if (matchesVM.AllMatches.Count == 0)
-            {
-                Info.Text = "没有创建过的赛事信息，请创建比赛！";
-            }
+            if (!UserInfo.IsLogged)
+                Info.Text = "请先登录帐号！";
             else
             {
-                Info.Text = "比赛信息";
+                if (matchesVM.AllMatches.Count == 0)
+                    Info.Text = "没有创建过的赛事信息，请创建比赛！";
+                else
+                    Info.Text = "比赛信息";
             }
         }
 
-        private void listView_ItemClick(object sender, ItemClickEventArgs e)
+        private async void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
             string name = (e.ClickedItem as Matches).name;
             foreach(Matches match in matchesVM.AllMatches)
@@ -51,10 +54,13 @@ namespace Competition.Views
                     MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Visible;
                     navMenuItemVM.NavMenuMatchItem[0].text = name;
 
-                    navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;
+                    if (navMenuItemVM.PrimarySelectedItem != null)
+                        navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;
+
                     navMenuItemVM.PrimarySelectedItem = navMenuItemVM.NavMenuMatchItem[0];
                     navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Visible;
-
+                    if(navMenuItemVM.SecondarySelectedItem!=null)
+                        navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
                     navMenuItemVM.SecondarySelectedItem = navMenuItemVM.NavMenuMatchInfoItem[1];
                     navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Visible;
 
@@ -63,8 +69,79 @@ namespace Competition.Views
                     // 请求数据库刷新更具当前选中的比赛更新VM(包括Athlete、Battle、Result)
                     // matchesVM.SelectedMatch即为当前选中的比赛，包括了name,startTime和matchEvent
 
-                    navMenuItemVM.NavMenuMatchItem[0].text = name;
+                    JObject result = await Internet.API.GetAPI().GetMatchInfo(matchesVM.SelectedMatch.matchEvent,name);
+                    //Debug.WriteLine(result);
+                    AthleteVM.GetAthleteVM().AllAthletes.Clear();
+                    JToken athletes = result["data"]["athletes"];
+                    Debug.WriteLine(athletes);
+                    foreach (JToken athlete in athletes)
+                    {
+                        string athleteId = athlete["_id"].ToString();
+                        JToken athleteInfo = athlete["athlete"];
+                        AthleteVM.GetAthleteVM().AllAthletes.Add(new Athlete(athleteId, athleteInfo["姓名"].ToString(), athleteInfo["性别"].ToString(), athleteInfo["身份证"].ToString(), athleteInfo["手机号"].ToString(), athleteInfo["积分"].ToString(), "0"));
+                    }
+
+                    string round = result["data"]["round"].ToString();
+                    JToken groups = result["data"]["groups"];
+
+                    BattleVM.GetBattleVM().AllBattles.Clear();
+                    ResultVM.GetResultVM().AllResults.Clear();
+                    foreach (JToken group in groups)
+                    {
+                        string groupId = group["group"].ToString();
+
+                        JToken battles = group["battles"];
+                        foreach (JToken battle in battles)
+                        {
+                            //battle id
+                            string _id = battle["_id"].ToString();
+
+                            // winnerName
+                            string winnerName = "";
+                            int winnerNum = 0;
+
+                            if (battle["winner"].ToString() != "")
+                            {
+                                winnerNum = battle["winner"].ToString()[0] - '0';
+                                if (winnerNum == 1)
+                                    winnerName = battle["athleteA"]["athlete"]["姓名"].ToString();
+                                else if (winnerNum == 2)
+                                    winnerName = battle["athleteB"]["athlete"]["姓名"].ToString();
+                            }
+
+                            Athlete A = null, B = null;
+
+                            //Athlete(string _id, string _name, string _sex, string _idNum, string _phoneNum, string _score, string _seedNum)
+
+                            //athleteA
+                            JToken athleteA = battle["athleteA"];
+                            //轮空选手为空
+                            if (athleteA.ToString() != null)
+                            {
+                                string athleteAId = athleteA["_id"].ToString();
+                                //Debug.WriteLine(athleteAId);
+                                JToken infoA = athleteA["athlete"];
+                                //Debug.WriteLine(infoA);
+                                A = new Athlete(athleteAId, infoA["姓名"].ToString(), infoA["性别"].ToString(), infoA["身份证"].ToString(), infoA["手机号"].ToString(), infoA["积分"].ToString(), "0");
+                            }
+
+                            //athleteB
+                            JToken athleteB = battle["athleteB"];
+                            //轮空选手为空
+                            if (athleteB.ToString() != "")
+                            {
+                                string athleteBId = athleteB["_id"].ToString();
+                                JToken infoB = athleteB["athlete"];
+                                Debug.WriteLine(infoB);
+                                B = new Athlete(athleteBId, infoB["姓名"].ToString(), infoB["性别"].ToString(), infoB["身份证"].ToString(), infoB["手机号"].ToString(), infoB["积分"].ToString(), "0");
+                            }
+                            Battle newbattle = new Battle(_id, groupId, A, B);
+                            BattleVM.GetBattleVM().AllBattles.Add(newbattle);
+                            ResultVM.GetResultVM().AllResults.Add(new Result(newbattle, winnerName, winnerNum));
+                        }
+                    }
                     MainPage.Curr.ContentFrame.Navigate(typeof(Battles));
+                    break;
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Competition.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +31,10 @@ namespace Competition
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            MatchesVM.GetMatchesVM().AllMatches.Clear();
+            AthleteVM.GetAthleteVM().AllAthletes.Clear();
+            BattleVM.GetBattleVM().AllBattles.Clear();
+            ResultVM.GetResultVM().AllResults.Clear();
         }
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。

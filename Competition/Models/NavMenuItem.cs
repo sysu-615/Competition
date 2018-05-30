@@ -14,8 +14,13 @@ namespace Competition.Models
     {
         // 图标
         public Symbol symbol { get; set; }
+
+        // 提示信息
+        public string toolTip { get; set; }
+
         // 文本
         private string Text;
+
         public string text
         {
             get { return Text; }

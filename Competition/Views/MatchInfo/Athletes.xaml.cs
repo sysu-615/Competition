@@ -32,10 +32,5 @@ namespace Competition.Views.MatchInfo
         {
             this.InitializeComponent();
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-           
-        }
     }
 }

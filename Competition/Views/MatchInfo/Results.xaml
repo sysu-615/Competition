@@ -35,17 +35,19 @@
                                 </MenuFlyout>
                             </Flyout.AttachedFlyout>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding battle.athlete1.name}"></TextBlock>
-                            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="VS"></TextBlock>
-                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
-                            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="胜利方->"></TextBlock>
-                            <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="{Binding winAthleteName}"></TextBlock>
+                            <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding battle.groupIndex}"></TextBlock>
+                            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding battle.athlete1.name}"></TextBlock>
+                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="VS"></TextBlock>
+                            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
+                            <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="胜利方->"></TextBlock>
+                            <TextBlock Grid.Column="5" HorizontalAlignment="Center" Text="{Binding winAthleteName}"></TextBlock>
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>

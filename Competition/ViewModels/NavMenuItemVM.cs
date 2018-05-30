@@ -48,6 +48,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Home,
+                    toolTip="首页",
                     text="首页",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Home)
@@ -56,6 +57,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Calendar,
+                    toolTip="创建赛事",
                     text="赛事",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Match)
@@ -70,6 +72,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Globe,
+                    toolTip="比赛信息",
                     text="比赛名称",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(MatchCreated)
@@ -84,6 +87,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol = Symbol.People,
+                    toolTip="运动员信息",
                     text = "运动员",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Athletes)
@@ -91,6 +95,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol = Symbol.LikeDislike,
+                    toolTip = "对战信息",
                     text = "对战",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Battles)
@@ -98,6 +103,7 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol = Symbol.ViewAll,
+                    toolTip = "胜负信息",
                     text = "胜负",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Results)
@@ -112,30 +118,20 @@ namespace Competition.ViewModels
                 new NavMenuItem()
                 {
                     symbol=Symbol.Video,
-                    text="介绍",
+                    toolTip="介绍",
+                    text ="介绍",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Video)
                 },
                 new NavMenuItem()
                 {
                     symbol=Symbol.Import,
+                    toolTip="退出",
                     text="退出",
                     Selected = Visibility.Collapsed,
                     destPage = typeof(Home)
                 }
             });
         public ObservableCollection<NavMenuItem> NavMenuBottomItem { get { return this.navMenuBottomItem; } }
-
-        public void UpdateNavMenuItem(string MatchName)
-        {
-            NavMenuMatchItem.RemoveAt(0);
-            NavMenuMatchItem.Add(new NavMenuItem()
-            {
-                symbol = Symbol.Globe,
-                text = MatchName,
-                Selected = Visibility.Collapsed,
-                destPage = typeof(MatchCreated)
-            });
-        }
     }
 }

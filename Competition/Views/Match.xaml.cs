@@ -16,6 +16,8 @@ using Windows.Storage.Streams;
 using Competition.Models;
 using Competition.ViewModels;
 using Competition.Views.MatchInfo;
+using Newtonsoft.Json.Linq;
+using Windows.UI.Popups;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -28,7 +30,9 @@ namespace Competition.Views
     {
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
-
+        private DataSet athleteDataSet;
+        private string matchEvent = "";
+        private string matchType = "";
         public Match()
         {
             this.InitializeComponent();
@@ -47,8 +51,10 @@ namespace Competition.Views
             
             IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);
             DataSet dataSet = excelDataReader.AsDataSet();
+            athleteDataSet = dataSet;
             Debug.WriteLine(dataSet.GetXml());
             excelDataReader.Close();
+            await new MessageDialog("上传文件成功").ShowAsync();
         }
 
         private async void Border_Drop(object sender, DragEventArgs e)
@@ -62,6 +68,7 @@ namespace Competition.Views
                 if(items!=null && items.Any())
                 {
                     await HandleExcel(items);
+                    await new MessageDialog("上传文件成功").ShowAsync();
                 }
             }
         }
@@ -82,6 +89,7 @@ namespace Competition.Views
                 IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);
 
                 DataSet dataSet = excelDataReader.AsDataSet();
+                athleteDataSet = dataSet;
                 Debug.WriteLine(dataSet.GetXml());
                 excelDataReader.Close();
             }
@@ -122,51 +130,174 @@ namespace Competition.Views
             //e.DragUIOverride.SetContentFromBitmapImage(new BitmapImage(new Uri("ms-appx:///Assets/copy.jpg")));
         }
 
-        private void CreateMatch_Click(object sender, RoutedEventArgs e)
+        private void Forward_Click(object sender, RoutedEventArgs e)
         {
             if (NameBox.Text == "")
             {
                 NameNullTips.Visibility = Visibility.Visible;
                 return;
             }
-            string matchEvent="";
+
             if (MatchBox.SelectedIndex == 0)
-                matchEvent = "网球";
+                matchEvent = "tennis";
             else if (MatchBox.SelectedIndex == 1)
-                matchEvent = "羽毛球";
+                matchEvent = "badminton";
             else if (MatchBox.SelectedIndex == 2)
-                matchEvent = "乒乓球";
+                matchEvent = "pingpong";
 
-            //遍历VM，判断名字是否重复
-            //如果重复，则提示名称重复
-            //并直接return
-            //
+            foreach(var match in matchesVM.AllMatches)
+            {
+                if (match.name == NameBox.Text)
+                {
+                    NameRepeatTips.Visibility = Visibility.Visible;
+                    return;
+                }
+            }
 
-
-            MatchesExisted.Visibility = Visibility.Visible;
-            MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
-            navMenuItemVM.NavMenuMatchItem[0].text = NameBox.Text;
-            Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10));
-            matchesVM.SelectedMatch = newMatch;
-            matchesVM.AllMatches.Add(newMatch);
-
-            MainPage.Curr.ContentFrame.Navigate(typeof(MatchCreated));
-            //新增加一场比赛，同步数据库
-            //
+            Before.Visibility = Visibility.Collapsed;
+            After.Visibility = Visibility.Visible;
         }
 
         private void DeleteMatch_Click(object sender, RoutedEventArgs e)
         {
-            matchesVM.AllMatches.Remove((sender as Button).DataContext as Matches);
+            Matches deleteMatch = (sender as Button).DataContext as Matches;
+            matchesVM.AllMatches.Remove(deleteMatch);
             if (matchesVM.AllMatches.Count == 0)
             {
                 MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Collapsed;
                 MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
+            }else if(deleteMatch == matchesVM.SelectedMatch){
+                MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Collapsed;
+                MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
+                MainPage.Curr.ContentFrame.Navigate(typeof(Home));
             }
 
             //删除一场比赛，同步数据库
             //
+            Internet.API.GetAPI().DeleteMatch(deleteMatch.name, deleteMatch.matchEvent);
         }
 
+        private async void CreateBattles_Click(object sender, RoutedEventArgs e)
+        {
+            if (matchLastTime.Text == "" || place.Text == "" || placeContain.Text == "" || sectionPerDay.Text == "")
+            {
+                await new MessageDialog("请确认信息再进行提交！").ShowAsync();
+                return;
+            }
+
+            if (MatchSystem.SelectedIndex == 0)
+                matchType = "SingleElimination";
+            else if (MatchSystem.SelectedIndex == 1)
+                matchType = "SingleCycle";
+            else
+                matchType = "GroupLoop";
+
+            Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), matchType, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text, SeedNumber.Text);
+            matchesVM.SelectedMatch = newMatch;
+            matchesVM.AllMatches.Add(newMatch);
+
+            JObject result= await Internet.API.GetAPI().createMatch(athleteDataSet, matchEvent, matchType, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), SeedNumber.Text, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text);
+
+            AthleteVM.GetAthleteVM().AllAthletes.Clear();
+            JToken athletes = result["data"]["athletes"];
+            // Debug.WriteLine(athletes);
+            foreach (JToken athlete in athletes)
+            {
+                string athleteId = athlete["_id"].ToString();
+                JToken athleteInfo = athlete["athlete"];
+                AthleteVM.GetAthleteVM().AllAthletes.Add(new Athlete(athleteId, athleteInfo["姓名"].ToString(), athleteInfo["性别"].ToString(), athleteInfo["身份证"].ToString(), athleteInfo["手机号"].ToString(), athleteInfo["积分"].ToString(), "0"));
+            }
+
+            JToken groups = result["data"]["groups"];
+            string round = result["data"]["round"].ToString();
+            BattleVM.GetBattleVM().AllBattles.Clear();
+            ResultVM.GetResultVM().AllResults.Clear();
+            BattleVM.GetBattleVM().round = int.Parse(round);
+
+            foreach (JToken group in groups)
+            {
+                string groupId = group["group"].ToString();
+
+                JToken battles = group["battles"];
+                foreach (JToken battle in battles)
+                {
+                    //battle id
+                    string _id = battle["_id"].ToString();
+                    // winnerName
+                    string winnerName = "";
+                    int winnerNum = 0;
+
+                    if (battle["winner"].ToString() != "")
+                    {
+                        winnerNum = battle["winner"].ToString()[0] - '0';
+                        if (winnerNum == 1)
+                            winnerName = battle["athleteA"]["athlete"]["姓名"].ToString();
+                        else if (winnerNum == 2)
+                            winnerName = battle["athleteB"]["athlete"]["姓名"].ToString();
+                    }
+
+                    Athlete A = null, B = null;
+
+                    //Athlete(string _id, string _name, string _sex, string _idNum, string _phoneNum, string _score, string _seedNum)
+
+                    //athleteA
+                    JToken athleteA = battle["athleteA"];
+                    //轮空选手为空
+                    if (athleteA.ToString() != null)
+                    {
+                        string athleteAId = athleteA["_id"].ToString();
+                        //Debug.WriteLine(athleteAId);
+                        JToken infoA = athleteA["athlete"];
+                        //Debug.WriteLine(infoA);
+                        A = new Athlete(athleteAId, infoA["姓名"].ToString(), infoA["性别"].ToString(), infoA["身份证"].ToString(), infoA["手机号"].ToString(), infoA["积分"].ToString(), "0");
+                    }
+
+                    //athleteB
+                    JToken athleteB = battle["athleteB"];
+                    //轮空选手为空
+                    if (athleteB.ToString() != "")
+                    {
+                        string athleteBId = athleteB["_id"].ToString();
+                        JToken infoB = athleteB["athlete"];
+                        Debug.WriteLine(infoB);
+                        B = new Athlete(athleteBId, infoB["姓名"].ToString(), infoB["性别"].ToString(), infoB["身份证"].ToString(), infoB["手机号"].ToString(), infoB["积分"].ToString(), "0");
+                    }
+                    Battle newbattle = new Battle(_id, groupId, A, B);
+                    BattleVM.GetBattleVM().AllBattles.Add(newbattle);
+                    ResultVM.GetResultVM().AllResults.Add(new Result(newbattle, winnerName, winnerNum));
+                }
+            }
+
+            MatchesExisted.Visibility = Visibility.Visible;
+            MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
+            navMenuItemVM.NavMenuMatchItem[0].text = NameBox.Text;
+            navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;
+            navMenuItemVM.PrimarySelectedItem = navMenuItemVM.NavMenuMatchItem[0];
+            navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Visible;
+
+            MainPage.Curr.ContentFrame.Navigate(typeof(Battles));
+            MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Visible;
+            if (navMenuItemVM.SecondarySelectedItem != null)
+                navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
+            navMenuItemVM.SecondarySelectedItem = navMenuItemVM.NavMenuMatchInfoItem[1];
+            navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Visible;
+            await new MessageDialog("成功创建比赛").ShowAsync();
+        }
+
+        private void ClearTextBox_Click(object sender, RoutedEventArgs e)
+        {
+            MatchSystem.SelectedIndex = 0;
+            matchLastTime.Text = "";
+            place.Text = "";
+            placeContain.Text = "";
+            sectionPerDay.Text = "";
+            SeedNumber.Text = "";
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Before.Visibility = Visibility.Visible;
+            After.Visibility = Visibility.Collapsed;
+        }
     }
 }

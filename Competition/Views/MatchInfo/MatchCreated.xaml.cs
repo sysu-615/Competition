@@ -26,35 +26,25 @@ namespace Competition.Views.MatchInfo
     /// </summary>
     sealed partial class MatchCreated : Page
     {
-        private AthleteVM athleteVM = AthleteVM.GetAthleteVM();
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
+        private string matchEvent = "";
+        private string matchType = "";
         public MatchCreated()
         {
             this.InitializeComponent();
-        }
+            if (matchesVM.SelectedMatch.matchEvent == "tennis")
+                matchEvent = "网球";
+            else if (matchesVM.SelectedMatch.matchEvent == "badminton")
+                matchEvent = "羽毛球";
+            else
+                matchEvent = "乒乓球";
 
-        private async void CreateBattles_Click(object sender, RoutedEventArgs e)
-        {
-            if (Addition1.Text == ""|| Addition2.Text == ""|| Addition3.Text == "" || Addition4.Text == "")
-                await new MessageDialog("请确认信息再进行提交！").ShowAsync();
-            // post上传信息生成对战
-            // MatchSystem中的赛制、Addition1每场地每节容量、Addition2比赛场地数、Addition3每天节数、Addition4比赛天数、SeedNumber种子选手数
-            // 
-        }
-
-        private void ClearTextBox_Click(object sender, RoutedEventArgs e)
-        {
-            MatchSystem.SelectedIndex = 0;
-            Addition1.Text = "";
-            Addition2.Text = "";
-            Addition3.Text = "";
-            Addition4.Text = "";
-            SeedNumber.Text = "";
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            //Debug.WriteLine(e.Parameter);
+            if (matchesVM.SelectedMatch.matchType == "SingleElimination")
+                matchType = "单淘汰赛";
+            else if (matchesVM.SelectedMatch.matchType == "SingleCycle")
+                matchType = "单循环赛";
+            else
+                matchType = "分组循环赛";
         }
     }
 }

@@ -21,7 +21,7 @@
 
         <!-- 菜单的数据模板 -->
         <DataTemplate x:Key="MenuItemDataTemplate">
-            <Grid>
+            <Grid ToolTipService.ToolTip="{Binding toolTip}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="58" />
                     <ColumnDefinition Width="*" />
@@ -65,6 +65,7 @@
         <DataTemplate x:Key="BattlesDataTemplate">
             <Grid Width="500">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="2*" />

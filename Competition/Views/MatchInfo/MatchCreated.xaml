@@ -16,67 +16,33 @@
             <RelativePanel  Margin="0 20 0 20" HorizontalAlignment="Center">
                 <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
                 <TextBlock Text="-赛事信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+                
             </RelativePanel>
             <StackPanel Width="400" Margin="0 20 0 0">
-                <TextBlock Text="选择赛制"/>
-                <ComboBox x:Name="MatchSystem" Width="400" Margin="0 5 0 0">
-                    <ComboBoxItem IsSelected="True">单循环赛</ComboBoxItem>
-                    <ComboBoxItem>单淘汰赛</ComboBoxItem>
-                    <ComboBoxItem>分组循环赛</ComboBoxItem>
-                </ComboBox>
+                <TextBlock Text="比赛类型"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchEvent}"/>
+                <TextBlock Text="比赛赛制" Margin="0 5 0 0"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchType}"/>
+                <TextBlock Text="开始时间" Margin="0 5 0 0"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchesVM.SelectedMatch.startTime}"/>
             </StackPanel>
 
             <StackPanel x:Name="TennisAddition" Width="400" Margin="0 20 0 0">
                 <TextBlock Text="每场地每节容量" Margin="0 5 0 0" />
-                <TextBox x:Name="Addition1" Margin="0 5 0 0"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchesVM.SelectedMatch.placeContain}" Margin="0 5 0 0"/>
                 <TextBlock Text="比赛场地数" Margin="0 5 0 0" />
-                <TextBox x:Name="Addition2" Margin="0 5 0 0"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchesVM.SelectedMatch.place}" Margin="0 5 0 0"/>
                 <TextBlock Text="每天节数" Margin="0 5 0 0"/>
-                <TextBox x:Name="Addition3" Margin="0 5 0 0"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchesVM.SelectedMatch.sectionPerDay}" Margin="0 5 0 0"/>
                 <TextBlock Text="比赛天数" Margin="0 5 0 0" />
-                <TextBox x:Name="Addition4" Margin="0 5 0 0"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchesVM.SelectedMatch.matchLastTime}" Margin="0 5 0 0"/>
             </StackPanel>
 
             <StackPanel Width="400" Margin="0 20 0 0">
-                <TextBlock Text="种子选手数 （如果没有，可以忽略）"/>
-                <TextBox x:Name="SeedNumber" Margin="0 5 0 0"/>
+                <TextBlock Text="种子选手数"/>
+                <TextBox IsEnabled="False" Text="{x:Bind matchesVM.SelectedMatch.seedNumber}" Margin="0 5 0 0"/>
             </StackPanel>
 
-            <RelativePanel Margin="0 20 0 0" Width="400">
-                <Button x:Name="CreateBattles"
-                    Width="100"
-                    RelativePanel.AlignLeftWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Background="#20acff"
-                    Foreground="White"
-                    Click="CreateBattles_Click" 
-                    ToolTipService.ToolTip="生成对战">
-                    <SymbolIcon Symbol="Accept" />
-                </Button>
-                <Button x:Name="ExportExcel"
-                    Width="100"
-                    RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Background="#20acff"
-                    Foreground="White"
-                    Click="ClearTextBox_Click"
-                    ToolTipService.ToolTip="重置列表">
-                    <SymbolIcon Symbol="Cancel" />
-                </Button>
-            </RelativePanel>
         </StackPanel>
-        <RelativePanel Grid.Row="1" Margin="0 0 50 0">
-            <!--<Button x:Name="DeleteMatch"
-                    Width="100"
-                    RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Background="#20acff"
-                    Foreground="White"
-                    Click="DeleteMatch_Click"
-                    ToolTipService.ToolTip="删除此场比赛">
-                <SymbolIcon Symbol="Delete" />
-            </Button>
-            <TextBlock Text="如果想要删除此场比赛，请点即此按钮" RelativePanel.LeftOf="DeleteMatch" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0 0 20 0"/>-->
-        </RelativePanel>
     </Grid>
 </Page>

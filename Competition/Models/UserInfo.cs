@@ -8,8 +8,6 @@ namespace Competition.Models
 {
     class UserInfo
     {
-        UserInfo info = new UserInfo();
-        private UserInfo() { }
         public static string UserName { set; get; }
         public static string Password { set; get; }
         public static bool IsLogged = false;

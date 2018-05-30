@@ -12,13 +12,15 @@ namespace Competition.ViewModels
     {
         private static BattleVM battleVM = null;
 
+        public int round { get; set; }
+
         public static BattleVM GetBattleVM()
         {
             if (battleVM == null)
                 battleVM = new BattleVM();
             return battleVM;
         }
-        private BattleVM() { }
+        private BattleVM() { round = 1; }
         private ObservableCollection<Battle> allBattles = new ObservableCollection<Battle>();
         public ObservableCollection<Battle> AllBattles { get { return this.allBattles; } }
     }
