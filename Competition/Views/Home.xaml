@@ -8,7 +8,7 @@
     xmlns:md="using:Competition.Models"
     mc:Ignorable="d">
 
-    <Grid Background="#409eff">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -19,13 +19,13 @@
                 <DataTemplate x:DataType="md:Matches">
                     <StackPanel Padding="20 0 20 0" Width="200" Height="200">
                         <StackPanel.Background>
-                            <ImageBrush ImageSource="../Assets/matchbackground.jpg"/>
+                            <ImageBrush ImageSource="../Assets/matchbackground.jpg" Opacity="0.9"/>
                         </StackPanel.Background>
-                        <TextBlock Text="{x:Bind name}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="MatchEvent" Text="赛事类型：" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind name}" Style="{StaticResource Header}" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+                        <TextBlock x:Name="MatchEvent" Text="赛事类型：" FontSize="17" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Left"/>
                         <TextBlock Text="{x:Bind matchEvent}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="MatchStartTime" Text="开始时间：" Margin="0 20 0 0" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind startTime}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="MatchStartTime" Text="开始时间：" FontSize="17" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind startTime}" HorizontalAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

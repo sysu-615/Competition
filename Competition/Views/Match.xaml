@@ -26,7 +26,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel HorizontalAlignment="Center">
         <StackPanel x:Name="Before">
             <TextBlock Text="创建赛事" Style="{StaticResource Header}" Margin="0 20 0 0" HorizontalAlignment="Center"></TextBlock>
             <RelativePanel Margin="0 20 0 0">

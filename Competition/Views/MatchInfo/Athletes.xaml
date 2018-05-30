@@ -5,25 +5,82 @@
     xmlns:local="using:Competition.Views.MatchInfo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="using:Competition.Models"
     mc:Ignorable="d">
+    <Grid HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Column="1" Grid.Row="0"  Margin="0 20 0 20" HorizontalAlignment="Center">
+            <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
+            <TextBlock Text=" - 运动员信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+        </RelativePanel>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <RelativePanel  Margin="0 20 0 20" HorizontalAlignment="Center">
-                <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
-                <TextBlock Text="-运动员信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
-            </RelativePanel>
-
-            <GridView x:Name="AthletesListView"
-                Width="Auto" 
-                Background="#20acff"
-                Foreground="White"
+        <ListView x:Name="AthletesListView"
+                Grid.Column="1" 
+                Grid.Row="1"
                 Visibility="Visible"
-                Margin="50 0 50 0"
                 SelectionMode="None"
-                ItemTemplate="{StaticResource AthletesDataTemplate}" 
-                ItemsSource="{x:Bind athleteVM.AllAthletes}" />
-        </StackPanel>
+                ItemsSource="{x:Bind athleteVM.AllAthletes}" >
+            <!-- 运动员信息模板 -->
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="md:Athlete">
+                    <UserControl>
+                        <Grid Width="Auto">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup>
+                                    <VisualState x:Name="narrow">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="1"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="rightView.(UIElement.Visibility)" Value="Collapsed"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="wide">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="820" />
+                                        </VisualState.StateTriggers>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="380" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid x:Name="leftView" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="200"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding id}"></TextBlock>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding name}"></TextBlock>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding sex}"></TextBlock>
+                                <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding idNum}"></TextBlock>
+                            </Grid>
+                            <Grid x:Name="rightView" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding phoneNum}"></TextBlock>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding score}"></TextBlock>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding seedNum}"></TextBlock>
+                            </Grid>
+                        </Grid>
+                    </UserControl>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
  

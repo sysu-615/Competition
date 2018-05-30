@@ -7,8 +7,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Background>
+        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="LightGray" TintOpacity="0.8"/>
+    </Page.Background>
+    <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
 
@@ -52,53 +54,52 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <RelativePanel Grid.Row="0" Style="{StaticResource TopBar}">
+            <RelativePanel Grid.Row="0" Style="{StaticResource TopBar}" VerticalAlignment="Center">
+                <RelativePanel.Background>
+                    <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="Black" TintOpacity="0.5"/>
+                </RelativePanel.Background>
                 <!-- Menu -->
-                <AppBarButton Icon="GlobalNavigationButton"
-                        Click="Menu_Click" 
-                        Width="58"
-                        RelativePanel.AlignLeftWithPanel="true"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                        Background="Transparent"
-                        Foreground="White"
-                        Margin="0 0 0 -5">
+                <AppBarButton
+                    Icon="GlobalNavigationButton"
+                    Click="Menu_Click" 
+                    Width="58"
+                    RelativePanel.AlignLeftWithPanel="true"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Background="Transparent"
+                    Foreground="#409eff"
+                    Margin="0 0 0 0">
                 </AppBarButton>
-                <TextBlock Text="赛事系统" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                <AppBarButton x:Name="LogInLogOut" Margin="0 0 0 -5" Width="58" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White">
+                <TextBlock x:Name="realTitleBar" Text="赛事系统" Margin="-20 0 0 0" TextAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <AppBarButton x:Name="LogInLogOut" Margin="0 -5 183 0" BorderBrush="#409eff" Width="25" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="#20acff">
                     <AppBarButton.Flyout>
                         <Flyout x:Name="UserInfoState">
-                            <StackPanel>
+                            <StackPanel Opacity="0.8" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                                 <!--登陆-->
-                                <Button x:Name="Login_Button" Content="登陆" Width="120">
+                                <Button x:Name="Login_Button" Content="登陆" Width="100">
                                     <Button.Flyout>
-                                        <Flyout x:Name="Login_Flyout" Placement="4">
-                                            <Flyout.FlyoutPresenterStyle>
-                                                <Style TargetType="FlyoutPresenter">
-                                                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
-                                                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
-                                                    <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
-                                                    <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
-                                                    <Setter Property="MaxHeight" Value="170"/>
-                                                    <Setter Property="MaxWidth" Value="300"/>
-                                                </Style>
-                                            </Flyout.FlyoutPresenterStyle>
-                                            <Grid>
+                                        <Flyout x:Name="Login_Flyout" Placement="4" FlyoutPresenterStyle="{StaticResource LoginFlyout}">
+                                            <Grid Height="200" Width="298" HorizontalAlignment="Center">
+                                                <Grid.Background>
+                                                    <AcrylicBrush BackgroundSource="HostBackdrop" TintOpacity="1"/>
+                                                </Grid.Background>
                                                 <Grid.RowDefinitions>
+                                                    <RowDefinition Height="30"/>
                                                     <RowDefinition Height="50"/>
                                                     <RowDefinition Height="50"/>
                                                     <RowDefinition Height="70"/>
                                                 </Grid.RowDefinitions>
-                                                <TextBox x:Name="UserName" Grid.Row="0" PlaceholderText="请输入用户名" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
-                                                <PasswordBox x:Name="Password" Grid.Row="1" PlaceholderText="请输入密码" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
-                                                <Button x:Name="Login" Grid.Row="2" Content="登陆" Click="Login_Clicked" AllowFocusOnInteraction="True" Width="100" HorizontalAlignment="Left"/>
+                                                <TextBlock Text="登陆" HorizontalAlignment="Center" FontSize="20"/>
+                                                <TextBox x:Name="UserName" Grid.Row="1" Width="240" PlaceholderText="请输入用户名" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
+                                                <PasswordBox x:Name="Password" Grid.Row="2" Width="240" PlaceholderText="请输入密码" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
+                                                <Button x:Name="Login" Grid.Row="3" Margin="30,0,0,0" Content="登陆" Click="Login_Clicked" AllowFocusOnInteraction="True" Width="80" HorizontalAlignment="Left"/>
                                                 <!--暂时没有注册功能-->
-                                                <Button x:Name="Regist" Grid.Row="2" Content="注册" Width="100" HorizontalAlignment="Right"/>
+                                                <Button x:Name="Regist" Grid.Row="3" Margin="0,0,30,0" Content="注册" Width="80" HorizontalAlignment="Right"/>
                                             </Grid>
                                         </Flyout>
                                     </Button.Flyout>
                                 </Button>
                                 <!--退出-->
-                                <Button x:Name="Exit_Button" Content="退出" Width="120" Click="Exit_Clicked"/>
+                                <Button x:Name="Exit_Button" Content="退出" Width="100" Click="Exit_Clicked"/>
                             </StackPanel>
                         </Flyout>
                     </AppBarButton.Flyout>
@@ -107,6 +108,9 @@
             <SplitView Grid.Row="1" x:Name="menuView" CompactPaneLength="58" OpenPaneLength="170">
                 <SplitView.Pane>
                     <Grid Style="{StaticResource LeftBar}">
+                        <Grid.Background>
+                            <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="Black" TintOpacity="0.5"/>
+                        </Grid.Background>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />

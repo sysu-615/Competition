@@ -11,6 +11,8 @@ using Windows.UI.Xaml.Media;
 using Windows.Data.Json;
 using Newtonsoft.Json.Linq;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
 namespace Competition
@@ -31,7 +33,8 @@ namespace Competition
             Curr = this;
             NavMenuPrimaryListView.IsItemClickEnabled = false;
             NavMenuBottomListView.IsItemClickEnabled = false;
-
+            Window.Current.SetTitleBar(realTitleBar);
+            ApplicationView.GetForCurrentView().TitleBar.ButtonForegroundColor = Colors.White;
             ContentFrame.Navigate(typeof(Home));
         }
 
@@ -96,6 +99,16 @@ namespace Competition
             UserInfo.IsLogged = false;
             Login_Button.Visibility = Visibility.Visible;
             UserInfoState.Hide();
+
+            ContentFrame.Navigate(typeof(Home));
+            Login_Flyout.ShowAt(LogInLogOut);
+            BattleVM.GetBattleVM().AllBattles.Clear();
+            AthleteVM.GetAthleteVM().AllAthletes.Clear();
+            MatchesVM.GetMatchesVM().AllMatches.Clear();
+            ResultVM.GetResultVM().AllResults.Clear();
+            NavMenuPrimaryListView.IsItemClickEnabled = false;
+            NavMenuBottomListView.IsItemClickEnabled = false;
+            API.GetAPI().SignOut();
         }
 
         private void ListView_PrimaryItemClick(object sender, ItemClickEventArgs e)

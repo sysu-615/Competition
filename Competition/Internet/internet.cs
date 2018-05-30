@@ -22,7 +22,7 @@ namespace Competition.Internet
     public class API
     {
         private string reqUri = "http://172.18.35.167:8000/";
-        private static HttpClient httpClient = new HttpClient();
+        public static HttpClient httpClient = new HttpClient();
         private static API api = null;
         private API() {
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -372,5 +372,19 @@ namespace Competition.Internet
             return result;
         }
 
+        public async void SignOut()
+        {
+            Uri requestUri = new Uri(reqUri + "signout");
+            try
+            {
+                string httpResponseBody = "";
+                HttpResponseMessage response = await httpClient.GetAsync(requestUri);
+                response.EnsureSuccessStatusCode();
+            }
+            catch(Exception ex)
+            {
+                await new MessageDialog(ex.Message).ShowAsync();
+            }
+        }
     }
 }

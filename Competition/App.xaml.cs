@@ -1,13 +1,14 @@
-﻿using Competition.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,10 +32,6 @@ namespace Competition
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            MatchesVM.GetMatchesVM().AllMatches.Clear();
-            AthleteVM.GetAthleteVM().AllAthletes.Clear();
-            BattleVM.GetBattleVM().AllBattles.Clear();
-            ResultVM.GetResultVM().AllResults.Clear();
         }
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。
@@ -44,6 +41,9 @@ namespace Competition
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+            //将应用页面扩展至Titlebar
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar.ButtonBackgroundColor = Colors.Transparent;
             // 不要在窗口已包含内容时重复应用程序初始化，
             // 只需确保窗口处于活动状态
             if (rootFrame == null)
