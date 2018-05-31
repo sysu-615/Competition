@@ -18,6 +18,7 @@ using Competition.ViewModels;
 using Competition.Views.MatchInfo;
 using Newtonsoft.Json.Linq;
 using Windows.UI.Popups;
+using Competition.Services;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -29,6 +30,8 @@ namespace Competition.Views
     sealed partial class Match : Page
     {
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
+        public BattleVM battleVM = BattleVM.GetBattleVM();
+        public ResultVM resultVM = ResultVM.GetResultVM();
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         private DataSet athleteDataSet;
         private string matchEvent = "";
@@ -162,6 +165,7 @@ namespace Competition.Views
         {
             Matches deleteMatch = (sender as Button).DataContext as Matches;
             matchesVM.AllMatches.Remove(deleteMatch);
+            TileService.UpdateTileItem();
             if (matchesVM.AllMatches.Count == 0)
             {
                 MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Collapsed;
@@ -192,11 +196,12 @@ namespace Competition.Views
             else
                 matchType = "GroupLoop";
 
+            JObject result= await Internet.API.GetAPI().createMatch(athleteDataSet, matchEvent, matchType, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), SeedNumber.Text, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text);
+
             Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), matchType, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text, SeedNumber.Text);
             matchesVM.SelectedMatch = newMatch;
             matchesVM.AllMatches.Add(newMatch);
-
-            JObject result= await Internet.API.GetAPI().createMatch(athleteDataSet, matchEvent, matchType, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), SeedNumber.Text, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text);
+            TileService.UpdateTileItem();
 
             AthleteVM.GetAthleteVM().AllAthletes.Clear();
             JToken athletes = result["data"]["athletes"];
@@ -210,9 +215,16 @@ namespace Competition.Views
 
             JToken groups = result["data"]["groups"];
             string round = result["data"]["round"].ToString();
-            BattleVM.GetBattleVM().AllBattles.Clear();
-            ResultVM.GetResultVM().AllResults.Clear();
-            BattleVM.GetBattleVM().round = int.Parse(round);
+
+            //Battle BattleTableTitle = battleVM.AllBattles[0];
+            battleVM.AllBattles.Clear();
+            //battleVM.AllBattles.Add(BattleTableTitle);
+            battleVM.round = int.Parse(round);
+
+
+            //Result ResultTableTitle = resultVM.AllResults[0];
+            resultVM.AllResults.Clear();
+            //resultVM.AllResults.Add(ResultTableTitle);
 
             foreach (JToken group in groups)
             {
@@ -263,8 +275,8 @@ namespace Competition.Views
                         B = new Athlete(athleteBId, infoB["姓名"].ToString(), infoB["性别"].ToString(), infoB["身份证"].ToString(), infoB["手机号"].ToString(), infoB["积分"].ToString(), "0");
                     }
                     Battle newbattle = new Battle(_id, groupId, A, B);
-                    BattleVM.GetBattleVM().AllBattles.Add(newbattle);
-                    ResultVM.GetResultVM().AllResults.Add(new Result(newbattle, winnerName, winnerNum));
+                    battleVM.AllBattles.Add(newbattle);
+                    resultVM.AllResults.Add(new Result(newbattle, winnerName, winnerNum));
                 }
             }
 

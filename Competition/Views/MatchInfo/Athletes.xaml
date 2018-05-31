@@ -22,14 +22,15 @@
             <TextBlock Text=" - 运动员信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
         </RelativePanel>
 
-        <ListView x:Name="AthletesListView"
+        <GridView x:Name="AthletesListView"
+                Width="Auto"
                 Grid.Column="1" 
                 Grid.Row="1"
                 Visibility="Visible"
                 SelectionMode="None"
                 ItemsSource="{x:Bind athleteVM.AllAthletes}" >
             <!-- 运动员信息模板 -->
-            <ListView.ItemTemplate>
+            <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Athlete">
                     <UserControl>
                         <Grid Width="Auto">
@@ -79,8 +80,8 @@
                         </Grid>
                     </UserControl>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </Page>
  

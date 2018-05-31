@@ -9,7 +9,6 @@
     <RootPropertyPathName Name="battle" />
     <RootPropertyPathName Name="athlete2" />
     <RootPropertyPathName Name="athlete1" />
-    <RootPropertyPathName Name="groupIndex" />
     <RootPropertyPathName Name="text" />
     <RootPropertyPathName Name="symbol" />
     <RootPropertyPathName Name="Selected" />
@@ -21,6 +20,7 @@
     <RootPropertyPathName Name="idNum" />
     <RootPropertyPathName Name="sex" />
     <RootPropertyPathName Name="id" />
+    <RootPropertyPathName Name="groupIndex" />
     <RootPropertyPathName Name="winAthleteName" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -81,6 +81,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="Tapped" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
@@ -287,11 +288,10 @@
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Foreground" />
       <RootProperty Name="Visibility" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="SelectionMode" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Foreground" />
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
@@ -342,6 +342,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
       <RootProperty Name="Text" />
+      <RootProperty Name="Foreground" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Competition.Views.MatchInfo.Results" />

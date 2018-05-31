@@ -21,7 +21,11 @@ namespace Competition.ViewModels
             return battleVM;
         }
         private BattleVM() { round = 1; }
-        private ObservableCollection<Battle> allBattles = new ObservableCollection<Battle>();
+        private ObservableCollection<Battle> allBattles = new ObservableCollection<Battle>(
+            new[]
+            {
+                new Battle("序号","组别",new Athlete("","运动员","","","","",""),new Athlete("","运动员","","","","",""))
+            });
         public ObservableCollection<Battle> AllBattles { get { return this.allBattles; } }
     }
 }

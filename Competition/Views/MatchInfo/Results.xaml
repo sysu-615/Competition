@@ -17,37 +17,39 @@
             </Grid.RowDefinitions>
             <RelativePanel Grid.Row="0"  Margin="0 20 0 20" HorizontalAlignment="Center">
                 <TextBlock x:Name="Title" Text="{x:Bind matchesVM.SelectedMatch.name}"  Style="{StaticResource Header}"/>
-                <TextBlock Text="-结果信息" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
+                <TextBlock Text="-比赛结果-" RelativePanel.RightOf="Title"  Style="{StaticResource Header}"/>
             </RelativePanel>
             <GridView Grid.Row="1" x:Name="ResultsListView"
-                    Background="#20acff"
                     Foreground="White"
                     Visibility="Visible"
                     HorizontalAlignment="Center"
                     ItemsSource="{x:Bind resultVM.AllResults}">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="md:Result">
-                        <Grid Width="500" Tapped="Info_Tapped">
+                        <Grid Tapped="Info_Tapped">
                             <Flyout.AttachedFlyout>
                                 <MenuFlyout>
                                     <MenuFlyoutItem Text="{Binding battle.athlete1.name}" Click="Winner1_Click"/>
                                     <MenuFlyoutItem Text="{Binding battle.athlete2.name}" Click="Winner2_Click"/>
+                                    <MenuFlyoutItem Text="暂无" Click="Winner3_Click" Foreground="#20acff"/>
                                 </MenuFlyout>
                             </Flyout.AttachedFlyout>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="2*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding battle.groupIndex}"></TextBlock>
-                            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding battle.athlete1.name}"></TextBlock>
-                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="VS"></TextBlock>
-                            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
-                            <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="胜利方->"></TextBlock>
-                            <TextBlock Grid.Column="5" HorizontalAlignment="Center" Text="{Binding winAthleteName}"></TextBlock>
+                            <Grid  Width="500">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding battle.groupIndex}" Foreground="DarkBlue"></TextBlock>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding battle.athlete1.name}"></TextBlock>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="VS" Foreground="#20acff"></TextBlock>
+                                <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
+                                <TextBlock Grid.Column="4" HorizontalAlignment="Center" Text="胜利方->" Foreground="#20acff"></TextBlock>
+                                <TextBlock Grid.Column="5" HorizontalAlignment="Center" Text="{Binding winAthleteName}" Foreground="Green"></TextBlock>
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>

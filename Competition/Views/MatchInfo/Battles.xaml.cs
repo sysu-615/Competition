@@ -98,9 +98,15 @@ namespace Competition.Views.MatchInfo
 
             string round = result["data"]["round"].ToString();
             JToken groups = result["data"]["groups"];
+
+            //Battle BattleTableTitle = battleVM.AllBattles[0];
             battleVM.AllBattles.Clear();
-            resultVM.AllResults.Clear();
+            //battleVM.AllBattles.Add(BattleTableTitle);
             battleVM.round = Round.SelectedIndex + 1;
+
+            //Result ResultTableTitle = resultVM.AllResults[0];
+            resultVM.AllResults.Clear();
+            //resultVM.AllResults.Add(ResultTableTitle);
 
             foreach (JToken group in groups)
             {

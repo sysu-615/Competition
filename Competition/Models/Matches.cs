@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Competition.Models
 {
-    class Matches
+    public class Matches
     {
         public string matchEvent { get; set; }
 

@@ -21,7 +21,7 @@ namespace Competition.Internet
 
     public class API
     {
-        private string reqUri = "http://172.18.35.167:8000/";
+        private string reqUri = "http://111.231.234.96:8000/";
         public static HttpClient httpClient = new HttpClient();
         private static API api = null;
         private API() {

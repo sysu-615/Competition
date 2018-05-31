@@ -395,6 +395,18 @@
           "ref/uap10.0.15138/netstandard.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -1918,6 +1930,18 @@
           "ref/uap10.0.15138/WindowsBase.dll": {},
           "ref/uap10.0.15138/mscorlib.dll": {},
           "ref/uap10.0.15138/netstandard.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
         }
       },
       "NETStandard.Library/2.0.1": {
@@ -3751,6 +3775,18 @@
           "ref/uap10.0.15138/WindowsBase.dll": {},
           "ref/uap10.0.15138/mscorlib.dll": {},
           "ref/uap10.0.15138/netstandard.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
         }
       },
       "NETStandard.Library/2.0.1": {
@@ -5629,6 +5665,18 @@
           "ref/uap10.0.15138/netstandard.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -7460,6 +7508,18 @@
           "ref/uap10.0.15138/WindowsBase.dll": {},
           "ref/uap10.0.15138/mscorlib.dll": {},
           "ref/uap10.0.15138/netstandard.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
         }
       },
       "NETStandard.Library/2.0.1": {
@@ -9338,6 +9398,18 @@
           "ref/uap10.0.15138/netstandard.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -11169,6 +11241,18 @@
           "ref/uap10.0.15138/WindowsBase.dll": {},
           "ref/uap10.0.15138/mscorlib.dll": {},
           "ref/uap10.0.15138/netstandard.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.8"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll": {}
         }
       },
       "NETStandard.Library/2.0.1": {
@@ -15119,6 +15203,28 @@
         "ref/uap10.0.15138/mscorlib.dll",
         "ref/uap10.0.15138/netstandard.dll",
         "runtime.json"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.Notifications/3.0.0": {
+      "sha512": "f83paWNUvHngquSmx4Dqr1pYGqEm0kvBNFnXKXHuNmWdMzVoAPZqHZb5MdqrumCNHI5blN5PxxE+IO+hHGUGrA==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.notifications/3.0.0",
+      "files": [
+        ".signature.p7s",
+        "build/native/Microsoft.Toolkit.Uwp.Notifications.targets",
+        "lib/native/Microsoft.Toolkit.Uwp.Notifications.pdb",
+        "lib/native/Microsoft.Toolkit.Uwp.Notifications.pri",
+        "lib/native/Microsoft.Toolkit.Uwp.Notifications.winmd",
+        "lib/native/Microsoft.Toolkit.Uwp.Notifications.xml",
+        "lib/netstandard1.4/Microsoft.Toolkit.Uwp.Notifications.dll",
+        "lib/netstandard1.4/Microsoft.Toolkit.Uwp.Notifications.pdb",
+        "lib/netstandard1.4/Microsoft.Toolkit.Uwp.Notifications.xml",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.dll",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.pdb",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.pri",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.Notifications.xml",
+        "microsoft.toolkit.uwp.notifications.3.0.0.nupkg.sha512",
+        "microsoft.toolkit.uwp.notifications.nuspec"
       ]
     },
     "NETStandard.Library/2.0.1": {
@@ -20234,6 +20340,7 @@
       "ExcelDataReader >= 3.4.0",
       "ExcelDataReader.DataSet >= 3.4.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.8",
+      "Microsoft.Toolkit.Uwp.Notifications >= 3.0.0",
       "System.Text.Encoding.CodePages >= 4.4.0"
     ]
   },
@@ -20245,11 +20352,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\coursewave\\ModernOSAppDevlop\\VS_Projects\\Competition\\Competition\\Competition.csproj",
+      "projectUniqueName": "C:\\Users\\liuyh73\\Desktop\\Competition\\Competition\\Competition.csproj",
       "projectName": "Competition",
-      "projectPath": "D:\\coursewave\\ModernOSAppDevlop\\VS_Projects\\Competition\\Competition\\Competition.csproj",
+      "projectPath": "C:\\Users\\liuyh73\\Desktop\\Competition\\Competition\\Competition.csproj",
       "packagesPath": "C:\\Users\\liuyh73\\.nuget\\packages\\",
-      "outputPath": "D:\\coursewave\\ModernOSAppDevlop\\VS_Projects\\Competition\\Competition\\obj\\",
+      "outputPath": "C:\\Users\\liuyh73\\Desktop\\Competition\\Competition\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -20292,6 +20399,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.0.8, )"
+          },
+          "Microsoft.Toolkit.Uwp.Notifications": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           },
           "System.Text.Encoding.CodePages": {
             "target": "Package",

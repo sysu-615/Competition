@@ -63,8 +63,13 @@ namespace Competition.Views.MatchInfo
             string round = result["data"]["round"].ToString();
             JToken groups = result["data"]["groups"];
 
+            //Battle BattleTableTitle = battleVM.AllBattles[0];
             battleVM.AllBattles.Clear();
+            //battleVM.AllBattles.Add(BattleTableTitle);
+
+            //Result ResultTableTitle = resultVM.AllResults[0];
             resultVM.AllResults.Clear();
+            //resultVM.AllResults.Add(ResultTableTitle);
             battleVM.round = battleVM.round+1;
 
             foreach (JToken group in groups)
@@ -156,6 +161,15 @@ namespace Competition.Views.MatchInfo
             String Winner = (sender as MenuFlyoutItem).Text;
             selected.winAthleteName = Winner;
             selected.winAthleteNum = 2;
+            Internet.API.GetAPI().UpdateWinInfo(matchesVM.SelectedMatch.name, selected.battle.id, selected.winAthleteNum, matchesVM.SelectedMatch.matchEvent);
+            Debug.WriteLine(selected.winAthleteName);
+        }
+
+        private void Winner3_Click(object sender, RoutedEventArgs e)
+        {
+            Result selected = (sender as FrameworkElement).DataContext as Result;
+            selected.winAthleteName = "";
+            selected.winAthleteNum = 0;
             Internet.API.GetAPI().UpdateWinInfo(matchesVM.SelectedMatch.name, selected.battle.id, selected.winAthleteNum, matchesVM.SelectedMatch.matchEvent);
             Debug.WriteLine(selected.winAthleteName);
         }

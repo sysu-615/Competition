@@ -93,7 +93,7 @@
                                                 <PasswordBox x:Name="Password" Grid.Row="2" Width="240" PlaceholderText="请输入密码" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
                                                 <Button x:Name="Login" Grid.Row="3" Margin="30,0,0,0" Content="登陆" Click="Login_Clicked" AllowFocusOnInteraction="True" Width="80" HorizontalAlignment="Left"/>
                                                 <!--暂时没有注册功能-->
-                                                <Button x:Name="Regist" Grid.Row="3" Margin="0,0,30,0" Content="注册" Width="80" HorizontalAlignment="Right"/>
+                                                <Button x:Name="Regist" Grid.Row="3" Margin="0,0,30,0" Content="注册" Width="80" HorizontalAlignment="Right" Click="Regist_Click"/>
                                             </Grid>
                                         </Flyout>
                                     </Button.Flyout>

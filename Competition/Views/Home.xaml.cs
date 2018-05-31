@@ -28,6 +28,9 @@ namespace Competition.Views
     sealed partial class Home : Page
     {
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
+        public BattleVM battleVM = BattleVM.GetBattleVM();
+        public ResultVM resultVM = ResultVM.GetResultVM();
+
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         public Home()
         {
@@ -84,8 +87,14 @@ namespace Competition.Views
                     string round = result["data"]["round"].ToString();
                     JToken groups = result["data"]["groups"];
 
-                    BattleVM.GetBattleVM().AllBattles.Clear();
-                    ResultVM.GetResultVM().AllResults.Clear();
+                    //Battle BattleTableTitle = battleVM.AllBattles[0];
+                    battleVM.AllBattles.Clear();
+                    //battleVM.AllBattles.Add(BattleTableTitle);
+
+                    //Result ResultTableTitle = resultVM.AllResults[0];
+                    resultVM.AllResults.Clear();
+                    //resultVM.AllResults.Add(ResultTableTitle);
+
                     foreach (JToken group in groups)
                     {
                         string groupId = group["group"].ToString();
@@ -136,8 +145,8 @@ namespace Competition.Views
                                 B = new Athlete(athleteBId, infoB["姓名"].ToString(), infoB["性别"].ToString(), infoB["身份证"].ToString(), infoB["手机号"].ToString(), infoB["积分"].ToString(), "0");
                             }
                             Battle newbattle = new Battle(_id, groupId, A, B);
-                            BattleVM.GetBattleVM().AllBattles.Add(newbattle);
-                            ResultVM.GetResultVM().AllResults.Add(new Result(newbattle, winnerName, winnerNum));
+                            battleVM.AllBattles.Add(newbattle);
+                            resultVM.AllResults.Add(new Result(newbattle, winnerName, winnerNum));
                         }
                     }
                     MainPage.Curr.ContentFrame.Navigate(typeof(Battles));

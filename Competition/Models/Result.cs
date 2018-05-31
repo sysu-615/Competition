@@ -35,10 +35,10 @@ namespace Competition.Models
             }
         }
 
-        public Result(Battle _battle, String _winAthlete, int _winAthleteNum)
+        public Result(Battle _battle, String _winAthleteName, int _winAthleteNum)
         {
             this.battle = _battle;
-            this.winAthleteName = _winAthlete;
+            this.winAthleteName = _winAthleteName;
             this.winAthleteNum = _winAthleteNum;
         }
 

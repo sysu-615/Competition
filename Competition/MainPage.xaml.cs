@@ -13,6 +13,9 @@ using Newtonsoft.Json.Linq;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using Competition.Services;
+using Windows.System;
+using System;
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
 namespace Competition
@@ -77,10 +80,11 @@ namespace Competition
                             match["matchLastTime"].ToString(), match["place"].ToString(), match["placeContain"].ToString(), match["sectionPerDay"].ToString(), match["seed"].ToString()));
 
                     ContentFrame.Navigate(typeof(Home));
+                    TileService.UpdateTileItem();
                 }
                 else
                 {
-                    //
+                    //await new MessageDialog("").ShowAsync();
                 }
             }
             //登陆失败后
@@ -88,7 +92,7 @@ namespace Competition
             //dialog.ShowAsync();
             else
             {
-               // await new MessageDialog("账号或密码错误，请重新输入！").ShowAsync();
+                //await new MessageDialog((string)logIn["errormessage"]).ShowAsync();
             }
         }
 
@@ -108,6 +112,8 @@ namespace Competition
             ResultVM.GetResultVM().AllResults.Clear();
             NavMenuPrimaryListView.IsItemClickEnabled = false;
             NavMenuBottomListView.IsItemClickEnabled = false;
+            NavMenuMatchListView.Visibility = Visibility.Collapsed;
+            NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
             API.GetAPI().SignOut();
         }
 
@@ -150,6 +156,19 @@ namespace Competition
 
             if (navMenuItemVM.SecondarySelectedItem.destPage != null)
                 ContentFrame.Navigate(navMenuItemVM.SecondarySelectedItem.destPage);
+        }
+
+        private async void Regist_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            try
+            {
+                await Launcher.LaunchUriAsync(new Uri(@"http://111.231.234.96:8000/get/signup"));
+            }
+            catch(Exception ex)
+            {
+                await new MessageDialog(ex.Message).ShowAsync();
+            }*/
         }
     }
 }
