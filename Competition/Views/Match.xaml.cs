@@ -33,13 +33,18 @@ namespace Competition.Views
         public BattleVM battleVM = BattleVM.GetBattleVM();
         public ResultVM resultVM = ResultVM.GetResultVM();
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
-        private DataSet athleteDataSet;
+        private DataSet athleteDataSet=null;
         private string matchEvent = "";
         private string matchType = "";
         public Match()
         {
             this.InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            if(matchesVM.AllMatches.Count>0)
+                MatchesExisted.Visibility = Visibility.Visible;
+            else
+                MatchesExisted.Visibility = Visibility.Collapsed;
+
         }
 
         private async void UploadButton_Click(object sender, RoutedEventArgs e)
@@ -140,23 +145,27 @@ namespace Competition.Views
                 NameNullTips.Visibility = Visibility.Visible;
                 return;
             }
+            if (athleteDataSet == null)
+            {
+                FileNullTips.Visibility = Visibility.Visible;
+                return;
+            }
 
+            foreach(var match in matchesVM.AllMatches)
+                if (match.name == NameBox.Text)
+                {
+                    NameRepeatTips.Visibility = Visibility.Visible;
+                    return;
+                }
             if (MatchBox.SelectedIndex == 0)
                 matchEvent = "tennis";
             else if (MatchBox.SelectedIndex == 1)
                 matchEvent = "badminton";
             else if (MatchBox.SelectedIndex == 2)
                 matchEvent = "pingpong";
-
-            foreach(var match in matchesVM.AllMatches)
-            {
-                if (match.name == NameBox.Text)
-                {
-                    NameRepeatTips.Visibility = Visibility.Visible;
-                    return;
-                }
-            }
-
+            NameNullTips.Visibility = Visibility.Collapsed;
+            FileNullTips.Visibility = Visibility.Collapsed;
+            NameRepeatTips.Visibility = Visibility.Collapsed;
             Before.Visibility = Visibility.Collapsed;
             After.Visibility = Visibility.Visible;
         }
@@ -175,9 +184,7 @@ namespace Competition.Views
                 MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
                 MainPage.Curr.ContentFrame.Navigate(typeof(Home));
             }
-
             //删除一场比赛，同步数据库
-            //
             Internet.API.GetAPI().DeleteMatch(deleteMatch.name, deleteMatch.matchEvent);
         }
 
@@ -280,7 +287,6 @@ namespace Competition.Views
                 }
             }
 
-            MatchesExisted.Visibility = Visibility.Visible;
             MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Visible;
             navMenuItemVM.NavMenuMatchItem[0].text = NameBox.Text;
             navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Collapsed;

@@ -1,0 +1,161 @@
+﻿<Application
+    x:Class="Competition.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Competition"
+    RequestedTheme="Light">
+    <Application.Resources>
+
+        <Style x:Key="Header" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="TextLineBounds" Value="Tight"/>
+            <Setter Property="Foreground" Value="#409eff"/>
+        </Style>
+
+        <Style x:Key="TopBar" TargetType="RelativePanel">
+            <Setter Property="Height" Value="40"/>
+        </Style>
+
+        <Style x:Key="LeftBar" TargetType="Grid">
+
+        </Style>
+
+        <!--登陆界面的样式-->
+        <Style x:Key="LoginFlyout" TargetType="FlyoutPresenter">
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="MaxHeight" Value="200"/>
+            <Setter Property="MaxWidth" Value="300"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <!-- 菜单的数据模板 -->
+        <DataTemplate x:Key="MenuItemDataTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="58" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Fill="{ThemeResource SystemControlBackgroundAccentBrush}" 
+                           Visibility="{Binding Selected, Mode=TwoWay}" 
+                           HorizontalAlignment="Left" Width="5" Height="48" />
+
+                <SymbolIcon Symbol="{Binding symbol}" Foreground="#409eff" Width="40"/>
+
+                <TextBlock Grid.Column="1" 
+                           Text="{Binding text, Mode=TwoWay}"
+                           Foreground="#409eff" Opacity="0.8" 
+                           FontWeight="Normal"
+                           Margin="12,0,0,0" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+
+        <!-- 比赛结果模板 -->
+        <DataTemplate x:Key="ResultsDataTemplate">
+            <Grid Width="500">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding battle.athlete1.name}"></TextBlock>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="VS"></TextBlock>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding battle.athlete2.name}"></TextBlock>
+                <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="——"></TextBlock>
+                <TextBox Grid.Column="4" HorizontalAlignment="Center" Text="{Binding winAthlete.name}"></TextBox>
+            </Grid>
+        </DataTemplate>
+
+        <!-- 菜单栏样式 -->
+        <Style x:Key="NavMenuItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                        Control.IsTemplateFocusTarget="True"
+                        SelectionCheckMarkVisualEnabled="False"
+                        PointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}"
+                        PointerOverForeground="{ThemeResource ListViewItemForegroundPointerOver}"
+                        SelectedBackground="Transparent"
+                        SelectedForeground="{ThemeResource SystemControlForegroundAccentBrush}"
+                        SelectedPointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}"
+                        PressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}"
+                        SelectedPressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}"
+                        DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentMargin="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 运动员信息栏样式 -->
+        <Style x:Key="AthletesItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridViewItem">
+                        <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                        PointerOverBackground="#409eff"
+                        PointerOverForeground="White"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentMargin="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 对战信息栏样式 -->
+        <Style x:Key="BattlesItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridViewItem">
+                        <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                        PointerOverBackground="#409eff"
+                        PointerOverForeground="White"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentMargin="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 赛事样式 -->
+        <!--<Style x:Key="MatchesItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                        PointerOverBackground="#409eff"
+                        PointerOverForeground="White"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentMargin="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+    </Application.Resources>
+</Application>
+

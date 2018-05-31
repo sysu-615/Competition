@@ -129,6 +129,12 @@ namespace Competition
             if (navMenuItemVM.SecondarySelectedItem != null)
                 navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
 
+            if(navMenuItemVM.PrimarySelectedItem == navMenuItemVM.NavMenuBottomItem[1])
+            {
+                Exit_Clicked(null, null);
+                return;
+            }
+
             if(navMenuItemVM.PrimarySelectedItem==navMenuItemVM.NavMenuMatchItem[0])
             {
                 NavMenuMatchInfoListView.Visibility = NavMenuMatchInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;

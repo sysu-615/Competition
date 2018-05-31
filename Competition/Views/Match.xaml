@@ -73,7 +73,7 @@
                 <TextBlock Text="拖拽Excel到此处" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
 
-            <TextBlock Margin="50 20 50 0" TextAlignment="Center" Text="点击下面的上传按钮或者拖拽Excel文件到虚线框中上传比赛人员信息" TextDecorations="Underline"/>
+            <TextBlock Margin="50 20 50 0" TextAlignment="Center" Text="点击下方上传按钮或者拖拽Excel文件到虚线框中上传比赛人员信息" TextDecorations="Underline"/>
 
             <RelativePanel Margin="0 20 0 0">
                 <Button x:Name="Upload"
@@ -87,6 +87,8 @@
                         ToolTipService.ToolTip="点击上传">
                     <SymbolIcon Symbol="Upload" />
                 </Button>
+
+                <TextBlock x:Name="FileNullTips" Margin="10 0 0 0" Text="（注：请上传文件）" Visibility="Collapsed" RelativePanel.RightOf="Upload"/>
 
                 <Button x:Name="Forward"
                         Width="100"

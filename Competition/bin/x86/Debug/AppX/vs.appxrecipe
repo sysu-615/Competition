@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b</PackageIdentityName>
     <PackageIdentityPublisher>CN=liuyh73</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\liuyh73\Desktop\Competition\Competition\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\liuyh73\Desktop\Competition\Competition\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>30E037D93B4D963CE79138586520151182CF40DEB50ED989789BFDD357231D96</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b_1.0.0.0_x86__06an8vaprdhge</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b_06an8vaprdhge!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\liuyh73\Desktop\Competition\Competition\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T08:38:42.121</Modified>
+      <Modified>2018-05-31T12:17:14.811</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\bin\x86\Debug\Competition.exe">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.exe">
       <PackagePath>entrypoint\Competition.exe</PackagePath>
-      <Modified>2018-05-31T08:38:41.349</Modified>
+      <Modified>2018-05-31T12:17:14.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\epplus\4.5.2\lib\netstandard2.0\EPPlus.dll">
       <PackagePath>EPPlus.dll</PackagePath>
@@ -763,57 +763,57 @@
       <PackagePath>System.Xml.XPath.XmlDocument.dll</PackagePath>
       <Modified>2016-11-04T20:57:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\pic_1.jpg">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\pic_1.jpg">
       <PackagePath>Assets\pic_1.jpg</PackagePath>
       <Modified>2018-05-31T06:03:39.740</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\matchbackground.jpg">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\matchbackground.jpg">
       <PackagePath>Assets\matchbackground.jpg</PackagePath>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\video.mp4">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\video.mp4">
       <PackagePath>Assets\video.mp4</PackagePath>
       <Modified>2018-05-31T05:34:49.499</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2018-05-31T05:34:48.466</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2018-05-31T05:34:51.030</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-31T05:34:51.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\bin\x86\Debug\Competition.xr.xml">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.xr.xml">
       <PackagePath>Competition.xr.xml</PackagePath>
       <Modified>2018-05-31T05:34:48.529</Modified>
     </AppxPackagedFile>
@@ -821,14 +821,14 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-09-28T09:28:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T08:38:41.827</Modified>
+      <Modified>2018-05-31T12:17:14.469</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\Desktop\Competition\Competition\bin\x86\Debug\Core\Competition.exe">
+    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\Competition.exe">
       <PackagePath>Competition.exe</PackagePath>
-      <Modified>2018-05-31T08:38:42.117</Modified>
+      <Modified>2018-05-31T12:17:14.808</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

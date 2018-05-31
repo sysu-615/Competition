@@ -340,6 +340,7 @@ namespace Competition.Internet
             return result;
         }
 
+        //登陆
         public async Task<JObject> Login(string username, string password)
         {
             //Create an HTTP client object
@@ -372,6 +373,7 @@ namespace Competition.Internet
             return result;
         }
 
+        //退出
         public async void SignOut()
         {
             Uri requestUri = new Uri(reqUri + "signout");
@@ -385,6 +387,39 @@ namespace Competition.Internet
             {
                 await new MessageDialog(ex.Message).ShowAsync();
             }
+        }
+
+        //用户注册
+        public async Task<bool> Register(string username, string password, string email)
+        {
+            Uri requestUri = new Uri(reqUri + "/signup");
+            bool result;
+            JObject userInfo = null;
+            userInfo.Add("username", username);
+            userInfo.Add("password", password);
+            userInfo.Add("email", email);
+            string httpResponseBody = "";
+            try
+            {
+                //Send the post request
+                //Debug.WriteLine(idJson.ToArray().);
+                HttpContent content = new StringContent(userInfo.ToString(), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await httpClient.PostAsync(requestUri, content);
+                response.EnsureSuccessStatusCode();
+                httpResponseBody = await response.Content.ReadAsStringAsync();
+                //Debug.WriteLine(httpResponseBody);
+                JObject rep = JObject.Parse(httpResponseBody);
+                result = (bool)rep["status"];
+                string msg = rep["message"].ToString();
+                await new MessageDialog(msg).ShowAsync();
+                //Debug.WriteLine(result);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                await new MessageDialog(ex.Message).ShowAsync();
+            }
+            return result;
         }
     }
 }

@@ -20352,11 +20352,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\liuyh73\\Desktop\\Competition\\Competition\\Competition.csproj",
+      "projectUniqueName": "D:\\coursewave\\ModernOSAppDevlop\\VS_Projects\\Competition\\Competition\\Competition.csproj",
       "projectName": "Competition",
-      "projectPath": "C:\\Users\\liuyh73\\Desktop\\Competition\\Competition\\Competition.csproj",
+      "projectPath": "D:\\coursewave\\ModernOSAppDevlop\\VS_Projects\\Competition\\Competition\\Competition.csproj",
       "packagesPath": "C:\\Users\\liuyh73\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\liuyh73\\Desktop\\Competition\\Competition\\obj\\",
+      "outputPath": "D:\\coursewave\\ModernOSAppDevlop\\VS_Projects\\Competition\\Competition\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
