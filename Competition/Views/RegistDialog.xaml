@@ -1,0 +1,29 @@
+﻿<ContentDialog
+    x:Class="Competition.Views.RegistDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Competition.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="注册"
+    PrimaryButtonText="注册"
+    SecondaryButtonText="取消"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="userName" Grid.Row="0" PlaceholderText="请输入账号（长度大于六位）" Margin="0 5 0 0" TextChanged="userName_TextChanged"/>
+        <PasswordBox x:Name="password1" Grid.Row="1" PlaceholderText="请输入密码（长度大于六位）" Margin="0 5 0 0" PasswordChanged="password1_PasswordChanged"/>
+        <PasswordBox x:Name="password2" Grid.Row="2" PlaceholderText="请再次输入密码" Margin="0 5 0 0" PasswordChanged="password2_PasswordChanged"/>
+        <TextBox x:Name="email" Grid.Row="3" PlaceholderText="请输入邮箱地址" Margin="0 5 0 0" TextChanged="email_TextChanged"/>
+        <TextBlock x:Name="errorMessage" Grid.Row="4" TextAlignment="Center" TextDecorations="Underline" Foreground="Red"/>
+    </Grid>
+</ContentDialog>

@@ -17,6 +17,9 @@ using Competition.ViewModels;
 using Competition.Views.MatchInfo;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Storage.Streams;
+using Windows.Storage;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -31,9 +34,11 @@ namespace Competition.Views
         public BattleVM battleVM = BattleVM.GetBattleVM();
         public ResultVM resultVM = ResultVM.GetResultVM();
 
+
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         public Home()
         {
+            DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
             this.InitializeComponent();
             if (!UserInfo.IsLogged)
                 Info.Text = "请先登录帐号！";
@@ -46,10 +51,30 @@ namespace Competition.Views
             }
         }
 
+        public Matches shareItem;
+        // Handle DataRequested event and provide DataPackage
+        public void OnShareDataRequested(DataTransferManager sender, DataRequestedEventArgs args)
+        {
+            var request = args.Request;
+            var deferral = args.Request.GetDeferral();
+            request.Data.Properties.Title = "比赛名称：\t" + shareItem.name;
+            request.Data.Properties.Description = "A share of Mathes";
+            var picStream = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/pic_1.jpg"));
+            request.Data.SetBitmap(picStream);
+            request.Data.SetText("比赛类型：\t" + shareItem.matchEvent + "\n比赛开始时间：\t" + shareItem.startTime);
+            shareItem = null;
+            deferral.Complete();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            DataTransferManager.GetForCurrentView().DataRequested -= OnShareDataRequested;
+        }
+
         private async void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
             string name = (e.ClickedItem as Matches).name;
-            foreach(Matches match in matchesVM.AllMatches)
+            foreach (Matches match in matchesVM.AllMatches)
             {
                 if (match.name == name)
                 {
@@ -62,7 +87,7 @@ namespace Competition.Views
 
                     navMenuItemVM.PrimarySelectedItem = navMenuItemVM.NavMenuMatchItem[0];
                     navMenuItemVM.PrimarySelectedItem.Selected = Visibility.Visible;
-                    if(navMenuItemVM.SecondarySelectedItem!=null)
+                    if (navMenuItemVM.SecondarySelectedItem != null)
                         navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
                     navMenuItemVM.SecondarySelectedItem = navMenuItemVM.NavMenuMatchInfoItem[1];
                     navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Visible;
@@ -72,7 +97,7 @@ namespace Competition.Views
                     // 请求数据库刷新更具当前选中的比赛更新VM(包括Athlete、Battle、Result)
                     // matchesVM.SelectedMatch即为当前选中的比赛，包括了name,startTime和matchEvent
 
-                    JObject result = await Internet.API.GetAPI().GetMatchInfo(matchesVM.SelectedMatch.matchEvent,name);
+                    JObject result = await Internet.API.GetAPI().GetMatchInfo(matchesVM.SelectedMatch.matchEvent, name);
                     //Debug.WriteLine(result);
                     AthleteVM.GetAthleteVM().AllAthletes.Clear();
                     JToken athletes = result["data"]["athletes"];
@@ -154,5 +179,18 @@ namespace Competition.Views
                 }
             }
         }
+
+        private void StackPanel_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var item = (sender as FrameworkElement).DataContext as Matches;
+            shareItem = item;
+            DataTransferManager.ShowShareUI();
+        }
+
     }
 }

@@ -133,6 +133,9 @@
     <Compile Include="Views\MatchInfo\Results.xaml.cs">
       <DependentUpon>Results.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegistDialog.xaml.cs">
+      <DependentUpon>RegistDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Video.xaml.cs">
       <DependentUpon>Video.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MatchInfo\Results.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

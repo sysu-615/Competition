@@ -2,8 +2,6 @@
 using Competition.ViewModels;
 using Competition.Views;
 using Competition.Internet;
-using Competition.Views.MatchInfo;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -28,7 +26,7 @@ namespace Competition
         public static MainPage Curr;
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
-        private string matchName="";
+        private string matchName = "";
 
         public MainPage()
         {
@@ -51,13 +49,13 @@ namespace Competition
             UserInfo.UserName = UserName.Text;
             UserInfo.Password = Password.Password;
             //登陆验证模块
-
-            //登陆成功后
-            //UserInfo.IsLogged = true;
-            //Login_Button.Visibility = Visibility.Collapsed;
             JObject logIn = await API.GetAPI().Login(UserInfo.UserName, UserInfo.Password);
             if ((bool)logIn["state"])
             {
+                //登陆成功后
+                UserInfo.IsLogged = true;
+                errorMessage.Text = "";
+                Login_Button.Visibility = Visibility.Collapsed;
                 NavMenuPrimaryListView.IsItemClickEnabled = true;
                 NavMenuBottomListView.IsItemClickEnabled = true;
                 UserInfo.IsLogged = true;
@@ -87,12 +85,10 @@ namespace Competition
                     //await new MessageDialog("").ShowAsync();
                 }
             }
-            //登陆失败后
-            //胜利ar dialog = new MessageDialog("账号或密码错误，请重新输入！");
-            //dialog.ShowAsync();
             else
             {
-                //await new MessageDialog((string)logIn["errormessage"]).ShowAsync();
+                //登陆失败后
+                errorMessage.Text = (string)logIn["errormessage"];
             }
         }
 
@@ -101,11 +97,12 @@ namespace Competition
             UserInfo.UserName = "";
             UserInfo.Password = "";
             UserInfo.IsLogged = false;
+            UserName.Text = "";
+            Password.Password = "";
             Login_Button.Visibility = Visibility.Visible;
             UserInfoState.Hide();
-
+            errorMessage.Text = "";
             ContentFrame.Navigate(typeof(Home));
-            Login_Flyout.ShowAt(LogInLogOut);
             BattleVM.GetBattleVM().AllBattles.Clear();
             AthleteVM.GetAthleteVM().AllAthletes.Clear();
             MatchesVM.GetMatchesVM().AllMatches.Clear();
@@ -129,16 +126,16 @@ namespace Competition
             if (navMenuItemVM.SecondarySelectedItem != null)
                 navMenuItemVM.SecondarySelectedItem.Selected = Visibility.Collapsed;
 
-            if(navMenuItemVM.PrimarySelectedItem == navMenuItemVM.NavMenuBottomItem[1])
+            if (navMenuItemVM.PrimarySelectedItem == navMenuItemVM.NavMenuBottomItem[1])
             {
                 Exit_Clicked(null, null);
                 return;
             }
 
-            if(navMenuItemVM.PrimarySelectedItem==navMenuItemVM.NavMenuMatchItem[0])
+            if (navMenuItemVM.PrimarySelectedItem == navMenuItemVM.NavMenuMatchItem[0])
             {
                 NavMenuMatchInfoListView.Visibility = NavMenuMatchInfoListView.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-                matchName= navMenuItemVM.PrimarySelectedItem.text;
+                matchName = navMenuItemVM.PrimarySelectedItem.text;
                 ContentFrame.Navigate(navMenuItemVM.PrimarySelectedItem.destPage);
             }
 
@@ -175,6 +172,8 @@ namespace Competition
             {
                 await new MessageDialog(ex.Message).ShowAsync();
             }*/
+            RegistDialog regist = new RegistDialog();
+            await regist.ShowAsync();
         }
     }
 }

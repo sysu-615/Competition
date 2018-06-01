@@ -180,7 +180,7 @@ namespace Competition.Competition_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[12];
+            _typeNameTable = new string[15];
             _typeNameTable[0] = "Competition.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -190,11 +190,14 @@ namespace Competition.Competition_XamlTypeInfo
             _typeNameTable[6] = "Competition.Views.MatchInfo.Athletes";
             _typeNameTable[7] = "Competition.Views.MatchInfo.Battles";
             _typeNameTable[8] = "Competition.Views.MatchInfo.Results";
-            _typeNameTable[9] = "Competition.SliderConverter.Converter";
-            _typeNameTable[10] = "Object";
-            _typeNameTable[11] = "Competition.Views.Video";
+            _typeNameTable[9] = "Competition.Views.RegistDialog";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[12] = "Competition.SliderConverter.Converter";
+            _typeNameTable[13] = "Object";
+            _typeNameTable[14] = "Competition.Views.Video";
 
-            _typeTable = new global::System.Type[12];
+            _typeTable = new global::System.Type[15];
             _typeTable[0] = typeof(global::Competition.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -204,9 +207,12 @@ namespace Competition.Competition_XamlTypeInfo
             _typeTable[6] = typeof(global::Competition.Views.MatchInfo.Athletes);
             _typeTable[7] = typeof(global::Competition.Views.MatchInfo.Battles);
             _typeTable[8] = typeof(global::Competition.Views.MatchInfo.Results);
-            _typeTable[9] = typeof(global::Competition.SliderConverter.Converter);
-            _typeTable[10] = typeof(global::System.Object);
-            _typeTable[11] = typeof(global::Competition.Views.Video);
+            _typeTable[9] = typeof(global::Competition.Views.RegistDialog);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[12] = typeof(global::Competition.SliderConverter.Converter);
+            _typeTable[13] = typeof(global::System.Object);
+            _typeTable[14] = typeof(global::Competition.Views.Video);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -248,8 +254,9 @@ namespace Competition.Competition_XamlTypeInfo
         private object Activate_6_Athletes() { return new global::Competition.Views.MatchInfo.Athletes(); }
         private object Activate_7_Battles() { return new global::Competition.Views.MatchInfo.Battles(); }
         private object Activate_8_Results() { return new global::Competition.Views.MatchInfo.Results(); }
-        private object Activate_9_Converter() { return new global::Competition.SliderConverter.Converter(); }
-        private object Activate_11_Video() { return new global::Competition.Views.Video(); }
+        private object Activate_9_RegistDialog() { return new global::Competition.Views.RegistDialog(); }
+        private object Activate_12_Converter() { return new global::Competition.SliderConverter.Converter(); }
+        private object Activate_14_Video() { return new global::Competition.Views.Video(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -318,20 +325,35 @@ namespace Competition.Competition_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 9:   //  Competition.SliderConverter.Converter
-                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_9_Converter;
+            case 9:   //  Competition.Views.RegistDialog
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
+                userType.Activator = Activate_9_RegistDialog;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Object
+            case 10:   //  Windows.UI.Xaml.Controls.ContentDialog
                 xamlType = new global::Competition.Competition_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  Competition.Views.Video
+            case 11:   //  Windows.UI.Xaml.Controls.ContentControl
+                xamlType = new global::Competition.Competition_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Competition.SliderConverter.Converter
+                userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_12_Converter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Object
+                xamlType = new global::Competition.Competition_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Competition.Views.Video
                 userType = new global::Competition.Competition_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_Video;
+                userType.Activator = Activate_14_Video;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

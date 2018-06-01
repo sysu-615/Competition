@@ -19,7 +19,6 @@
     <RootPropertyPathName Name="phoneNum" />
     <RootPropertyPathName Name="idNum" />
     <RootPropertyPathName Name="sex" />
-    <RootPropertyPathName Name="id" />
     <RootPropertyPathName Name="groupIndex" />
     <RootPropertyPathName Name="winAthleteName" />
   </Roots.PropertyPathNames>
@@ -88,6 +87,28 @@
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Flyout" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="AllowFocusOnInteraction" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Style" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Control">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="UseSystemFocusVisuals" />
+      <RootProperty Name="Template" />
+      <RootMethod Name="GetIsTemplateFocusTarget" />
+      <RootMethod Name="SetIsTemplateFocusTarget" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.FlyoutPresenter" />
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Content" />
@@ -99,14 +120,6 @@
       <RootMethod Name="SetVerticalScrollMode" />
       <RootMethod Name="GetHorizontalScrollMode" />
       <RootMethod Name="SetHorizontalScrollMode" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Control">
-      <RootProperty Name="Padding" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="UseSystemFocusVisuals" />
-      <RootProperty Name="Template" />
-      <RootMethod Name="GetIsTemplateFocusTarget" />
-      <RootMethod Name="SetIsTemplateFocusTarget" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -151,6 +164,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="IsEnabled" />
+      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
@@ -264,22 +278,13 @@
       <RootProperty Name="Placement" />
       <RootProperty Name="FlyoutPresenterStyle" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Flyout" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="AllowFocusOnInteraction" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Foreground" />
-      <RootEvent Name="Click" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Width" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="AllowFocusOnInteraction" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="PasswordChanged" />
     </RootType>
     <RootType FullName="Competition.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
@@ -289,8 +294,8 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Width" />
       <RootProperty Name="Visibility" />
-      <RootProperty Name="SelectionMode" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="SelectionMode" />
       <RootProperty Name="Foreground" />
       <RootEvent Name="ItemClick" />
     </RootType>
@@ -328,15 +333,15 @@
     </RootType>
     <RootType FullName="Competition.Views.Match" />
     <RootType FullName="Competition.Views.MatchInfo.MatchCreated" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
+      <RootMethod Name="GetAttachedFlyout" />
+      <RootMethod Name="SetAttachedFlyout" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Competition.Views.MatchInfo.Athletes" />
     <RootType FullName="Competition.Views.MatchInfo.Battles" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
-      <RootMethod Name="GetAttachedFlyout" />
-      <RootMethod Name="SetAttachedFlyout" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
       <RootProperty Name="Items" />
     </RootType>
@@ -346,6 +351,15 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Competition.Views.MatchInfo.Results" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
+      <RootProperty Name="Title" />
+      <RootProperty Name="PrimaryButtonText" />
+      <RootProperty Name="SecondaryButtonText" />
+      <RootProperty Name="Content" />
+      <RootEvent Name="PrimaryButtonClick" />
+      <RootEvent Name="SecondaryButtonClick" />
+    </RootType>
+    <RootType FullName="Competition.Views.RegistDialog" />
     <RootType FullName="Competition.SliderConverter.Converter" />
     <RootType FullName="Windows.UI.Xaml.Controls.MediaPlayerElement">
       <RootProperty Name="AreTransportControlsEnabled" />

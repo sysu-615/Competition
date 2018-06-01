@@ -70,30 +70,32 @@
                     Margin="0 0 0 0">
                 </AppBarButton>
                 <TextBlock x:ConnectionId='10' x:Name="realTitleBar" Text="赛事系统" Margin="-20 0 0 0" TextAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                <AppBarButton x:ConnectionId='11' x:Name="LogInLogOut" Margin="0 -5 183 0" BorderBrush="#409eff" Width="25" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="#20acff">
+                <AppBarButton x:ConnectionId='11' x:Name="LogInLogOut" x:FieldModifier="public" Margin="0 -5 183 0" BorderBrush="#409eff" Width="25" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="#20acff">
                     <AppBarButton.Flyout>
-                        <Flyout x:ConnectionId='12' x:Name="UserInfoState">
+                        <Flyout x:ConnectionId='12' x:Name="UserInfoState" x:FieldModifier="public">
                             <StackPanel Opacity="0.8" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                                 <!--登陆-->
                                 <Button x:ConnectionId='13' x:Name="Login_Button" Content="登陆" Width="100">
                                     <Button.Flyout>
-                                        <Flyout x:ConnectionId='15' x:Name="Login_Flyout" Placement="4" FlyoutPresenterStyle="{StaticResource LoginFlyout}">
+                                        <Flyout x:ConnectionId='15' x:Name="Login_Flyout" x:FieldModifier="public" Placement="4" FlyoutPresenterStyle="{StaticResource LoginFlyout}">
                                             <Grid Height="200" Width="298" HorizontalAlignment="Center">
                                                 <Grid.Background>
                                                     <AcrylicBrush BackgroundSource="HostBackdrop" TintOpacity="1"/>
                                                 </Grid.Background>
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="30"/>
+                                                    <RowDefinition Height="40"/>
+                                                    <RowDefinition Height="40"/>
+                                                    <RowDefinition Height="40"/>
+                                                    <RowDefinition Height="20"/>
                                                     <RowDefinition Height="50"/>
-                                                    <RowDefinition Height="50"/>
-                                                    <RowDefinition Height="70"/>
                                                 </Grid.RowDefinitions>
                                                 <TextBlock Text="登陆" HorizontalAlignment="Center" FontSize="20"/>
                                                 <TextBox x:ConnectionId='16' x:Name="UserName" Grid.Row="1" Width="240" PlaceholderText="请输入用户名" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
                                                 <PasswordBox x:ConnectionId='17' x:Name="Password" Grid.Row="2" Width="240" PlaceholderText="请输入密码" AllowFocusOnInteraction="True" VerticalAlignment="Center"/>
-                                                <Button x:ConnectionId='18' x:Name="Login" Grid.Row="3" Margin="30,0,0,0" Content="登陆"                       AllowFocusOnInteraction="True" Width="80" HorizontalAlignment="Left"/>
-                                                <!--暂时没有注册功能-->
-                                                <Button x:ConnectionId='19' x:Name="Regist" Grid.Row="3" Margin="0,0,30,0" Content="注册" Width="80" HorizontalAlignment="Right"                     />
+                                                <TextBlock x:ConnectionId='18' x:Name="errorMessage" Grid.Row="3" TextAlignment="Center" TextDecorations="Underline" Foreground="Red"/>
+                                                <Button x:ConnectionId='19' x:Name="Login" Grid.Row="4" Margin="30,0,0,0" Content="登陆"                       AllowFocusOnInteraction="True" Width="80" HorizontalAlignment="Left"/>
+                                                <!--注册-->
+                                                <Button x:ConnectionId='20' x:Name="Regist" Grid.Row="4" Margin="0,0,30,0" Content="注册" Width="80" HorizontalAlignment="Right"                     />
                                             </Grid>
                                         </Flyout>
                                     </Button.Flyout>

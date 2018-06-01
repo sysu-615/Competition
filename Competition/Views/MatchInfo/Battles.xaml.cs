@@ -31,6 +31,7 @@ namespace Competition.Views.MatchInfo
     /// </summary>
     sealed partial class Battles : Page
     {
+        public AthleteVM athleteVM = AthleteVM.GetAthleteVM();
         public BattleVM battleVM = BattleVM.GetBattleVM();
         public MatchesVM matchesVM = MatchesVM.GetMatchesVM();
         public ResultVM resultVM = ResultVM.GetResultVM();
@@ -63,26 +64,36 @@ namespace Competition.Views.MatchInfo
                 }
                 battlesSheet.Cells["A1:C1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 battlesSheet.Cells["A1:C1"].Merge = true;
-                battlesSheet.Cells["A1:C1"].Value = Title.Text;
-                battlesSheet.Cells["A2"].Value = "运动员";
+                battlesSheet.Cells["A1:C1"].Value = Title.Text + " (第" + battleVM.round.ToString() + "轮)";
+                /*battlesSheet.Cells["A2"].Value = "运动员";
                 battlesSheet.Cells["B2"].Value = "VS";
                 battlesSheet.Cells["C2"].Value = "运动员";
-
+                */
+                string groupIndex = battleVM.AllBattles[0].groupIndex;
+                if (matchesVM.SelectedMatch.matchType== "GroupLoop")
+                    groupIndex = "0";
                 int index = 3;
-                foreach(var battle in BattleVM.GetBattleVM().AllBattles)
+                foreach (var battle in BattleVM.GetBattleVM().AllBattles)
                 {
+                    if(battle.groupIndex != groupIndex)
+                    {
+                        battlesSheet.Cells[++index, 2].Value = "第"+ battle.groupIndex + "组";
+                        groupIndex = battle.groupIndex;
+                        index++;
+                    }
                     Debug.WriteLine(index);
                     if (battle.athlete1 != null)
                     {
                         Debug.Write(battle.athlete1.name);
-                        battlesSheet.Cells[index++, 1].Value = battle.athlete1.name;
+                        battlesSheet.Cells[index, 1].Value = battle.athlete1.name;
                     }
-                    //battlesSheet.Cells[index, 2].Value = "vs";
+                    battlesSheet.Cells[index, 2].Value = "vs";
                     if (battle.athlete2 != null)
                     {
                         Debug.WriteLine(" " + battle.athlete2.name);
-                        battlesSheet.Cells[index++,1].Value = battle.athlete2.name;
+                        battlesSheet.Cells[index,3].Value = battle.athlete2.name;
                     }
+                    index++;
                 }
                 package.Save();
             }
@@ -100,6 +111,7 @@ namespace Competition.Views.MatchInfo
             JToken groups = result["data"]["groups"];
 
             //Battle BattleTableTitle = battleVM.AllBattles[0];
+            //athleteVM.AllAthletes.Clear();
             battleVM.AllBattles.Clear();
             //battleVM.AllBattles.Add(BattleTableTitle);
             battleVM.round = Round.SelectedIndex + 1;
@@ -156,11 +168,18 @@ namespace Competition.Views.MatchInfo
                         Debug.WriteLine(infoB);
                         B = new Athlete(athleteBId, infoB["姓名"].ToString(), infoB["性别"].ToString(), infoB["身份证"].ToString(), infoB["手机号"].ToString(), infoB["积分"].ToString(), "0");
                     }
+                    /*
+                    if (A != null)
+                        athleteVM.AllAthletes.Add(A);
+                    if (B != null)
+                        athleteVM.AllAthletes.Add(B);
+                        */
                     Battle newbattle = new Battle(_id, groupId, A, B);
                     battleVM.AllBattles.Add(newbattle);
                     resultVM.AllResults.Add(new Result(newbattle, winnerName, winnerNum));
                 }
             }
         }
+
     }
 }

@@ -31,11 +31,7 @@ namespace Competition.ViewModels
             set { this.selectedItem = value; }
         }
 
-        private ObservableCollection<Athlete> allAthletes = new ObservableCollection<Athlete>(
-            new[]
-            {
-                new Athlete("序号","姓名","性别","身份证号","手机号","积分","种子序号")
-            });
+        private ObservableCollection<Athlete> allAthletes = new ObservableCollection<Athlete>();
         public ObservableCollection<Athlete> AllAthletes { get { return this.allAthletes; } }
 
         public void AddAthlete(string index, string name, string sex, string idNum, string phoneNum, string score, string seedNum)
@@ -48,15 +44,13 @@ namespace Competition.ViewModels
             allAthletes.Remove(SelectedItem);
         }
 
-        public void UpdataAthlete(string _id, string name, string sex, string idNum, string phoneNum, string score, string seedNum)
+        public void UpdataAthlete(string name, string sex, string idNum, string phoneNum, string score)
         {
-            selectedItem.id = _id;
             selectedItem.name = name;
             selectedItem.sex = sex;
             selectedItem.idNum = idNum;
             selectedItem.phoneNum = phoneNum;
             selectedItem.score = score;
-            selectedItem.seedNum = seedNum;
         }
     }
 }

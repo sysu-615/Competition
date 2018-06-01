@@ -5,8 +5,27 @@
     xmlns:local="using:Competition.Views.MatchInfo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:md="using:Competition.Models"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <Flyout x:Name="editInfo" x:Key="editAthleteInfo" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Placement="4">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="修改运动员信息" Style="{StaticResource Header}" Margin="0 50 0 50"/>
+                <TextBlock Text="姓名：" />
+                <TextBox x:Name="editName" Text=""/>
+                <TextBlock Text="性别："/>
+                <TextBox x:Name="editSex" Text=""/>
+                <TextBlock Text="身份证号码："/>
+                <TextBox x:Name="editIdNum" Text=""/>
+                <TextBlock Text="手机号："/>
+                <TextBox x:Name="editPhoneNum" Text=""/>
+                <TextBlock Text="分数："/>
+                <TextBox x:Name="editScore" Text=""/>
+                <Button Width="200" Content="修改运动员信息" Click="Button_Click" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
+
     <Grid HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
@@ -27,13 +46,19 @@
                 Grid.Column="1" 
                 Grid.Row="1"
                 Visibility="Visible"
-                SelectionMode="None"
+                IsItemClickEnabled="True"
+                ItemClick="AthletesListView_ItemClick"
+                FlyoutBase.AttachedFlyout="{StaticResource editAthleteInfo}"
                 ItemsSource="{x:Bind athleteVM.AllAthletes}" >
+
             <!-- 运动员信息模板 -->
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="md:Athlete">
+                <DataTemplate>
                     <UserControl>
-                        <Grid Width="Auto">
+                        <Grid>
+                            <Grid.Background>
+                                <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="SkyBlue" TintOpacity="0.5"/>
+                            </Grid.Background>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
                                     <VisualState x:Name="narrow">
@@ -55,17 +80,15 @@
                                 <ColumnDefinition Width="380" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
-                            <Grid x:Name="leftView" Grid.Column="0">
+                            <Grid x:Name="leftView" Grid.Column="0" VerticalAlignment="Bottom" >
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
                                     <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="250"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding id}"></TextBlock>
-                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding name}"></TextBlock>
-                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding sex}"></TextBlock>
-                                <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="{Binding idNum}"></TextBlock>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding name}"></TextBlock>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding sex}"></TextBlock>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding idNum}"></TextBlock>
                             </Grid>
                             <Grid x:Name="rightView" Grid.Column="1">
                                 <Grid.ColumnDefinitions>

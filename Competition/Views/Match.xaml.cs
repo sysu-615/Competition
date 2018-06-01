@@ -179,6 +179,7 @@ namespace Competition.Views
             {
                 MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Collapsed;
                 MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
+                MatchesExisted.Visibility = Visibility.Visible;
             }else if(deleteMatch == matchesVM.SelectedMatch){
                 MainPage.Curr.NavMenuMatchListView.Visibility = Visibility.Collapsed;
                 MainPage.Curr.NavMenuMatchInfoListView.Visibility = Visibility.Collapsed;
@@ -202,10 +203,10 @@ namespace Competition.Views
                 matchType = "SingleCycle";
             else
                 matchType = "GroupLoop";
+            Debug.WriteLine(StartTimePicker.Date.ToString());
+            JObject result= await Internet.API.GetAPI().createMatch(athleteDataSet, matchEvent, matchType, NameBox.Text, StartTimePicker.Date.ToString().Split(" ")[0], SeedNumber.Text, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text);
 
-            JObject result= await Internet.API.GetAPI().createMatch(athleteDataSet, matchEvent, matchType, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), SeedNumber.Text, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text);
-
-            Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Substring(0, 10), matchType, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text, SeedNumber.Text);
+            Matches newMatch = new Matches(matchEvent, NameBox.Text, StartTimePicker.Date.ToString().Split(" ")[0], matchType, matchLastTime.Text, place.Text, placeContain.Text, sectionPerDay.Text, SeedNumber.Text);
             matchesVM.SelectedMatch = newMatch;
             matchesVM.AllMatches.Add(newMatch);
             TileService.UpdateTileItem();

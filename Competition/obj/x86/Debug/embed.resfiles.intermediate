@@ -6,4 +6,5 @@ Views\MatchInfo\Athletes.xbf
 Views\MatchInfo\Battles.xbf
 Views\MatchInfo\MatchCreated.xbf
 Views\MatchInfo\Results.xbf
+Views\RegistDialog.xbf
 Views\Video.xbf

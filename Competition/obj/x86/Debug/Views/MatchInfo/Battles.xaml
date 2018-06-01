@@ -64,6 +64,7 @@
                 Margin="50 20 50 0"
                 SelectionMode="None"
                 Grid.Row="1"
+                
                                                            >
                 <!-- 对战信息模板 -->
                 <GridView.ItemTemplate>

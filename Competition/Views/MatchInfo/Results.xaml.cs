@@ -36,6 +36,10 @@ namespace Competition.Views.MatchInfo
         public Results()
         {
             this.InitializeComponent();
+            if(matchesVM.SelectedMatch.matchType== "SingleCycle" || battleVM.AllBattles.Count == 1)
+                GenerateNextRound.Visibility = Visibility.Collapsed;
+            else
+                GenerateNextRound.Visibility = Visibility.Visible;
         }
 
         private async void GenerateNextRound_Click(object sender, RoutedEventArgs e)
@@ -62,7 +66,7 @@ namespace Competition.Views.MatchInfo
             //Debug.WriteLine(result);
             string round = result["data"]["round"].ToString();
             JToken groups = result["data"]["groups"];
-
+            //athleteVM.AllAthletes.Clear();
             //Battle BattleTableTitle = battleVM.AllBattles[0];
             battleVM.AllBattles.Clear();
             //battleVM.AllBattles.Add(BattleTableTitle);
@@ -119,6 +123,12 @@ namespace Competition.Views.MatchInfo
                         //Debug.WriteLine(infoB);
                         B = new Athlete(athleteBId, infoB["姓名"].ToString(), infoB["性别"].ToString(), infoB["身份证"].ToString(), infoB["手机号"].ToString(), infoB["积分"].ToString(), "0");
                     }
+                    /*
+                    if (A != null)
+                        athleteVM.AllAthletes.Add(A);
+                    if (B != null)
+                        athleteVM.AllAthletes.Add(B);
+                        */
                     Battle newbattle = new Battle(_id, groupId, A, B);
                     battleVM.AllBattles.Add(newbattle);
                     resultVM.AllResults.Add(new Result(newbattle, winnerName, winnerNum));

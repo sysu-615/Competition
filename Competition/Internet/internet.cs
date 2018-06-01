@@ -226,7 +226,7 @@ namespace Competition.Internet
         }
 
         //更新运动员信息
-        public async void UpdateAthlete(JObject athleteInfo)
+        public async Task<bool> UpdateAthlete(JObject athleteInfo)
         {
             string infoJson = athleteInfo.ToString();
 
@@ -249,11 +249,13 @@ namespace Competition.Internet
                 //Debug.WriteLine(httpResponseBody);
                 result = JObject.Parse(httpResponseBody);
                 Debug.WriteLine(result);
+                return (bool)result["state"];
             }
             catch (Exception ex)
             {
                 await new MessageDialog(ex.Message).ShowAsync();
             }
+            return false;
         }
 
         //胜负更新
@@ -392,9 +394,9 @@ namespace Competition.Internet
         //用户注册
         public async Task<bool> Register(string username, string password, string email)
         {
-            Uri requestUri = new Uri(reqUri + "/signup");
+            Uri requestUri = new Uri(reqUri + "signup");
             bool result;
-            JObject userInfo = null;
+            JObject userInfo = new JObject();
             userInfo.Add("username", username);
             userInfo.Add("password", password);
             userInfo.Add("email", email);
@@ -409,7 +411,9 @@ namespace Competition.Internet
                 httpResponseBody = await response.Content.ReadAsStringAsync();
                 //Debug.WriteLine(httpResponseBody);
                 JObject rep = JObject.Parse(httpResponseBody);
-                result = (bool)rep["status"];
+                Debug.WriteLine(rep);
+                result = rep["state"].ToString() == "true" ? true : false;
+
                 string msg = rep["message"].ToString();
                 await new MessageDialog(msg).ShowAsync();
                 //Debug.WriteLine(result);

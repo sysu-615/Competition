@@ -21,11 +21,7 @@ namespace Competition.ViewModels
                 resultVM = new ResultVM();
             return resultVM;
         }
-        private ObservableCollection<Result> allResults = new ObservableCollection<Result>(
-            new[]
-            {
-                new Result(new Battle("序号","组别",new Athlete("","运动员","","","","",""),new Athlete("","运动员","","","","","")), "获胜者", 4)
-            });
+        private ObservableCollection<Result> allResults = new ObservableCollection<Result>();
         public ObservableCollection<Result> AllResults { get { return this.allResults; } }
     }
 }

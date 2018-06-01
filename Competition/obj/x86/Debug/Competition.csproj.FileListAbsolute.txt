@@ -590,3 +590,8 @@ D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debu
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\resources.en-us.resfiles.intermediate
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Microsoft.Toolkit.Uwp.Notifications.pri.xml
 D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\ProjectArchitectures.txt
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Views\RegistDialog.xbf
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\RegistDialog.g.i.cs
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\RegistDialog.g.cs
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\RegistDialog.xaml
+D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\Views\RegistDialog.xbf
