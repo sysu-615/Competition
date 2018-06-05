@@ -114,7 +114,7 @@ namespace Competition.Views.MatchInfo
             //athleteVM.AllAthletes.Clear();
             battleVM.AllBattles.Clear();
             //battleVM.AllBattles.Add(BattleTableTitle);
-            battleVM.round = Round.SelectedIndex + 1;
+            // battleVM.round = Round.SelectedIndex + 1;
 
             //Result ResultTableTitle = resultVM.AllResults[0];
             resultVM.AllResults.Clear();

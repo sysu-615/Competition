@@ -13,17 +13,29 @@
             <Setter Property="Foreground" Value="#409eff"/>
         </Style>
 
-        <Style x:Key="TopBar" TargetType="RelativePanel">
+        <Style x:Key="TopBar" TargetType="Grid">
             <Setter Property="Height" Value="40"/>
         </Style>
 
         <Style x:Key="LeftBar" TargetType="Grid">
 
         </Style>
-
+        <!--基础按钮样式-->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#409eff"/>
             <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <!--信息修改FLYOUT样式-->
+        <Style x:Key="InfoFlyout" TargetType="FlyoutPresenter">
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="MaxHeight" Value="500"/>
+            <Setter Property="MaxWidth" Value="400"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
         </Style>
 
         <!--登陆界面的样式-->

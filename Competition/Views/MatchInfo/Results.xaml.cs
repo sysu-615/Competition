@@ -65,6 +65,7 @@ namespace Competition.Views.MatchInfo
 
             //Debug.WriteLine(result);
             string round = result["data"]["round"].ToString();
+            battleVM.round = int.Parse(round);
             JToken groups = result["data"]["groups"];
             //athleteVM.AllAthletes.Clear();
             //Battle BattleTableTitle = battleVM.AllBattles[0];
@@ -74,7 +75,6 @@ namespace Competition.Views.MatchInfo
             //Result ResultTableTitle = resultVM.AllResults[0];
             resultVM.AllResults.Clear();
             //resultVM.AllResults.Add(ResultTableTitle);
-            battleVM.round = battleVM.round+1;
 
             foreach (JToken group in groups)
             {

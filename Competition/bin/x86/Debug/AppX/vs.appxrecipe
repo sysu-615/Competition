@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-55DQDG3</Machine>
-    <WindowsUser>liuyh73</WindowsUser>
+    <Machine>XB-20170501VHMB</Machine>
+    <WindowsUser>Administrator</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b</PackageIdentityName>
     <PackageIdentityPublisher>CN=liuyh73</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Competition\Competition\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>30E037D93B4D963CE79138586520151182CF40DEB50ED989789BFDD357231D96</RegisteredManifestChecksum>
+    <LayoutDir>E:\Competition\Competition\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>03FBD0DCAAEC4FD1AF714EAEB2DCBFEC196652A0F053F9F42AAF1164A2645A9C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b_1.0.0.0_x86__06an8vaprdhge</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b_06an8vaprdhge!App</RegisteredUserModeAppID>
     <RegisteredPackageID>e5ab0fa1-82b0-4421-b3a8-37d348bbf55b</RegisteredPackageID>
@@ -28,66 +28,66 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Competition\Competition\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-01T05:29:13.776</Modified>
+      <Modified>2018-06-01T14:09:41.187</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.exe">
+    <AppxPackagedFile Include="E:\Competition\Competition\bin\x86\Debug\Competition.exe">
       <PackagePath>entrypoint\Competition.exe</PackagePath>
-      <Modified>2018-06-01T05:29:12.882</Modified>
+      <Modified>2018-06-01T14:09:37.835</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\epplus\4.5.2\lib\netstandard2.0\EPPlus.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\epplus\4.5.2\lib\netstandard2.0\EPPlus.dll">
       <PackagePath>EPPlus.dll</PackagePath>
       <Modified>2018-05-24T11:32:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\exceldatareader\3.4.0\lib\netstandard2.0\ExcelDataReader.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\exceldatareader\3.4.0\lib\netstandard2.0\ExcelDataReader.dll">
       <PackagePath>ExcelDataReader.dll</PackagePath>
       <Modified>2018-02-03T17:44:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\exceldatareader.dataset\3.4.0\lib\netstandard2.0\ExcelDataReader.DataSet.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\exceldatareader.dataset\3.4.0\lib\netstandard2.0\ExcelDataReader.DataSet.dll">
       <PackagePath>ExcelDataReader.DataSet.dll</PackagePath>
       <Modified>2018-02-03T17:44:48.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration.fileextensions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration.fileextensions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
       <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.configuration.json\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.configuration.json\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll">
       <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.fileproviders.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.fileproviders.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.fileproviders.physical\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.fileproviders.physical\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll">
       <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.filesystemglobbing\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.filesystemglobbing\2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll">
       <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.extensions.primitives\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.extensions.primitives\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll">
       <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
       <Modified>2017-07-24T16:48:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\microsoft.toolkit.uwp.notifications\3.0.0\lib\uap10.0\Microsoft.Toolkit.Uwp.Notifications.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\microsoft.toolkit.uwp.notifications\3.0.0\lib\uap10.0\Microsoft.Toolkit.Uwp.Notifications.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.Notifications.dll</PackagePath>
       <Modified>2018-05-29T17:24:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\newtonsoft.json\10.0.1\lib\netstandard1.3\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\newtonsoft.json\10.0.1\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2017-03-20T12:03:18.000</Modified>
     </AppxPackagedFile>
@@ -747,88 +747,173 @@
       <PackagePath>netstandard.dll</PackagePath>
       <Modified>2018-02-23T07:22:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.drawing.common\4.5.0-preview2-26406-04\lib\netstandard2.0\System.Drawing.Common.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\system.drawing.common\4.5.0-preview2-26406-04\lib\netstandard2.0\System.Drawing.Common.dll">
       <PackagePath>System.Drawing.Common.dll</PackagePath>
       <Modified>2018-04-05T23:06:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.runtime.compilerservices.unsafe\4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\system.runtime.compilerservices.unsafe\4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
       <Modified>2017-07-19T02:01:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.security.cryptography.pkcs\4.4.0\runtimes\win\lib\netcore50\System.Security.Cryptography.Pkcs.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\system.security.cryptography.pkcs\4.4.0\runtimes\win\lib\netcore50\System.Security.Cryptography.Pkcs.dll">
       <PackagePath>System.Security.Cryptography.Pkcs.dll</PackagePath>
       <Modified>2017-07-19T02:01:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\liuyh73\.nuget\packages\system.xml.xpath.xmldocument\4.3.0\lib\netstandard1.3\System.Xml.XPath.XmlDocument.dll">
+    <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\system.xml.xpath.xmldocument\4.3.0\lib\netstandard1.3\System.Xml.XPath.XmlDocument.dll">
       <PackagePath>System.Xml.XPath.XmlDocument.dll</PackagePath>
       <Modified>2016-11-04T20:57:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\pic_1.jpg">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\pic_1.jpg">
       <PackagePath>Assets\pic_1.jpg</PackagePath>
-      <Modified>2018-05-31T06:03:39.740</Modified>
+      <Modified>2018-06-01T12:48:56.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\matchbackground.jpg">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\matchbackground.jpg">
       <PackagePath>Assets\matchbackground.jpg</PackagePath>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T12:48:56.883</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\video.mp4">
-      <PackagePath>Assets\video.mp4</PackagePath>
-      <Modified>2018-05-31T05:34:49.499</Modified>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:09:04.599</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-05-31T05:34:48.466</Modified>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:09:04.651</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:09:04.723</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:09:05.194</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.799</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.901</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.846</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.864</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.553</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.573</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.591</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.635</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.656</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.674</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.781</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.731</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-06-01T14:08:52.749</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-05-31T05:34:51.030</Modified>
+      <Modified>2018-06-01T12:48:56.867</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T14:09:04.829</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T12:48:56.926</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T14:08:52.611</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T14:08:52.818</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T12:48:56.937</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-31T05:34:51.034</Modified>
+      <Modified>2018-06-01T12:48:56.947</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Competition.xr.xml">
+    <AppxPackagedFile Include="E:\Competition\Competition\Assets\video.mp4">
+      <PackagePath>Assets\video.mp4</PackagePath>
+      <Modified>2018-06-01T13:41:10.873</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2018-06-01T12:48:51.102</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Competition\Competition\bin\x86\Debug\Competition.xr.xml">
       <PackagePath>Competition.xr.xml</PackagePath>
-      <Modified>2018-06-01T05:06:04.481</Modified>
+      <Modified>2018-06-01T12:49:51.459</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-09-28T09:28:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Competition\Competition\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-01T05:29:13.315</Modified>
+      <Modified>2018-06-01T14:09:40.319</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\coursewave\ModernOSAppDevlop\VS_Projects\Competition\Competition\bin\x86\Debug\Core\Competition.exe">
+    <AppxPackagedFile Include="E:\Competition\Competition\bin\x86\Debug\Core\Competition.exe">
       <PackagePath>Competition.exe</PackagePath>
-      <Modified>2018-06-01T05:29:13.772</Modified>
+      <Modified>2018-06-01T14:09:41.180</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

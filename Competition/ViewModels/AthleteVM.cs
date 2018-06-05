@@ -31,7 +31,10 @@ namespace Competition.ViewModels
             set { this.selectedItem = value; }
         }
 
-        private ObservableCollection<Athlete> allAthletes = new ObservableCollection<Athlete>();
+        private ObservableCollection<Athlete> allAthletes = new ObservableCollection<Athlete>(
+            new[] {
+                new Athlete("序号", "姓名","性别","身份证","联系方式","积分","种子序号" )
+            });
         public ObservableCollection<Athlete> AllAthletes { get { return this.allAthletes; } }
 
         public void AddAthlete(string index, string name, string sex, string idNum, string phoneNum, string score, string seedNum)

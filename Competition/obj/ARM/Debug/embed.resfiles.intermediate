@@ -1,0 +1,10 @@
+App.xbf
+MainPage.xbf
+Views\Home.xbf
+Views\Match.xbf
+Views\MatchInfo\Athletes.xbf
+Views\MatchInfo\Battles.xbf
+Views\MatchInfo\MatchCreated.xbf
+Views\MatchInfo\Results.xbf
+Views\RegistDialog.xbf
+Views\Video.xbf

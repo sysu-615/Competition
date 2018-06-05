@@ -210,8 +210,9 @@ namespace Competition.Views
             matchesVM.SelectedMatch = newMatch;
             matchesVM.AllMatches.Add(newMatch);
             TileService.UpdateTileItem();
-
+            Athlete AthleteTableTitle = AthleteVM.GetAthleteVM().AllAthletes[0];
             AthleteVM.GetAthleteVM().AllAthletes.Clear();
+            AthleteVM.GetAthleteVM().AllAthletes.Add(AthleteTableTitle);
             JToken athletes = result["data"]["athletes"];
             // Debug.WriteLine(athletes);
             foreach (JToken athlete in athletes)

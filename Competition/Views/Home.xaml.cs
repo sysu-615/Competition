@@ -34,7 +34,6 @@ namespace Competition.Views
         public BattleVM battleVM = BattleVM.GetBattleVM();
         public ResultVM resultVM = ResultVM.GetResultVM();
 
-
         public NavMenuItemVM navMenuItemVM = NavMenuItemVM.GetNavMenuItemVM();
         public Home()
         {
@@ -97,9 +96,10 @@ namespace Competition.Views
                     // 请求数据库刷新更具当前选中的比赛更新VM(包括Athlete、Battle、Result)
                     // matchesVM.SelectedMatch即为当前选中的比赛，包括了name,startTime和matchEvent
 
-                    JObject result = await Internet.API.GetAPI().GetMatchInfo(matchesVM.SelectedMatch.matchEvent, name);
+                    JObject result = await Internet.API.GetAPI().GetMatchInfo(matchesVM.SelectedMatch.matchEvent, name, "0");
                     //Debug.WriteLine(result);
                     AthleteVM.GetAthleteVM().AllAthletes.Clear();
+                    AthleteVM.GetAthleteVM().AllAthletes.Add(new Athlete("序号", "姓名", "性别", "身份证", "联系方式", "积分", "种子序号"));
                     JToken athletes = result["data"]["athletes"];
                     Debug.WriteLine(athletes);
                     foreach (JToken athlete in athletes)
@@ -110,6 +110,8 @@ namespace Competition.Views
                     }
 
                     string round = result["data"]["round"].ToString();
+                    battleVM.round = int.Parse(round);
+
                     JToken groups = result["data"]["groups"];
 
                     //Battle BattleTableTitle = battleVM.AllBattles[0];

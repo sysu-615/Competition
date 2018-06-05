@@ -8,9 +8,9 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <Flyout x:Name="editInfo" x:Key="editAthleteInfo" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Placement="4">
+        <Flyout x:Name="editInfo" x:Key="editAthleteInfo" FlyoutPresenterStyle="{StaticResource InfoFlyout}" Placement="4">
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Text="修改运动员信息" Style="{StaticResource Header}" Margin="0 50 0 50"/>
+                <TextBlock Text="运动员信息" Style="{StaticResource Header}" Margin="40 50 0 50"/>
                 <TextBlock Text="姓名：" />
                 <TextBox x:Name="editName" Text=""/>
                 <TextBlock Text="性别："/>
@@ -21,7 +21,7 @@
                 <TextBox x:Name="editPhoneNum" Text=""/>
                 <TextBlock Text="分数："/>
                 <TextBox x:Name="editScore" Text=""/>
-                <Button Width="200" Content="修改运动员信息" Click="Button_Click" Style="{StaticResource ButtonStyle}"/>
+                <Button Width="200" Margin="0 10 0 0"  Content="修改运动员信息" Click="Button_Click" Style="{StaticResource ButtonStyle}"/>
             </StackPanel>
         </Flyout>
     </Page.Resources>
@@ -57,7 +57,7 @@
                     <UserControl>
                         <Grid>
                             <Grid.Background>
-                                <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="SkyBlue" TintOpacity="0.5"/>
+                                <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="White" TintOpacity="0.4"/>
                             </Grid.Background>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup>
@@ -71,34 +71,34 @@
                                     </VisualState>
                                     <VisualState x:Name="wide">
                                         <VisualState.StateTriggers>
-                                            <AdaptiveTrigger MinWindowWidth="820" />
+                                            <AdaptiveTrigger MinWindowWidth="800" />
                                         </VisualState.StateTriggers>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="380" />
+                                <ColumnDefinition Width="360" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
-                            <Grid x:Name="leftView" Grid.Column="0" VerticalAlignment="Bottom" >
+                            <Grid x:Name="leftView" Grid.Column="0" VerticalAlignment="Center" >
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="250"/>
+                                    <ColumnDefinition Width="200"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding name}"></TextBlock>
-                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding sex}"></TextBlock>
-                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding idNum}"></TextBlock>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding name}" FontWeight="Light" FontFamily="宋体"></TextBlock>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding sex}" FontWeight="Light" FontFamily="宋体"></TextBlock>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding idNum}" FontWeight="Light" FontFamily="宋体"></TextBlock>
                             </Grid>
-                            <Grid x:Name="rightView" Grid.Column="1">
+                            <Grid x:Name="rightView" Grid.Column="1" VerticalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding phoneNum}"></TextBlock>
-                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding score}"></TextBlock>
-                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding seedNum}"></TextBlock>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding phoneNum}" FontWeight="Light" FontFamily="宋体"></TextBlock>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding score}" FontWeight="Light" FontFamily="宋体"></TextBlock>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding seedNum}" FontWeight="Light" FontFamily="宋体"></TextBlock>
                             </Grid>
                         </Grid>
                     </UserControl>

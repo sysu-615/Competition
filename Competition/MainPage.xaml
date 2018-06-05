@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="LightGray" TintOpacity="0.8"/>
+        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="WhiteSmoke" TintOpacity="0.7"/>
     </Page.Background>
     <Grid>
         <VisualStateManager.VisualStateGroups>
@@ -54,23 +54,32 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <RelativePanel Grid.Row="0" Style="{StaticResource TopBar}" VerticalAlignment="Center">
-                <RelativePanel.Background>
+            <Grid Grid.Row="0" Style="{StaticResource TopBar}" VerticalAlignment="Center">
+                <Grid.Background>
                     <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="Black" TintOpacity="0.5"/>
-                </RelativePanel.Background>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
                 <!-- Menu -->
                 <AppBarButton
+                    x:Name="NavigationButton"
                     Icon="GlobalNavigationButton"
+                    Grid.Column="0"
                     Click="Menu_Click" 
                     Width="58"
                     RelativePanel.AlignLeftWithPanel="true"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Background="Transparent"
                     Foreground="#409eff"
-                    Margin="0 0 0 0">
+                    Margin="0 -5 0 0">
                 </AppBarButton>
-                <TextBlock x:Name="realTitleBar" Text="赛事系统" Margin="-20 0 0 0" TextAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource Header}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                <AppBarButton x:Name="LogInLogOut" x:FieldModifier="public" Margin="0 -5 183 0" BorderBrush="#409eff" Width="25" Icon="Contact" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="#20acff">
+                <Rectangle Grid.Column="1"/>
+                <TextBlock x:Name="realTitleBar" Grid.Column="1" Text="赛事系统" Margin="130 0 0 0" TextAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource Header}" VerticalAlignment="Center"/>
+                <AppBarButton x:Name="LogInLogOut" x:FieldModifier="public" BorderBrush="#409eff" Width="25" Icon="Contact" Grid.Column="2" Foreground="#20acff" Margin="0 -5 0 0">
                     <AppBarButton.Flyout>
                         <Flyout x:Name="UserInfoState" x:FieldModifier="public">
                             <StackPanel Opacity="0.8" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -106,7 +115,7 @@
                         </Flyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
-            </RelativePanel>
+            </Grid>
             <SplitView Grid.Row="1" x:Name="menuView" CompactPaneLength="58" OpenPaneLength="170">
                 <SplitView.Pane>
                     <Grid Style="{StaticResource LeftBar}">

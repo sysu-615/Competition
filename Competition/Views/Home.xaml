@@ -7,7 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="using:Competition.Models"
     mc:Ignorable="d">
-
+    <Page.Resources>
+        <Flyout x:Key="ShareFlyout" Placement="Bottom">
+            <Button Content="分享" Style="{StaticResource ButtonStyle}" Click="Button_Click" Width="100"/>
+        </Flyout>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -17,7 +21,7 @@
         <GridView x:Name="listView" Grid.Row="1" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="listView_ItemClick"  ItemsSource="{x:Bind matchesVM.AllMatches}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Matches">
-                    <StackPanel Padding="20 0 20 0" Width="200" Height="200">
+                    <StackPanel Padding="20 0 20 0" Width="200" Height="200" FlyoutBase.AttachedFlyout="{StaticResource ShareFlyout}" RightTapped="StackPanel_RightTapped">
                         <StackPanel.Background>
                             <ImageBrush ImageSource="../Assets/matchbackground.jpg" Opacity="0.9"/>
                         </StackPanel.Background>

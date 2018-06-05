@@ -1,0 +1,39 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Competition.Views.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Competition.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="using:Competition.Models"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Flyout x:Key="ShareFlyout" Placement="Bottom">
+            <Button x:ConnectionId='2' Content="分享" Style="{StaticResource ButtonStyle}"                      Width="100"/>
+        </Flyout>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:ConnectionId='3' x:Name="Info" Grid.Row="0" Text="" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline" FontSize="25"/>
+        <GridView x:ConnectionId='4' x:Name="listView" Grid.Row="1" HorizontalAlignment="Center" IsItemClickEnabled="True"                                                                            >
+            <GridView.ItemTemplate>
+                <DataTemplate                        >
+                    <StackPanel x:ConnectionId='5' Padding="20 0 20 0" Width="200" Height="200" FlyoutBase.AttachedFlyout="{StaticResource ShareFlyout}"                                     >
+                        <StackPanel.Background>
+                            <ImageBrush ImageSource="../Assets/matchbackground.jpg" Opacity="0.9"/>
+                        </StackPanel.Background>
+                        <TextBlock x:ConnectionId='6'                      Style="{StaticResource Header}" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+                        <TextBlock x:Name="MatchEvent" Text="赛事类型：" FontSize="17" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        <TextBlock x:ConnectionId='7'                            HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="MatchStartTime" Text="开始时间：" FontSize="17" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        <TextBlock x:ConnectionId='8'                           HorizontalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>
+

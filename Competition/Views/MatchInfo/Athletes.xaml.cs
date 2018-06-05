@@ -38,6 +38,8 @@ namespace Competition.Views.MatchInfo
         private void AthletesListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             athleteVM.SelectedItem = e.ClickedItem as Athlete;
+            if (athleteVM.SelectedItem == athleteVM.AllAthletes[0])
+                return;
             FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
             editName.Text = athleteVM.SelectedItem.name;
             editSex.Text = athleteVM.SelectedItem.sex;
